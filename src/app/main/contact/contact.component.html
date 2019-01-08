@@ -1,11 +1,11 @@
 <section [@fade]="true">
-  <div class="container text-center">
+  <div class="container pt-3 pb-5 text-center">
     <h1>Contact Us</h1>
 
     <p>Have a question? Contact us at (800)555-5555 or <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or use the contact form below.</p>
 
-    <div class="contactForm">
-      <form #contactForm="ngForm" novalidate *ngIf="!success">
+    <div class="contactForm" *ngIf="!success">
+      <form #contactForm="ngForm" novalidate>
         <div class="form-group" [class.nope]="(first_name.errors && last_name.errors) && (first_name.touched || last_name.touched || submitted)">
           <label for="first_name">Name</label>
           <div class="row">
@@ -58,14 +58,14 @@
           <span *ngIf="loading"><mat-spinner class="mx-auto" [diameter]="20" [strokeWidth]="3"></mat-spinner></span>
         </button>
       </form>
+    </div>
 
-      <div [@fade]="true" *ngIf="success">
-        <h3>Thank you for contacting us!</h3>
+    <div [@fade]="true" *ngIf="success">
+      <h3>Thank you for contacting us!</h3>
 
-        <p>Your message is on it's way and we'll respond within 1 business day.</p>
-        
-        <p>Please keep an eye on your junk/spam folder in case our reply doesn't make it to your inbox.</p>
-      </div>
+      <p>Your message is on it's way and we'll respond within 1 business day.</p>
+      
+      <p>Please keep an eye on your junk/spam folder in case our reply doesn't make it to your inbox.</p>
     </div>
   </div>
 </section>
