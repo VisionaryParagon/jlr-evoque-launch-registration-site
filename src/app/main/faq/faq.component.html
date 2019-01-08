@@ -1,45 +1,130 @@
 <section [@fade]="true">
-  <div class="container">
-      <h1>FAQs</h1>
-  
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            Question 1?
-          </mat-expansion-panel-header>
-  
-          <ng-template matExpansionPanelContent>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, eaque unde, voluptas repellendus maiores, culpa illo qui deserunt laudantium est placeat vel. Odit, nostrum voluptates excepturi esse magnam vitae laborum.</p>
-          </ng-template>
-        </mat-expansion-panel>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            Question 2?
-          </mat-expansion-panel-header>
-  
-          <ng-template matExpansionPanelContent>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, eaque unde, voluptas repellendus maiores, culpa illo qui deserunt laudantium est placeat vel. Odit, nostrum voluptates excepturi esse magnam vitae laborum.</p>
-          </ng-template>
-        </mat-expansion-panel>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            Question 3?
-          </mat-expansion-panel-header>
-  
-          <ng-template matExpansionPanelContent>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, eaque unde, voluptas repellendus maiores, culpa illo qui deserunt laudantium est placeat vel. Odit, nostrum voluptates excepturi esse magnam vitae laborum.</p>
-          </ng-template>
-        </mat-expansion-panel>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            Question 4?
-          </mat-expansion-panel-header>
-  
-          <ng-template matExpansionPanelContent>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, eaque unde, voluptas repellendus maiores, culpa illo qui deserunt laudantium est placeat vel. Odit, nostrum voluptates excepturi esse magnam vitae laborum.</p>
-          </ng-template>
-        </mat-expansion-panel>
-      </mat-accordion>
+  <div class="container pt-3 pb-5">
+    <h1 class="text-center">FAQs</h1>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+          WHEN AND WHERE WILL MY TRAINING BE HELD?
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <p>The New Range Rover Evoque North American Launch Tour will make stops in several major metropolitan areas in the United States and Canada. The trainings begin in March.</p>
+        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+          WHAT WILL THE TRAINING CONSIST OF?
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <p>Each launch event will consist of one full day's training, including ample hands-on time and on-road driving, providing each attendee with the direct back-to-work knowledge and experience needed to help them position the New Range Rover Evoque within our expanding vehicle family lineup and customer base.</p>
+        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+          WHAT GROUND TRANSPORTATION OPTIONS ARE PROVIDED FOR ATTENDEES WHO NEED TO FLY TO THE TRAINING LOCATION? DO I NEED TO RENT A CAR?
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <p>With the exception of the Mahwah, New Jersey, event, all events are held at airport hotels where complimentary shuttle transportation is provided. These details will be provided in the confirmation email you receive upon completing your registration. Therefore, a rental car is likely not necessary, and the cost will not be covered by JLR. If you wish to rent a car, it will be at your discretion and expense.</p>
+        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+          WHAT ATTIRE IS EXPECTED?
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <p>Please plan to wear collared shirts and shoes appropriate for driving. Please note, sandals and heels <strong><em>are not</em></strong> appropriate for this event. Jeans are okay, provided they are not torn and do not have holes. Although the majority of your time will be spent either indoors or inside a vehicle, the weather in some training locations may be fickle. Therefore, we recommend bringing warm-weather clothing in case of cold, wind, or rain. Please consider the time of year and weather in your training city.</p>
+        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+          WHO IS INVITED TO ATTEND THE EVENT?
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <p>Sales team members (Sales Managers, Sales Guides, Encore Specialist) are invited to register as early as January 22, 2019. Depending on availability, other retailer personnel may be invited to register at a later date. You will be notified by JLR Training once registration has opened up to other Retailer personnel.</p>
+        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+          WHAT INFORMATION DO I NEED TO REGISTER FOR THE EVENT?
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <p>Your JLR training ID is required in order to register for the event. If you do not have your training ID, please see your Sales Manager.</p>
+        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+          WILL A HOTEL ROOM BE PROVIDED FOR ME? IF SO, WHO ARRANGES IT?
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <p>In most cases, if your retailer is located more than approximately 120 miles from the training location, a hotel room will be provided to you the night prior to your training wave.</p>
+
+          <p>If you are within roughly 120 miles of the training location, a hotel room is not provided.</p>
+
+          <p>As you complete your registration, and in the confirmation email you receive upon completion, your registration, you will be informed as to whether a hotel room will be provided.</p>
+
+          <ul>
+            <li>If a hotel room is provided to you based on these criteria, the event organizers will book the room on your behalf&mdash;you do not need to call the venue and book your room.</li>
+            <li>If a hotel room is not provided to you based on these criteria, you are welcome to contact the event hotel or any nearby hotel to book a room if you so choose; however, this will be at your expense and outside of the designated JLR room block.</li>
+          </ul>
+        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+          WHEN SHOULD I PLAN TO ARRIVE AT THE EVENT?
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <p>The event opens with Registration &amp; Breakfast at 7:30 a.m. The welcome begins promptly at 8:30 a.m. so we recommend arriving no later than 8:00 a.m. to ensure you have time to eat breakfast and get signed in.</p>
+        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+          WHEN SHOULD I PLAN TO DEPART THE EVENT?
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <p>The training event concludes at approximately 5:00 p.m.</p>
+
+          <ul>
+            <li>If you are driving, you may plan to depart any time after the conclusion of the training.</li>
+            <li>If you are flying, please make sure you allow ample time following the training to arrive at the airport, check in, and proceed through security before your flight.</li>
+          </ul>
+        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+          WHAT SHOULD I BRING?
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <p>Please bring your Driver's License, a valid credit or debit card, and weather-appropriate outdoor clothing. See question above regarding attire.</p>
+        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+          WHAT IF I NEED TO CANCEL MY RESERVATION?
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+          <p>If after registering you need to cancel your reservation, please contact the JLR Event Support Team using the <a routerLink="/contact">Contact Form</a>, via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (800)555-5555.</p>
+
+          <p><strong>The cancellation fee policy is as follows:</strong></p>
+
+          <ul>
+            <li><strong>7-14 days prior to event: $1,500</strong></li>
+            <li><strong>0-7 days prior to event: $3,000</strong></li>
+            <li><strong>No Shows will be charged: $3,000</strong></li>
+          </ul>
+        </ng-template>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
 </section>
   

@@ -61,7 +61,7 @@ a {
 
 ul {
   margin: 1rem 0;
-  padding: 0 0 0 1rem;
+  padding: 0 0 0 2rem;
   text-align: left;
 }
 
@@ -184,6 +184,8 @@ header {
   z-index: 100;
 
   nav {
+    height: 48px;
+
     a {
       color: $client-slate-blue;
       text-decoration: none;
@@ -349,11 +351,11 @@ section {
 
   &.title {
     background: #fff;
+    text-align: center;
 
     h2 {
       font-size: 38px;
       margin: 0;
-      text-align: center;
       text-transform: uppercase;
     }
   }
@@ -496,6 +498,22 @@ div.mat-progress-bar-fill {
   stroke: $client-light-cool-grey;
 }
 
+mat-expansion-panel.mat-expansion-panel {
+  .mat-expansion-panel-header,
+  .mat-expansion-panel-content {
+    font-family: $client-font;
+  }
+
+  .mat-expansion-panel-header {
+    font-weight: 700;
+    padding: 24px 20px 20px;
+
+    .mat-content {
+      padding-right: 10px;
+    }
+  }
+}
+
 
 /*~~ Pseudo Class Overrides ~~*/
 
@@ -532,6 +550,8 @@ div.mat-progress-bar-fill {
     height: 72px;
 
     nav {
+      height: 72px;
+
       .mobileNav {
         position: absolute;
 
