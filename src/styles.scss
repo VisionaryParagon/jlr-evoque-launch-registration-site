@@ -68,6 +68,12 @@ ul {
 
 /*~~  Forms and Buttons ~~*/
 
+.formContainer {
+  margin: 30px auto;
+  max-width: 500px;
+  width: 100%;
+}
+
 .form-group {
   margin: 1rem 0;
   text-align: left;
@@ -470,15 +476,6 @@ section {
       }
     }
   }
-}
-
-
-/*~~  Content ~~*/
-
-.contactForm {
-  margin: 30px auto;
-  max-width: 500px;
-  width: 100%;
 }
 
 

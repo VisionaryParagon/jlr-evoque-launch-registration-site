@@ -4,7 +4,7 @@
 
     <p>Have a question? Contact us at (800)555-5555 or <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or use the contact form below.</p>
 
-    <div class="contactForm" *ngIf="!success">
+    <div class="formContainer" *ngIf="!success">
       <form #contactForm="ngForm" novalidate>
         <div class="form-group" [class.nope]="(first_name.errors && last_name.errors) && (first_name.touched || last_name.touched || submitted)">
           <label for="first_name">Name</label>
