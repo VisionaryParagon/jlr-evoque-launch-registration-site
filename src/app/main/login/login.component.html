@@ -1,0 +1,34 @@
+<section id="login" [@fade]="true">
+  <div class="heroContainer">
+    <div class="videoContainer" [ngClass]="{ 'horizontal': isHorizontal, 'vertical': !isHorizontal }" [innerHTML]="videoTag"></div>
+
+    <div class="container">
+      <div class="heroBox" [@fade]="true" *ngIf="showBox">
+        <h1>Land Rover Evoque</h1>
+
+        <h6>2020 Launch Event</h6>
+
+        <form #loginForm="ngForm" novalidate>
+          <div class="form-group" [class.nope]="jlr_id.errors && (jlr_id.touched || submitted)">
+            <input type="text" class="form-control" id="jlr_id" name="jlr_id" #jlr_id="ngModel" autocomplete="off" placeholder="Enter Your Training ID" required [(ngModel)]="registrant.jlr_id" (ngModelChange)="hideError()">
+            <div class="errorMsg" [@topDown]="true" *ngIf="jlr_id.errors && (jlr_id.touched || submitted)">
+              <p *ngIf="jlr_id.errors.required">Training ID is required</p>
+            </div>
+            <div class="errorMsg" [@topDown]="true" *ngIf="invalid">
+              <p>{{ err }}</p>
+            </div>
+            <div class="errorMsg" [@topDown]="true" *ngIf="error">
+              <p>Something went wrong... Please make sure you have a WiFi or mobile data connection and try refreshing your&nbsp;browser.</p>
+            </div>
+          </div>
+
+          <button class="lrBtn" [disabled]="loading" (click)="login(registrant, loginForm.valid)">
+            <span *ngIf="!loading">Submit</span>
+            <span *ngIf="loading"><mat-spinner class="mx-auto" [diameter]="20" [strokeWidth]="3"></mat-spinner></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+  

@@ -1,0 +1,212 @@
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-Light.eot');
+	src: url('./assets/fonts/AvenirLTStd-Light.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-Light.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-Light.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-Light.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-Light.svg#AvenirLTStd-Light') format('svg');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-LightOblique.eot');
+	src: url('./assets/fonts/AvenirLTStd-LightOblique.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-LightOblique.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-LightOblique.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-LightOblique.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-LightOblique.svg#AvenirLTStd-LightOblique') format('svg');
+	font-weight: 200;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-Book.eot');
+	src: url('./assets/fonts/AvenirLTStd-Book.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-Book.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-Book.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-Book.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-Book.svg#AvenirLTStd-Book') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-BookOblique.eot');
+	src: url('./assets/fonts/AvenirLTStd-BookOblique.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-BookOblique.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-BookOblique.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-BookOblique.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-BookOblique.svg#AvenirLTStd-BookOblique') format('svg');
+	font-weight: 300M;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-Roman.eot');
+	src: url('./assets/fonts/AvenirLTStd-Roman.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-Roman.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-Roman.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-Roman.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-Roman.svg#AvenirLTStd-Roman') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-Oblique.eot');
+	src: url('./assets/fonts/AvenirLTStd-Oblique.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-Oblique.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-Oblique.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-Oblique.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-Oblique.svg#AvenirLTStd-Oblique') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-Medium.eot');
+	src: url('./assets/fonts/AvenirLTStd-Medium.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-Medium.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-Medium.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-Medium.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-Medium.svg#AvenirLTStd-Medium') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-MediumOblique.eot');
+	src: url('./assets/fonts/AvenirLTStd-MediumOblique.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-MediumOblique.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-MediumOblique.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-MediumOblique.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-MediumOblique.svg#AvenirLTStd-MediumOblique') format('svg');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-Heavy.eot');
+	src: url('./assets/fonts/AvenirLTStd-Heavy.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-Heavy.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-Heavy.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-Heavy.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-Heavy.svg#AvenirLTStd-Heavy') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-HeavyOblique.eot');
+	src: url('./assets/fonts/AvenirLTStd-HeavyOblique.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-HeavyOblique.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-HeavyOblique.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-HeavyOblique.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-HeavyOblique.svg#AvenirLTStd-HeavyOblique') format('svg');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-Black.eot');
+	src: url('./assets/fonts/AvenirLTStd-Black.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-Black.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-Black.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-Black.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-Black.svg#AvenirLTStd-Black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir LT Std';
+	src: url('./assets/fonts/AvenirLTStd-BlackOblique.eot');
+	src: url('./assets/fonts/AvenirLTStd-BlackOblique.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/AvenirLTStd-BlackOblique.woff2') format('woff2'),
+		url('./assets/fonts/AvenirLTStd-BlackOblique.woff') format('woff'),
+		url('./assets/fonts/AvenirLTStd-BlackOblique.ttf') format('truetype'),
+		url('./assets/fonts/AvenirLTStd-BlackOblique.svg#AvenirLTStd-BlackOblique') format('svg');
+	font-weight: 900;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'JLREmeric';
+	src: url('./assets/fonts/JLREmeric-ExtraLight.eot');
+	src: url('./assets/fonts/JLREmeric-ExtraLight.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/JLREmeric-ExtraLight.woff') format('woff'),
+		url('./assets/fonts/JLREmeric-ExtraLight.ttf') format('truetype'),
+		url('./assets/fonts/JLREmeric-ExtraLight.svg#JLREmeric-ExtraLight') format('svg');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'JLREmeric';
+	src: url('./assets/fonts/JLREmericSemiBold.eot');
+	src: url('./assets/fonts/JLREmericSemiBold.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/JLREmericSemiBold.woff') format('woff'),
+		url('./assets/fonts/JLREmericSemiBold.ttf') format('truetype'),
+		url('./assets/fonts/JLREmericSemiBold.svg#JLREmericSemiBold') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'JLREmeric';
+	src: url('./assets/fonts/JLREmeric.eot');
+	src: url('./assets/fonts/JLREmeric.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/JLREmeric.woff') format('woff'),
+		url('./assets/fonts/JLREmeric.ttf') format('truetype'),
+		url('./assets/fonts/JLREmeric.svg#JLREmeric') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LandRoverOT4';
+	src: url('./assets/fonts/LandRoverOT4-Light.eot');
+	src: url('./assets/fonts/LandRoverOT4-Light.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/LandRoverOT4-Light.otf') format('opentype'),
+		url('./assets/fonts/LandRoverOT4-Light.woff') format('woff'),
+		url('./assets/fonts/LandRoverOT4-Light.ttf') format('truetype'),
+		url('./assets/fonts/LandRoverOT4-Light.svg#LandRoverOT4-Light') format('svg');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LandRoverOT4';
+	src: url('./assets/fonts/LandRoverOT4-Bold.eot');
+	src: url('./assets/fonts/LandRoverOT4-Bold.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/LandRoverOT4-Bold.otf') format('opentype'),
+		url('./assets/fonts/LandRoverOT4-Bold.woff') format('woff'),
+		url('./assets/fonts/LandRoverOT4-Bold.ttf') format('truetype'),
+		url('./assets/fonts/LandRoverOT4-Bold.svg#LandRoverOT4-Bold') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LandRoverOT4';
+	src: url('./assets/fonts/LandRoverOT4-Medium.eot');
+	src: url('./assets/fonts/LandRoverOT4-Medium.eot?#iefix') format('embedded-opentype'),
+		url('./assets/fonts/LandRoverOT4-Medium.otf') format('opentype'),
+		url('./assets/fonts/LandRoverOT4-Medium.woff') format('woff'),
+		url('./assets/fonts/LandRoverOT4-Medium.ttf') format('truetype'),
+		url('./assets/fonts/LandRoverOT4-Medium.svg#LandRoverOT4-Medium') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

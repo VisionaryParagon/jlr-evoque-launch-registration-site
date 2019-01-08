@@ -1,0 +1,51 @@
+<div [@fade]="true">
+  <section>
+    <div class="heroContainer" [style.backgroundImage]="'url(' + bgImage + ')'">
+      <div class="container">
+        <div class="heroBox" [@fade]="true" *ngIf="showBox">
+          <h1>Land Rover Evoque</h1>
+
+          <h6>2020 Launch Event</h6>
+
+          <p>Hello, {{ registrant.first_name }}. Reserve your spot now!</p>
+
+          <button class="lrBtn" routerLink="/register">Register</button>
+        </div>
+      </div>
+
+      <scroll-arrow></scroll-arrow>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="container">
+      <h2>More content...</h2>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur veritatis illum, voluptatibus nam aspernatur deserunt, ducimus mollitia hic laboriosam possimus incidunt doloremque consequuntur quae. Optio in assumenda similique fugit impedit!</p>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <h3>Location</h3>
+
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit odit alias officiis, facilis accusantium doloribus saepe possimus necessitatibus ut molestias et vitae commodi quia maiores suscipit beatae esse, repellat unde?</p>
+
+          <button class="lrBtn" routerLink="/location">View More Info</button>
+        </div>
+        <div class="col-12 col-md-4">
+          <h3>FAQs</h3>
+
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit odit alias officiis, facilis accusantium doloribus saepe possimus necessitatibus ut molestias et vitae commodi quia maiores suscipit beatae esse, repellat unde?</p>
+
+          <button class="lrBtn" routerLink="/faqs">View FAQs</button>
+        </div>
+        <div class="col-12 col-md-4">
+          <h3>Register</h3>
+
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit odit alias officiis, facilis accusantium doloribus saepe possimus necessitatibus ut molestias et vitae commodi quia maiores suscipit beatae esse, repellat unde?</p>
+
+          <button class="lrBtn" routerLink="/register">Register Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

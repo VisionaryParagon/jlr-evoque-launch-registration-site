@@ -1,0 +1,62 @@
+<div [@fade]="true">
+  <section>
+    <div class="heroContainer" [style.backgroundImage]="'url(' + location.image + ')'">
+      <div class="container">
+        <div class="heroBox" [@fade]="true" *ngIf="showBox">
+          <h1>{{ location.title }}</h1>
+
+          <h6>{{ location.subtitle }}</h6>
+
+          <button class="lrBtn mt-3" routerLink="/register">Register Now</button>
+        </div>
+      </div>
+
+      <scroll-arrow></scroll-arrow>
+    </div>
+  </section>
+
+  <section class="title">
+    <div class="container">
+      <h2>Venue</h2>
+    </div>
+  </section>
+
+  <section>
+    <div class="heroContainer" [style.backgroundImage]="'url(' + location.venueImage + ')'">
+      <div class="container">
+        <div class="heroBox" [@fade]="true" *ngIf="showBox">
+          <h1>{{ location.venue }}</h1>
+
+          <h6>{{ location.venueSubtitle }}</h6>
+
+          <p>{{ location.venueInfo }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>More Content...</h2>
+
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt, eveniet. Cupiditate repellat saepe hic vel tempora ducimus quae illo! Quia dignissimos id dolores ut placeat voluptatibus sed aspernatur totam laborum!</p>
+
+      <div class="row">
+        <div class="col-12" [class.col-md-6]="registrant.hotel">
+          <h3>Transportation</h3>
+
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt deserunt neque doloremque omnis, recusandae tempora autem iste error eum distinctio nam, pariatur obcaecati facilis delectus ipsa consequuntur rerum nemo repellat!</p>
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="registrant.hotel">
+          <h3>Accommodations</h3>
+
+          <p><strong>* This section will only appear if the user has a hotel allocation...</strong></p>
+
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt deserunt neque doloremque omnis, recusandae tempora autem iste error eum distinctio nam, pariatur obcaecati facilis delectus ipsa consequuntur rerum nemo repellat!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+  

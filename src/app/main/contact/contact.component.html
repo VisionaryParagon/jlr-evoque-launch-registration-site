@@ -1,0 +1,72 @@
+<section [@fade]="true">
+  <div class="container text-center">
+    <h1>Contact Us</h1>
+
+    <p>Have a question? Contact us at (800)555-5555 or <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or use the contact form below.</p>
+
+    <div class="contactForm">
+      <form #contactForm="ngForm" novalidate *ngIf="!success">
+        <div class="form-group" [class.nope]="(first_name.errors && last_name.errors) && (first_name.touched || last_name.touched || submitted)">
+          <label for="first_name">Name</label>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <input type="text" class="form-control" id="first_name" name="first_name" #first_name="ngModel" autocomplete="off" placeholder="First" required [(ngModel)]="contact.first_name" (ngModelChange)="hideError()">
+              <div class="errorMsg" [@topDown]="true" *ngIf="first_name.errors && (first_name.touched || submitted)">
+                <p *ngIf="first_name.errors.required">First Name is required</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <input type="text" class="form-control" id="last_name" name="last_name" #last_name="ngModel" autocomplete="off" placeholder="Last" required [(ngModel)]="contact.last_name" (ngModelChange)="hideError()">
+              <div class="errorMsg" [@topDown]="true" *ngIf="last_name.errors && (last_name.touched || submitted)">
+                <p *ngIf="last_name.errors.required">Last Name is required</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" [class.nope]="email.errors && (email.touched || submitted)">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" id="email" name="email" #email="ngModel" autocomplete="off" placeholder="name@domain.com" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" required [(ngModel)]="contact.email" (ngModelChange)="hideError()">
+          <div class="errorMsg" [@topDown]="true" *ngIf="email.errors && (email.touched || submitted)">
+            <p *ngIf="email.errors.required">Email Address is required</p>
+            <p *ngIf="email.errors.pattern">Email Address is invalid</p>
+          </div>
+        </div>
+
+        <div class="form-group" [class.nope]="retailer.errors && (retailer.touched || submitted)">
+          <label for="retailer">Retailer</label>
+          <input type="text" class="form-control" id="retailer" name="retailer" #retailer="ngModel" autocomplete="off" placeholder="Retailer Name" required [(ngModel)]="contact.retailer" (ngModelChange)="hideError()">
+          <div class="errorMsg" [@topDown]="true" *ngIf="retailer.errors && (retailer.touched || submitted)">
+            <p *ngIf="retailer.errors.required">Retailer is required</p>
+          </div>
+        </div>
+
+        <div class="form-group" [class.nope]="message.errors && (message.touched || submitted)">
+          <label for="message">Message</label>
+          <textarea type="text" class="form-control" id="message" name="message" #message="ngModel" rows="4" maxlength="500" placeholder="Write message here..." required [(ngModel)]="contact.message" (ngModelChange)="hideError()"></textarea>
+          <div class="errorMsg" [@topDown]="true" *ngIf="message.errors && (message.touched || submitted)">
+            <p *ngIf="message.errors.required">Message is required</p>
+          </div>
+        </div>
+
+        <div class="errorMsg" [@topDown]="true" *ngIf="error">
+          <p>Something went wrong... Please make sure you have a WiFi or mobile data connection and try refreshing your&nbsp;browser.</p>
+        </div>
+
+        <button class="lrBtn" [disabled]="loading" (click)="submit(contact, contactForm.valid)">
+          <span *ngIf="!loading">Submit</span>
+          <span *ngIf="loading"><mat-spinner class="mx-auto" [diameter]="20" [strokeWidth]="3"></mat-spinner></span>
+        </button>
+      </form>
+
+      <div [@fade]="true" *ngIf="success">
+        <h3>Thank you for contacting us!</h3>
+
+        <p>Your message is on it's way and we'll respond within 1 business day.</p>
+        
+        <p>Please keep an eye on your junk/spam folder in case our reply doesn't make it to your inbox.</p>
+      </div>
+    </div>
+  </div>
+</section>
+  

@@ -1,1 +1,634 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "fonts.css";
+
+$client-heading-font: 'LandRoverOT4', sans-serif;
+$client-font: 'Avenir LT Std', Arial, Helvetica, sans-serif;
+$client-slate-blue: #0c121c;
+$client-green: #005a2b;
+$client-dark-warm-grey: #5c5652;
+$client-mid-warm-grey: #989991;
+$client-light-warm-grey: #eae8e4;
+$client-dark-cool-grey: #4a4f54;
+$client-mid-cool-grey: #b0b7bb;
+$client-light-cool-grey: #e4e8e8;
+$error-color: #dc3545;
+$success-color: #28a745;
+
+* {
+  box-sizing: border-box;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+html,
+body {
+  background: $client-light-cool-grey;
+  color: $client-slate-blue;
+  font-family: $client-font;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+
+/*~~  Typography ~~*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $client-heading-font;
+  font-weight: normal;
+  margin: 1rem 0;
+}
+
+p {
+    margin: 1rem 0;
+}
+
+a {
+  color: $client-slate-blue;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $client-slate-blue;
+    text-decoration: underline;
+  }
+}
+
+ul {
+  margin: 1rem 0;
+  padding: 0 0 0 1rem;
+  text-align: left;
+}
+
+
+/*~~  Forms and Buttons ~~*/
+
+.form-group {
+  margin: 1rem 0;
+  text-align: left;
+
+  label {
+    margin: 0;
+  }
+
+  .form-control {
+    border-radius: 0;
+    height: auto;
+    margin: .5rem 0;
+    padding: .75rem 1rem;
+  }
+}
+
+.lrBtn {
+  align-items: center;
+  background: $client-slate-blue;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: $client-font;
+  font-size: 10px;
+  font-weight: 700;
+  height: 45px;
+  justify-content: center;
+  letter-spacing: .3em;
+  line-height: 12px;
+  margin: 1rem 0;
+  min-width: 125px;
+  padding: 1px 24px 0 24px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  -moz-transition: all 400ms ease;
+  -o-transition: all 400ms ease;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+
+  &:hover {
+    background: #fff;
+    color: $client-slate-blue;
+  }
+
+  &.light {
+    background: #fff;
+    color: $client-slate-blue;
+
+    &:hover {
+      background: $client-slate-blue;
+      color: #fff;
+    }
+  }
+
+  &.large {
+    font-size: 18px;
+    height: 90px;
+    text-transform: none;
+    width: 100%;
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  &.dialog {
+    margin: 0 0 0 .5rem;
+    min-width: auto;
+  }
+}
+
+.nope {
+  label {
+    color: $error-color;
+  }
+
+  input,
+  select,
+  textarea {
+    border-color: $error-color !important;
+    color: $error-color !important;
+  }
+}
+
+.errorMsg {
+  color: $error-color;
+
+  p {
+    margin: 0;
+  }
+}
+
+.disclaimer {
+  font-size: 12px;
+}
+
+
+/*~~  Header ~~*/
+
+header {
+  background: #fff;
+  box-shadow: 0 1px 4px 0 rgba(1, 1, 1, 0.1);
+  color: $client-dark-cool-grey;
+  font-size: 10px;
+  height: 48px;
+  left: 0;
+  letter-spacing: .02em;
+  line-height: 1.3;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  nav {
+    a {
+      color: $client-slate-blue;
+      text-decoration: none;
+    }
+
+    .mobileNav {
+      background: #fff;
+      display: flex;
+      height: 100%;
+      position: relative;
+      z-index: 102;
+
+      .mobileNavBtn {
+        display: block;
+        left: 0;
+        line-height: 12px;
+        order: 2;
+        padding: 18px 16px 17px;
+        position: absolute;
+        top: 0;
+        -moz-transition: background-color .25s ease;
+        -o-transition: background-color .25s ease;
+        -webkit-transition: background-color .25s ease;
+        transition: background-color .25s ease;
+
+        fa-icon {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        .btnLabel {
+          color: $client-slate-blue;
+          font-family: $client-font;
+          font-size: 1em;
+          font-weight: 500;
+          letter-spacing: 0.124em;
+          margin-left: 8px;
+          position: relative;
+          top: 1px;
+        }
+      }
+
+      .navLogo {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        margin: 0 auto;
+        min-height: 48px;
+        min-width: 112px;
+
+        img {
+          display: block;
+          height: auto;
+          max-width: 62px;
+          width: 100%;
+        }
+      }
+
+      .mobileIcons {
+        display: block;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        a {
+          display: inline-block;
+          height: 100%;
+          padding: 18px 16px 17px;
+        }
+      }
+    }
+
+    .navMenu {
+      background: #fff;
+      height: calc(100vh - 48px);
+      overflow: auto;
+      -moz-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      -o-transform: translateY(-100%);
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+      -moz-transition: transform .25s ease;
+      -o-transition: transform .25s ease;
+      -webkit-transition: transform .25s ease;
+      transition: transform .25s ease;
+      width: 100%;
+      z-index: 101;
+  
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+  
+        li {
+          border-bottom: 1px solid $client-light-cool-grey;
+
+          &:first-child {
+            border-top: 1px solid $client-light-cool-grey;
+          }
+  
+          a {
+            color: $client-slate-blue;
+            display: block;
+            font-family: $client-font;
+            font-size: 10px;
+            font-weight: 700;
+            height: 56px;
+            letter-spacing: 2px;
+            line-height: 56px;
+            padding: 0 16px;
+            text-decoration: none;
+
+            &:hover {
+              background: rgba(233, 236, 236, 0.6);
+            }
+
+            &.active {
+              background: $client-light-cool-grey;
+            }
+          }
+        }
+      }
+    }
+
+    &.open {
+      .mobileNav {
+        .mobileNavBtn {
+          background-color: $client-light-cool-grey;
+        }
+      }
+
+      .navMenu {
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+
+/*~~  Content ~~*/
+
+section {
+  padding: 30px 0;
+
+  &:first-of-type {
+    padding: 48px 0 0;
+
+    .heroContainer {
+      margin: 0;
+    }
+  }
+
+  &.dark {
+    background: $client-dark-cool-grey;
+    color: #fff;
+  }
+
+  &.title {
+    background: #fff;
+
+    h2 {
+      font-size: 38px;
+      margin: 0;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  .heroContainer {
+    background-color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - 48px);
+    margin: -30px 0;
+    overflow: hidden;
+    position: relative;
+
+    .videoContainer {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+  
+      video {
+        position: absolute;
+      }
+  
+      &.horizontal {
+        video {
+          height: auto;
+          left: 0;
+          top: 50%;
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+          width: 100%;
+        }
+      }
+  
+      &.vertical {
+        video {
+          height: 100%;
+          left: 50%;
+          top: 0;
+          -moz-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+          width: auto;
+        }
+      }
+    }
+
+    .container {
+      left: 50%;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+
+      .heroBox {
+        background: rgba(255, 255, 255, 0.9);
+        margin: 0 auto;
+        max-width: 415px;
+        padding: 19px 25px 21px;
+      
+        h1 {
+          font-weight: 700;
+          margin: 0;
+          text-transform: uppercase;
+        }
+      
+        h6 {
+          margin: 0;
+          text-transform: uppercase;
+        }
+  
+        .form-group {
+          text-align: center;
+    
+          .form-control {
+            text-align: center;
+          }
+        }
+    
+        .lrBtn {
+          margin: 0;
+        }
+      }
+    }
+
+    .scrollArrow {
+      bottom: 0;
+      display: none;
+      left: 50%;
+      position: absolute;
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+
+      .lrBtn {
+        margin: 0;
+        min-width: auto;
+        padding: 1px 15px 0 15px;
+      }
+    }
+  }
+}
+
+
+/*~~  Content ~~*/
+
+.contactForm {
+  margin: 30px auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+
+/*~~  Material Design Elements ~~*/
+
+div.mat-progress-bar-buffer {
+  background-color: $client-mid-cool-grey;
+}
+
+div.mat-progress-bar-fill {
+  &::after {
+    background-color: $client-green;
+  }
+}
+
+.mat-spinner circle {
+  stroke: $client-light-cool-grey;
+}
+
+
+/*~~ Pseudo Class Overrides ~~*/
+
+*:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.form-control:focus {
+  border-color: #fff;
+  -moz-box-shadow: 0 0 8px #fff !important;
+  -webkit-box-shadow: 0 0 8px #fff !important;
+  box-shadow: 0 0 8px #fff !important;
+  outline: none !important;
+}
+
+
+/*~~ Media Queries ~~*/
+
+@media all and (min-width: 576px) {
+  .container {
+    max-width: 90% !important;
+  }
+}
+
+@media all and (orientation: portrait) {}
+
+@media all and (orientation: landscape) {}
+
+@media all and (min-width: 768px) {
+  header {
+    height: 72px;
+
+    nav {
+      .mobileNav {
+        position: absolute;
+
+        .mobileNavBtn {
+          display: none;
+          line-height: 39px;
+          padding: 16px;
+
+          .navBtnIcon {
+            height: 16px;
+            margin: 0 16px 0 0;
+            width: 16px;
+          }
+        }
+
+        .navLogo {
+          min-width: 140px;
+  
+          img {
+            max-width: 89px;
+          }
+        }
+  
+        .mobileIcons {
+          display: none;
+  
+          .regIcon {
+            margin: 0 14px;
+          }
+        }
+      }
+
+      .navMenu {
+        height: 72px;
+        margin: 0 0 0 140px;
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        width: auto;
+
+        div {
+          display: flex;
+          justify-content: space-between;
+
+          ul {
+            display: flex;
+
+            li {
+              border: none !important;
+
+              a {
+                height: 72px;
+                line-height: 72px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section {
+    padding: 60px 0;
+
+    &:first-of-type {
+      padding: 72px 0 0;
+    }
+
+    .heroContainer {
+      height: calc(100vh - 72px);
+      margin: -60px 0;
+
+      .container {
+        text-align: left;
+
+        .heroBox {
+          margin: 0;
+
+          .form-group {
+            text-align: left;
+      
+            .form-control {
+              text-align: left;
+            }
+          }
+        }
+      }
+
+      .scrollArrow {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 992px) {}
+
+@media all and (min-width: 1200px) {}
