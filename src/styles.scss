@@ -514,6 +514,9 @@ section {
       transform: translateX(-50%);
 
       .lrBtn {
+        -moz-animation: arrowFade 1500ms infinite alternate;
+        -webkit-animation: arrowFade 1500ms infinite alternate;
+        animation: arrowFade 1500ms infinite alternate;
         margin: 0;
         min-width: auto;
         padding: 1px 15px 0 15px;
@@ -776,3 +779,50 @@ table.mat-table {
 @media all and (min-width: 992px) {}
 
 @media all and (min-width: 1200px) {}
+
+
+/*~~ Keyframes ~~*/
+
+@-moz-keyframes arrowFade {
+  from {
+    background: $client-slate-blue;
+    color: #fff;
+  }
+  to {
+    background: #fff;
+    color: $client-slate-blue;
+  }
+}
+
+@-o-keyframes arrowFade {
+  from {
+    background: $client-slate-blue;
+    color: #fff;
+  }
+  to {
+    background: #fff;
+    color: $client-slate-blue;
+  }
+}
+
+@-webkit-keyframes arrowFade {
+  from {
+    background: $client-slate-blue;
+    color: #fff;
+  }
+  to {
+    background: #fff;
+    color: $client-slate-blue;
+  }
+}
+
+@keyframes arrowFade {
+  from {
+    background: $client-slate-blue;
+    color: #fff;
+  }
+  to {
+    background: #fff;
+    color: $client-slate-blue;
+  }
+}
