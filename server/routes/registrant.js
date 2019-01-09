@@ -152,7 +152,7 @@ router.post('/registrants/caps', (req, res) => {
         // registrants with wave and hotel
         const regWaveHotel = regWaveArray.filter(reg => reg.hotel);
         // registrants with wave and no hotel
-        const regWaveLocal = regWaveArray - regWaveHotel;
+        const regWaveLocal = regWaveArray.filter(reg => !reg.hotel);
 
         if (hasHotel) {
           // test registrants with retailer vs allotted rooms && registrants with wave and hotel vs wave room cap
