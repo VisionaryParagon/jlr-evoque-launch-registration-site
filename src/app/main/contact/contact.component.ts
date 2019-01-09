@@ -43,26 +43,10 @@ export class ContactComponent implements OnInit {
               this.registrant = this.regService.getCurrentRegistrant();
               this.setContact(this.registrant);
             } else {
-              // clear cookies
-              this.cookieService.remove('regId');
-
-              // clear stored registrant
-              this.regService.clearCurrentRegistrant();
-
-              // redirect to login page
-              this.router.navigate(['/login']);
+              this.logout();
             }
           },
-          err => {
-            // clear cookies
-            this.cookieService.remove('regId');
-
-            // clear stored registrant
-            this.regService.clearCurrentRegistrant();
-
-            // redirect to login page
-            this.router.navigate(['/login']);
-          }
+          err => this.logout()
         );
     } else {
       this.setContact(this.registrant);
@@ -100,5 +84,16 @@ export class ContactComponent implements OnInit {
 
   hideError() {
     this.error = false;
+  }
+
+  logout() {
+    // clear cookies
+    this.cookieService.remove('regId');
+
+    // clear stored registrant
+    this.regService.clearCurrentRegistrant();
+
+    // redirect to login page
+    this.router.navigate(['/login']);
   }
 }

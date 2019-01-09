@@ -55,26 +55,10 @@ export class LocationComponent implements OnInit {
               this.retailer = this.regService.getCurrentRetailer();
               this.setLocation(this.retailer);
             } else {
-              // clear cookies
-              this.cookieService.remove('regId');
-
-              // clear stored registrant
-              this.regService.clearCurrentRegistrant();
-
-              // redirect to login page
-              this.router.navigate(['/login']);
+              this.logout();
             }
           },
-          err => {
-            // clear cookies
-            this.cookieService.remove('regId');
-
-            // clear stored registrant
-            this.regService.clearCurrentRegistrant();
-
-            // redirect to login page
-            this.router.navigate(['/login']);
-          }
+          err => this.logout()
         );
     } else {
       this.setLocation(this.retailer);
@@ -143,5 +127,16 @@ export class LocationComponent implements OnInit {
       this.location.venueSubtitle = 'Toronto Venue Subtitle';
       this.location.venueInfo = 'Toronto Venue Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt, eveniet. Cupiditate repellat saepe hic vel tempora ducimus quae illo! Quia dignissimos id dolores ut placeat voluptatibus sed aspernatur totam laborum!';
     }
+  }
+
+  logout() {
+    // clear cookies
+    this.cookieService.remove('regId');
+
+    // clear stored registrant
+    this.regService.clearCurrentRegistrant();
+
+    // redirect to login page
+    this.router.navigate(['/login']);
   }
 }

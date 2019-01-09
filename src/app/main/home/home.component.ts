@@ -41,27 +41,22 @@ export class HomeComponent implements OnInit {
               this.regService.setCurrentRegistrant(res);
               this.registrant = this.regService.getCurrentRegistrant();
             } else {
-              // clear cookies
-              this.cookieService.remove('regId');
-
-              // clear stored registrant
-              this.regService.clearCurrentRegistrant();
-
-              // redirect to login page
-              this.router.navigate(['/login']);
+              this.logout();
             }
           },
-          err => {
-            // clear cookies
-            this.cookieService.remove('regId');
-
-            // clear stored registrant
-            this.regService.clearCurrentRegistrant();
-
-            // redirect to login page
-            this.router.navigate(['/login']);
-          }
+          err => this.logout()
         );
     }
+  }
+
+  logout() {
+    // clear cookies
+    this.cookieService.remove('regId');
+
+    // clear stored registrant
+    this.regService.clearCurrentRegistrant();
+
+    // redirect to login page
+    this.router.navigate(['/login']);
   }
 }
