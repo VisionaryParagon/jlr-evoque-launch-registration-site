@@ -11,8 +11,6 @@ export class Registrant {
   region: string;
   market: string;
   hotel: boolean;
-  seats: number;
-  rooms: number;
   wave: string;
   diet?: string;
   special?: string;
@@ -31,8 +29,6 @@ export class Registrant {
     this.region = '';
     this.market = '';
     this.hotel = false;
-    this.seats = 0;
-    this.rooms = 0;
   }
 }
 
@@ -80,6 +76,11 @@ export class Contact {
     this.retailer = '';
     this.message = '';
   }
+}
+
+export class Options {
+  jobs: string[];
+  retailers: string[];
 }
 
 export class Admin {

@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 // models
-const registrant = require('../models/registrant');
-const employee = require('../models/employee');
-const retailer = require('../models/retailer');
+const registrants = require('../models/registrant');
+const employees = require('../models/employee');
+const retailers = require('../models/retailer');
+const waves = require('../models/waves');
 
 // login registrant
 router.post('/registrants/login', (req, res) => {
-  registrant.findOne({
+  registrants.findOne({
     jlr_id: req.body.jlr_id
   }, (regErr, regData) => {
     const info = {
@@ -19,7 +20,7 @@ router.post('/registrants/login', (req, res) => {
     };
     if (regErr) return res.status(500).send(regErr);
     if (!regData) {
-      employee.findOne({
+      employees.findOne({
         jlr_id: req.body.jlr_id
       }, (empErr, empData) => {
         info.message = 'Employee data not found';
@@ -27,7 +28,7 @@ router.post('/registrants/login', (req, res) => {
         if (empErr) return res.status(500).send(empErr);
         if (!empData) return res.status(200).send(info);
 
-        retailer.findOne({
+        retailers.findOne({
           retailer: empData.retailer
         }, (retErr, retData) => {
           info.message = 'Retailer data not found';
@@ -45,7 +46,7 @@ router.post('/registrants/login', (req, res) => {
       info.message = 'Registrant found';
       info.registrant = regData;
 
-      retailer.findOne({
+      retailers.findOne({
         retailer: regData.retailer
       }, (retErr, retData) => {
         info.message = 'Retailer data not found';
@@ -61,9 +62,125 @@ router.post('/registrants/login', (req, res) => {
   });
 });
 
+// verify training ID
+router.post('/registrants/verify', (req, res) => {
+  registrants.findOne({
+    jlr_id: req.body.jlr_id
+  }, (regErr, regData) => {
+    const info = {
+      valid: false,
+      message: 'This Training ID is already registered'
+    };
+    if (regErr) return res.status(500).send(regErr);
+    if (!regData) {
+      employees.findOne({
+        jlr_id: req.body.jlr_id
+      }, (empErr, empData) => {
+        if (empErr) return res.status(500).send(empErr);
+
+        info.message = 'Your Training ID is invalid or you are not authorized to attend this event';
+        if (!empData) return res.status(200).send(info);
+
+        info.valid = true;
+        info.message = 'Valid';
+        return res.status(200).send(info);
+      });
+    } else {
+      return res.status(200).send(info);
+    }
+  });
+});
+
+// get registration form options
+router.get('/registrants/options', (req, res) => {
+  const options = {
+    jobs: [],
+    retailers: []
+  };
+
+  employees.find({}, (empErr, empData) => {
+    if (empErr) return res.status(500).send(empErr);
+
+    const jobs = empData.map(emp => emp.job);
+    options.jobs = [...new Set(jobs)].sort();
+
+    retailers.find({}, (retErr, retData) => {
+      if (retErr) return res.status(500).send(retErr);
+
+      const rets = retData.map(ret => ret.retailer)
+      options.retailers = [...new Set(rets)].sort();
+
+      return res.status(200).send(options);
+    });
+  });
+});
+
+// check caps
+router.post('/registrants/caps', (req, res) => {
+  const waveInfo = [];
+  const hasHotel = req.body.hotel;
+  const retailerSeats = req.body.seats;
+  const retailerRooms = req.body.rooms;
+  const retailerWaves = req.body.waves;
+
+  waves.find({}, (wvErr, wvData) => {
+    if (wvErr) return res.status(500).send(wvErr);
+
+    // wave cap data for retailer
+    const waveArray = [].concat(...retailerWaves.map(wv => wvData.filter(data => data.wave === wv)));
+
+    registrants.find({}, (regErr, regData) => {
+      if (regErr) return res.status(500).send(regErr);
+
+      // registrants with retailer
+      const regRetailerArray = regData.filter(reg => reg.retailer === req.body.retailer);
+      // registrants with same waves as retailer
+      const regWavesArray = [].concat(...retailerWaves.map(wv => regData.filter(reg => reg.wave === wv)));
+
+      // determine cap for each wave
+      retailerWaves.forEach(wv => {
+        const info = {
+          wave: wv,
+          capped: false
+        };
+        // wave cap data
+        const wave = waveArray.filter(reg => reg.wave === wv)[0];
+        const roomCap = wave.rooms;
+        const seatCap = wave.seats - roomCap;
+        // registrants with wave
+        const regWaveArray = regWavesArray.filter(reg => reg.wave === wv);
+        // registrants with wave and hotel
+        const regWaveHotel = regWaveArray.filter(reg => reg.hotel);
+        // registrants with wave and no hotel
+        const regWaveLocal = regWaveArray - regWaveHotel;
+
+        if (hasHotel) {
+          // test registrants with retailer vs allotted rooms && registrants with wave and hotel vs wave room cap
+          if (regRetailerArray.length < retailerRooms && regWaveHotel.length < roomCap) {
+            waveInfo.push(info);
+          } else {
+            info.capped = true;
+            waveInfo.push(info);
+          }
+        } else {
+          // test registrants with retailer vs allotted seats && registrants with wave and no hotel vs wave seat cap (minus wave room cap)
+          if (regRetailerArray.length < retailerSeats && regWaveLocal.length < seatCap) {
+            waveInfo.push(info);
+          } else {
+            info.capped = true;
+            waveInfo.push(info);
+          }
+        }
+      });
+
+      return res.status(200).send(waveInfo);
+    });
+  });
+});
+
 // create new registrant
 router.post('/registrants', (req, res) => {
-  registrant.create(req.body, (err, registrant) => {
+  registrants.create(req.body, (err, registrant) => {
     if (err) return res.status(500).send(err);
     return res.status(200).send(registrant);
   });
@@ -72,7 +189,7 @@ router.post('/registrants', (req, res) => {
 // get all registrants
 router.get('/registrants', (req, res) => {
   if (!req.isAuthenticated()) return res.status(401).send({ message: 'User is not authenticated' });
-  registrant.find({}, (err, registrants) => {
+  registrants.find({}, (err, registrants) => {
     if (err) return res.status(500).send(err);
     return res.status(200).send(registrants);
   });
@@ -80,7 +197,8 @@ router.get('/registrants', (req, res) => {
 
 // get one registrant
 router.get('/registrants/:id', (req, res) => {
-  registrant.findById(req.params.id, (err, registrant) => {
+  if (!req.isAuthenticated()) return res.status(401).send({ message: 'User is not authenticated' });
+  registrants.findById(req.params.id, (err, registrant) => {
     const notFound = {
       message: 'Registrant not in system'
     };
@@ -93,7 +211,7 @@ router.get('/registrants/:id', (req, res) => {
 // delete registrant
 router.delete('/registrants/:id', (req, res) => {
   if (!req.isAuthenticated()) return res.status(401).send({ message: 'User is not authenticated' });
-  registrant.findByIdAndRemove(req.params.id, (err, registrant) => {
+  registrants.findByIdAndRemove(req.params.id, (err, registrant) => {
     const deleted = {
       message: 'Registrant deleted'
     };
@@ -104,7 +222,8 @@ router.delete('/registrants/:id', (req, res) => {
 
 // update registrant
 router.put('/registrants/:id', (req, res) => {
-  registrant.findByIdAndUpdate(req.params.id, req.body, {
+  if (!req.isAuthenticated()) return res.status(401).send({ message: 'User is not authenticated' });
+  registrants.findByIdAndUpdate(req.params.id, req.body, {
     new: true
   }, (err, registrant) => {
     if (err) return res.status(500).send(err);

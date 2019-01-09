@@ -76,6 +76,7 @@ export class ContactComponent implements OnInit {
           err => this.showError()
         );
     }
+    return false;
   }
 
   showError() {

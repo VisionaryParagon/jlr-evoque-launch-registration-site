@@ -12,8 +12,6 @@ const RegSchema = new mongoose.Schema({
   region: String,
   market: String,
   hotel: Boolean,
-  seats: Number,
-  rooms: Number,
   wave: String,
   diet: String,
   special: String,

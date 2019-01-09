@@ -4,7 +4,7 @@ import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/htt
 import { throwError } from 'rxjs';
 import { catchError, retry, tap } from 'rxjs/operators';
 
-import { Registrant, Retailer } from './classes';
+import { Registrant, Retailer, Options } from './classes';
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +29,22 @@ export class RegistrationService {
       );
   }
 
+  // verify registrant ID
+  verifyId(data) {
+    return this.http.post<any>(this.regUrl + '/verify', data)
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
+
   // set current registrant
   setCurrentRegistrant(data) {
     this.loggedIn = true;
 
-    if (data.registrant._id) {
+    if (data._id) {
+      this.currentRegistrant = data;
+    } else if (data.registrant._id) {
       this.currentRegistrant = data.registrant;
       this.currentRetailer = data.retailer;
     } else {
@@ -76,12 +87,29 @@ export class RegistrationService {
     return this.currentRetailer;
   }
 
+  // get registration form options
+  getOptions() {
+    return this.http.get<Options>(this.regUrl + '/options')
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
+
+  // get wave caps
+  getCaps(data) {
+    return this.http.post<any>(this.regUrl + '/caps', data)
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
+
   // create new registrant
   createRegistrant(data) {
     return this.http.post<Registrant>(this.regUrl, data)
       .pipe(
         retry(3),
-        tap(res => this.setCurrentRegistrant(res)),
         catchError(this.handleError)
       );
   }

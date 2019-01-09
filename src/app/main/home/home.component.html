@@ -3,13 +3,15 @@
     <div class="heroContainer" [style.backgroundImage]="'url(' + bgImage + ')'">
       <div class="container">
         <div class="heroBox" [@fade]="true" *ngIf="showBox">
-          <h1>Land Rover Evoque</h1>
+          <h1>New Range Rover Evoque</h1>
 
-          <h6>2020 Launch Event</h6>
+          <h6>North American Launch Training</h6>
 
           <p>Hello, {{ registrant.first_name }}. Reserve your spot now!</p>
 
           <button class="lrBtn" routerLink="/register">Register</button>
+
+          <p class="disclaimer mb-0 mt-4">European model shown.</p>
         </div>
       </div>
 
@@ -17,33 +19,33 @@
     </div>
   </section>
 
-  <section class="dark">
+  <section>
     <div class="container">
-      <h2>More content...</h2>
+      <h2>Welcome</h2>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur veritatis illum, voluptatibus nam aspernatur deserunt, ducimus mollitia hic laboriosam possimus incidunt doloremque consequuntur quae. Optio in assumenda similique fugit impedit!</p>
+      <p>Thank you for your interest in attending the New Range Rover Evoque North American Launch Training. Below is a high-level overview of the event, some frequently asked questions, and registration information.</p>
 
       <div class="row">
         <div class="col-12 col-md-4">
-          <h3>Location</h3>
+          <h3>Overview</h3>
 
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit odit alias officiis, facilis accusantium doloribus saepe possimus necessitatibus ut molestias et vitae commodi quia maiores suscipit beatae esse, repellat unde?</p>
+          <p>The New Range Rover Evoque launch training is a one-day immersive hands-on and driving experience taking place at seven unique metropolitan cities across the U.S. and Canada. Each event will focus on key features and capabilities, new technologies, position within the market segment, brand lineup, and explore the expanding customer base.</p>
 
-          <button class="lrBtn" routerLink="/location">View More Info</button>
+          <button class="lrBtn" routerLink="/location">View Location</button>
         </div>
         <div class="col-12 col-md-4">
           <h3>FAQs</h3>
 
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit odit alias officiis, facilis accusantium doloribus saepe possimus necessitatibus ut molestias et vitae commodi quia maiores suscipit beatae esse, repellat unde?</p>
+          <p>After completing the registration process, you will be directed to a page that shares specific details for your designated training location. However, if you’d like to learn more about the event overall, please visit our FAQ page.</p>
 
           <button class="lrBtn" routerLink="/faqs">View FAQs</button>
         </div>
         <div class="col-12 col-md-4">
-          <h3>Register</h3>
+          <h3>Registration</h3>
 
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit odit alias officiis, facilis accusantium doloribus saepe possimus necessitatibus ut molestias et vitae commodi quia maiores suscipit beatae esse, repellat unde?</p>
+          <p>Congrats! You’ve completed the <em>first</em> step of registration by entering in your employee Training ID number. Since you’ve made it this far, that means you are eligible to attend one of the New Range Rover Evoque launch training experiences. Click the Register button to secure your spot before they’re gone!</p>
 
-          <button class="lrBtn" routerLink="/register">Register Now</button>
+          <button class="lrBtn" routerLink="/register">Register</button>
         </div>
       </div>
     </div>

@@ -1,8 +1,167 @@
 <section [@fade]="true">
-  <div class="container">
-    <p>
-      register works!
-    </p>
-  </div>
-</section>
+    <div class="container py-5 text-center">
+      <h1>Register</h1>
+
+      <div class="pageLoader" *ngIf="formLoading">
+        <mat-spinner class="mx-auto"></mat-spinner>
+      </div>
+
+      <div class="formContainer">
+        <div *ngIf="!formLoading && !error && !registered && !full && !success">
+          <p>Complete the form below to register for the New Range Rover Evoque Launch Training.</p>
+
+          <form #registrationForm="ngForm" novalidate>
+            <mat-horizontal-stepper #stepper>
+              <mat-step>
+                <h4>Hello, {{ registrant.first_name }}!</h4>
+
+                <p>Please verify or update the information below to continue.</p>
+
+                <div class="form-group" [class.nope]="(first_name.errors && last_name.errors) && (first_name.touched || last_name.touched || regChecked)">
+                  <label for="first_name">Name</label>
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <input type="text" class="form-control" id="first_name" name="first_name" #first_name="ngModel" autocomplete="off" placeholder="First" required [(ngModel)]="registrant.first_name" (ngModelChange)="hideError()">
+                      <div class="errorMsg" [@topDown]="true" *ngIf="first_name.errors && (first_name.touched || regChecked)">
+                        <p *ngIf="first_name.errors.required">First Name is required</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <input type="text" class="form-control" id="last_name" name="last_name" #last_name="ngModel" autocomplete="off" placeholder="Last" required [(ngModel)]="registrant.last_name" (ngModelChange)="hideError()">
+                      <div class="errorMsg" [@topDown]="true" *ngIf="last_name.errors && (last_name.touched || regChecked)">
+                        <p *ngIf="last_name.errors.required">Last Name is required</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="form-group" [class.nope]="email.errors && (email.touched || regChecked)">
+                      <label for="email">Email Address</label>
+                      <input type="email" class="form-control" id="email" name="email" #email="ngModel" autocomplete="off" placeholder="name@domain.com" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" required [(ngModel)]="registrant.email" (ngModelChange)="hideError()">
+                      <div class="errorMsg" [@topDown]="true" *ngIf="email.errors && (email.touched || regChecked)">
+                        <p *ngIf="email.errors.required">Email Address is required</p>
+                        <p *ngIf="email.errors.pattern">Email Address is invalid</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group" [class.nope]="invalid || (jlr_id.errors && (jlr_id.touched || regChecked))">
+                      <label for="jlr_id">Training ID</label>
+                      <input type="text" class="form-control" id="jlr_id" name="jlr_id" #jlr_id="ngModel" autocomplete="off" placeholder="Training ID" required [(ngModel)]="registrant.jlr_id" (ngModelChange)="hideError()">
+                      <div class="errorMsg" [@topDown]="true" *ngIf="jlr_id.errors && (jlr_id.touched || regChecked)">
+                        <p *ngIf="jlr_id.errors.required">Training ID is required</p>
+                      </div>
+                      <div class="errorMsg" [@topDown]="true" *ngIf="invalid">
+                        <p>{{ err }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="form-group" [class.nope]="job.errors && (job.touched || regChecked)">
+                      <label for="job">Job Title</label>
+                      <select class="form-control" id="job" name="job" #job="ngModel" placeholder="Job Title" required [(ngModel)]="registrant.job" (ngModelChange)="hideError()">
+                        <option [value]="anyVal">Select Job Title</option>
+                        <option *ngFor="let val of options.jobs" [value]="val">{{ val }}</option>
+                      </select>
+                      <div class="errorMsg" [@topDown]="true" *ngIf="job.errors && (job.touched || regChecked)">
+                        <p *ngIf="job.errors.required">Job Title is required</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group" [class.nope]="retailer.errors && (retailer.touched || regChecked)">
+                      <label for="retailer">Retailer</label>
+                      <select class="form-control" id="retailer" name="retailer" #retailer="ngModel" placeholder="Retailer Name" required [(ngModel)]="registrant.retailer" (ngModelChange)="hideError()">
+                        <option [value]="anyVal">Select Retailer</option>
+                        <option *ngFor="let val of options.retailers" [value]="val">{{ val }}</option>
+                      </select>
+                      <div class="errorMsg" [@topDown]="true" *ngIf="retailer.errors && (retailer.touched || regChecked)">
+                        <p *ngIf="retailer.errors.required">Retailer is required</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <button class="lrBtn my-5" [disabled]="loading" (click)="checkReg(registrant, registrationForm, stepper, 1)">
+                  <span *ngIf="!loading">Next</span>
+                  <span *ngIf="loading">
+                    <mat-spinner class="mx-auto" [diameter]="20" [strokeWidth]="3"></mat-spinner>
+                  </span>
+                </button>
+
+                <p class="disclaimer">Not {{ registrant.first_name }}? <a (click)="logout()">Logout</a></p>
+              </mat-step>
+    
+              <mat-step>
+                <h4>Almost done!</h4>
+
+                <p>Fill out the rest of the form below and hit Submit to complete your registration.</p>
   
+                <div class="form-group" [class.nope]="wave.errors && (wave.touched || submitted)">
+                  <label for="wave">Wave</label>
+                  <select class="form-control" id="wave" name="wave" #wave="ngModel" placeholder="Wave" required [(ngModel)]="registrant.wave" (ngModelChange)="hideError()">
+                    <option disabled [value]="anyVal">Select Wave</option>
+                    <option *ngFor="let val of waves" [disabled]="val.capped" [value]="val.wave">{{ val.wave }}<span *ngIf="val.capped"> &ndash; Full</span></option>
+                  </select>
+                  <div class="errorMsg" [@topDown]="true" *ngIf="wave.errors && (wave.touched || submitted)">
+                    <p *ngIf="wave.errors.required">Please select a wave</p>
+                  </div>
+                </div>
+
+                <p><strong>Please note:</strong> {{ waveNote }}</p>
+        
+                <div class="form-group">
+                  <label for="diet">Dietary Restrictions</label>
+                  <input type="text" class="form-control" id="diet" name="diet" #diet="ngModel" [(ngModel)]="registrant.diet" (ngModelChange)="hideError()">
+                </div>
+        
+                <div class="form-group">
+                  <label for="special">Special Needs</label>
+                  <input type="text" class="form-control" id="special" name="special" #special="ngModel" [(ngModel)]="registrant.special" (ngModelChange)="hideError()">
+                </div>
+        
+                <button class="lrBtn mx-3 my-5" [disabled]="loading" (click)="submit(registrant, registrationForm.valid)">
+                  <span *ngIf="!loading">Submit</span>
+                  <span *ngIf="loading">
+                    <mat-spinner class="mx-auto" [diameter]="20" [strokeWidth]="3"></mat-spinner>
+                  </span>
+                </button>
+              </mat-step>
+            </mat-horizontal-stepper>
+          </form>
+        </div>
+  
+        <div [@fade]="true" *ngIf="success">
+          <h3>Success!</h3>
+  
+          <p>Your registration for the New Land Rover Evoque Launch Event is complete. You should receive a confirmation email with all the details shortly.</p>
+          
+          <p>Please keep an eye on your junk/spam folder in case our emails don't make it to your inbox.</p>
+        </div>
+    
+        <div class="errorMsg" [@fade]="true" *ngIf="error">
+          <p>Something went wrong... Please make sure you have a WiFi or mobile data connection and try refreshing your&nbsp;browser.</p>
+        </div>
+    
+        <div [@fade]="true" *ngIf="registered">
+          <p>Our records indicate you have already registered for this event. Please check your confirmation email for the event details.</p>
+  
+          <p>If you think this is an error, or if you have questions about your registration, please contact the JLR Event Support Team using the <a routerLink="/contact">Contact Form</a>, via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (800)555-5555.</p>
+        </div>
+    
+        <div [@fade]="true" *ngIf="full">
+          <p>Sorry! Looks like all seats for this event have been filled.</p>
+  
+          <p>If you think this is an error, or if you have questions about this event, please contact the JLR Event Support Team using the <a routerLink="/contact">Contact Form</a>, via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (800)555-5555.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+    

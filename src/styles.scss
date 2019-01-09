@@ -28,6 +28,7 @@ body {
   font-family: $client-font;
   font-size: 14px;
   font-weight: 300;
+  line-height: 1.5;
 }
 
 
@@ -41,7 +42,15 @@ h5,
 h6 {
   font-family: $client-heading-font;
   font-weight: normal;
+  line-height: 1.5;
   margin: 1rem 0;
+}
+
+h1,
+h2 {
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 p {
@@ -57,6 +66,18 @@ a {
     color: $client-slate-blue;
     text-decoration: underline;
   }
+
+  &:not([href]) {
+    &:not([tabindex]) {
+      cursor: pointer;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 ul {
@@ -70,7 +91,7 @@ ul {
 
 .formContainer {
   margin: 30px auto;
-  max-width: 500px;
+  max-width: 768px;
   width: 100%;
 }
 
@@ -87,6 +108,18 @@ ul {
     height: auto;
     margin: .5rem 0;
     padding: .75rem 1rem;
+  }
+
+  select {
+    &.form-control {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+
+      &::-ms-expand { 
+        display: none;
+      }
+    }
   }
 }
 
@@ -169,7 +202,9 @@ ul {
 }
 
 .disclaimer {
-  font-size: 12px;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 
@@ -353,16 +388,25 @@ section {
   &.dark {
     background: $client-dark-cool-grey;
     color: #fff;
+
+    .lrBtn {
+      background: #fff;
+      color: $client-slate-blue;
+
+      &:hover {
+        background: $client-slate-blue;
+        color: #fff;
+      }
+    }
   }
 
   &.title {
     background: #fff;
     text-align: center;
 
+    h1,
     h2 {
-      font-size: 38px;
       margin: 0;
-      text-transform: uppercase;
     }
   }
 
@@ -433,10 +477,10 @@ section {
         max-width: 415px;
         padding: 19px 25px 21px;
       
-        h1 {
+        h1,
+        h2 {
           font-weight: 700;
           margin: 0;
-          text-transform: uppercase;
         }
       
         h6 {
@@ -478,6 +522,40 @@ section {
   }
 }
 
+.pageLoader {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 98;
+}
+
+
+/*~~  Admin ~~*/
+
+.adminTable {
+  overflow: auto;
+  width: 100%;
+
+  tr.mat-row {
+    &:nth-child(2n) {
+      background: #f0f0f0;
+    }
+
+    &.selectedRow {
+      background: rgba(187, 22, 43, 0.5);
+    }
+
+    td.mat-cell {
+      border-radius: 0 !important;
+    }
+  }
+}
+
 
 /*~~  Material Design Elements ~~*/
 
@@ -492,7 +570,7 @@ div.mat-progress-bar-fill {
 }
 
 .mat-spinner circle {
-  stroke: $client-light-cool-grey;
+  stroke: $client-mid-cool-grey;
 }
 
 mat-expansion-panel.mat-expansion-panel {
@@ -507,6 +585,54 @@ mat-expansion-panel.mat-expansion-panel {
 
     .mat-content {
       padding-right: 10px;
+    }
+  }
+}
+
+mat-horizontal-stepper.mat-stepper-horizontal,
+mat-vertical-stepper.mat-stepper-vertical {
+  background: none;
+  font: 300 14px/1.5em $client-font;
+
+  div.mat-horizontal-stepper-header-container {
+    display: none;
+  }
+
+  div.mat-horizontal-content-container {
+    padding: 0;
+  }
+}
+
+table.mat-table {
+  border-radius: .25rem;
+  font-family: $client-font;
+  width: 100%;
+
+  tr.mat-header-row {
+    height: 2rem;
+
+    th.mat-header-cell {
+      border-bottom: 2px solid $client-green;
+      border-right: 1px solid $client-light-cool-grey;
+      border-radius: .25rem;
+      padding: .25rem .5rem !important;
+    }
+  }
+
+  tr.mat-row,
+  tr.mat-footer-row {
+    height: 2.5rem;
+
+    td.mat-cell,
+    td.mat-footer-cell {
+      border-bottom-color: transparent;
+      border-right: 1px solid $client-light-cool-grey;
+      border-radius: .25rem;
+      padding: .25rem .5rem !important;
+
+      &:last-of-type {
+        border-right: none;
+      }
     }
   }
 }
@@ -543,6 +669,11 @@ mat-expansion-panel.mat-expansion-panel {
 @media all and (orientation: landscape) {}
 
 @media all and (min-width: 768px) {
+  h1,
+  h2 {
+    font-size: 38px;
+  }
+
   header {
     height: 72px;
 

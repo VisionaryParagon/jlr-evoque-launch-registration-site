@@ -4,12 +4,12 @@
 
     <div class="container">
       <div class="heroBox" [@fade]="true" *ngIf="showBox">
-        <h1>Land Rover Evoque</h1>
+        <h1>New Range Rover Evoque</h1>
 
-        <h6>2020 Launch Event</h6>
+        <h6>North American Launch Training</h6>
 
         <form #loginForm="ngForm" novalidate>
-          <div class="form-group" [class.nope]="jlr_id.errors && (jlr_id.touched || submitted)">
+          <div class="form-group" [class.nope]="invalid || (jlr_id.errors && (jlr_id.touched || submitted))">
             <input type="text" class="form-control" id="jlr_id" name="jlr_id" #jlr_id="ngModel" autocomplete="off" placeholder="Enter Your Training ID" required [(ngModel)]="registrant.jlr_id" (ngModelChange)="hideError()">
             <div class="errorMsg" [@topDown]="true" *ngIf="jlr_id.errors && (jlr_id.touched || submitted)">
               <p *ngIf="jlr_id.errors.required">Training ID is required</p>
