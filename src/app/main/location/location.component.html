@@ -17,7 +17,7 @@
 
   <section class="title">
     <div class="container">
-      <h2>Venue</h2>
+      <h2>DATES &amp; LOCATION</h2>
     </div>
   </section>
 
@@ -29,7 +29,7 @@
 
           <h6>{{ location.venueSubtitle }}</h6>
 
-          <p>{{ location.venueInfo }}</p>
+          <p>{{ location.venueDates }}</p>
         </div>
       </div>
     </div>
@@ -37,23 +37,363 @@
 
   <section>
     <div class="container">
-      <h2>More Content...</h2>
+      <div class="row" *ngIf="location.id === 1">
+        <div class="col-12 col-md-6">
+          <h3>TRAVELING TO THE EVENT</h3>
 
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt, eveniet. Cupiditate repellat saepe hic vel tempora ducimus quae illo! Quia dignissimos id dolores ut placeat voluptatibus sed aspernatur totam laborum!</p>
+          <ul>
+            <li>If you need to fly to the event, please fly to MIA airport. You will be responsible for your flight cost.</li>
+            <li>If you plan to drive to the event, self-parking charges will be covered by JLR at the event site.</li>
+          </ul>
 
-      <div class="row">
-        <div class="col-12" [class.col-md-6]="registrant.hotel">
-          <h3>Transportation</h3>
+          <h3>GROUND TRANSPORTATION</h3>
 
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt deserunt neque doloremque omnis, recusandae tempora autem iste error eum distinctio nam, pariatur obcaecati facilis delectus ipsa consequuntur rerum nemo repellat!</p>
+          <ul>
+            <li>The host hotel offers complimentary shuttle transportation to and from MIA airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
+              <ul>
+                <li>Shuttle Instructions: The hotel’s complimentary shuttle service is available between 5am and 1am. Once you have landed and retrieved your bag from baggage claim, proceed to the 2nd floor departures level. Once outside, stand between doors 6 through 33 for pickup and look for the black shuttle with the large red “M” on the side. When you see the shuttle, signal the driver for pickup.</li>
+              </ul>
+            </li>
+            <li>If you plan to drive to the event, self-parking charges will be covered by JLR at the event site.</li>
+          </ul>
+
+          <h3>HOTEL AND LODGING</h3>
+
+          <p *ngIf="!registrant.hotel">Due to your retailer’s proximity to the training location, a hotel room has not been procured for you. Should you desire to book a hotel room at your own expense, you may contact the hotel at (305) 649-5000 to check availability.</p>
+
+          <p *ngIf="registrant.hotel">After you complete your registration, the Land Rover events team will book your hotel room for you at the Marriott Miami Airport for the night prior to your training wave. (For example, if you are attending the training on March 4, your room will be booked for the night of March 3.) You do not need to call the hotel and book a room. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.</p>
         </div>
 
-        <div class="col-12 col-md-6" *ngIf="registrant.hotel">
-          <h3>Accommodations</h3>
+        <div class="col-12 col-md-6">
+          <h3>PLEASE NOTE THE FOLLOWING</h3>
 
-          <p><strong>* This section will only appear if the user has a hotel allocation...</strong></p>
+          <p>Breakfast, lunch, and refreshments will be provided on your event day, but any dinners while you are traveling will be on your own.</p>
 
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt deserunt neque doloremque omnis, recusandae tempora autem iste error eum distinctio nam, pariatur obcaecati facilis delectus ipsa consequuntur rerum nemo repellat!</p>
+          <p>Please remember to bring a credit or debit card and your driver’s license. (You must be 21 years of age or older to drive at the event.)</p>
+
+          <p>If after registering you need to cancel your reservation, please contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> or call toll-free at (800) 555-5555.</p>
+
+          <p>The cancellation fee policy is as follows:</p>
+
+          <ul>
+            <li>7-14 days prior to event: $1,500</li>
+            <li>0-7 days prior to event: $3,000</li>
+            <li>No Shows will be charged: $3,000</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="row" *ngIf="location.id === 2">
+        <div class="col-12 col-md-6">
+          <h3>TRAVELING TO THE EVENT</h3>
+
+          <ul>
+            <li>If you need to fly to the event, please fly to DFW airport. You will be responsible for your flight cost.</li>
+            <li>If you plan to drive to the event, self-parking is complimentary at the event site.</li>
+          </ul>
+
+          <h3>GROUND TRANSPORTATION</h3>
+
+          <ul>
+            <li>The host hotel offers complimentary shuttle transportation to and from DFW airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
+              <ul>
+                <li>Shuttle Instructions: Once you have landed and retrieved your bag from baggage claim, call (972) 929-8181 to have the hotel shuttle pick you up at the nearest pickup point. A shuttle driver should meet you within 30 minutes.</li>
+              </ul>
+            </li>
+            <li>If you plan to drive to the event, self-parking is complimentary at the event site.</li>
+          </ul>
+
+          <h3>HOTEL AND LODGING</h3>
+
+          <p *ngIf="!registrant.hotel">Due to your retailer’s proximity to the training location, a hotel room has not been procured for you. Should you desire to book a hotel room at your own expense, you may contact the hotel at (972) 929-8181 to check availability.</p>
+
+          <p *ngIf="registrant.hotel">After you complete your registration, the Land Rover events team will book your hotel room for you at the Doubletree by Hilton DFW North for the night prior to your training wave. (For example, if you are attending the training on March 6, your room will be booked for the night of March 5.) You do not need to call the hotel and book a room. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.</p>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <h3>PLEASE NOTE THE FOLLOWING</h3>
+
+          <p>Breakfast, lunch, and refreshments will be provided on your event day, but any dinners while you are traveling will be on your own.</p>
+
+          <p>Please remember to bring a credit or debit card and your driver’s license. (You must be 21 years of age or older to drive at the event.)</p>
+
+          <p>If after registering you need to cancel your reservation, please contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> or call toll-free at (800) 555-5555.</p>
+
+          <p>The cancellation fee policy is as follows:</p>
+
+          <ul>
+            <li>7-14 days prior to event: $1,500</li>
+            <li>0-7 days prior to event: $3,000</li>
+            <li>No Shows will be charged: $3,000</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="row" *ngIf="location.id === 3">
+        <div class="col-12 col-md-6">
+          <h3>TRAVELING TO THE EVENT</h3>
+
+          <ul>
+            <li>If you need to fly to the event, please fly to ORD airport. You will be responsible for your flight cost.</li>
+            <li>If you plan to drive to the event, self-parking charges will be covered by JLR at the event site.</li>
+          </ul>
+
+          <h3>GROUND TRANSPORTATION</h3>
+
+          <ul>
+            <li>The host hotel offers complimentary shuttle transportation to and from ORD airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
+              <ul>
+                <li>Shuttle Instructions: To access the complimentary hotel shuttle, you will need to walk to the shuttle bus center after you retrieve your luggage from baggage claim.
+                  <ul>
+                    <li>From Terminals 1, 2 and 3: look for the red and blue arrows on the floor at the baggage claim level. Look also for the red and blue sign overhead which reads "Bus Shuttle Center."</li>
+                    <li>Follow the signs which will lead to an escalator. Take the escalator down one level.</li>
+                    <li>Continue to follow the signs, which will lead to elevator banks #3 and/or #4. Take either set of elevators up one level.</li>
+                    <li>Proceed into Bus Shuttle Center and wait at door #3. (NOTE: When standing at door #3, you will be standing across the street from the Hilton hotel.)</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>If you plan to drive to the event, self-parking charges will be covered by JLR at the event site.</li>
+          </ul>
+
+          <h3>HOTEL AND LODGING</h3>
+
+          <p *ngIf="!registrant.hotel">Due to your retailer’s proximity to the training location, a hotel room has not been procured for you. Should you desire to book a hotel room at your own expense, you may contact the hotel at (847) 699-6300 to check availability.</p>
+
+          <p *ngIf="registrant.hotel">After you complete your registration, the Land Rover events team will book your hotel room for you at the Sheraton Suites O’Hare for the night prior to your training wave. (For example, if you are attending the training on March 13, your room will be booked for the night of March 12.) You do not need to call the hotel and book a room. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.</p>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <h3>PLEASE NOTE THE FOLLOWING</h3>
+
+          <p>Breakfast, lunch, and refreshments will be provided on your event day, but any dinners while you are traveling will be on your own.</p>
+
+          <p>Please remember to bring a credit or debit card and your driver’s license. (You must be 21 years of age or older to drive at the event.)</p>
+
+          <p>If after registering you need to cancel your reservation, please contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> or call toll-free at (800) 555-5555.</p>
+
+          <p>The cancellation fee policy is as follows:</p>
+
+          <ul>
+            <li>7-14 days prior to event: $1,500</li>
+            <li>0-7 days prior to event: $3,000</li>
+            <li>No Shows will be charged: $3,000</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="row" *ngIf="location.id === 4">
+        <div class="col-12 col-md-6">
+          <h3>TRAVELING TO THE EVENT</h3>
+
+          <ul>
+            <li>If you need to fly to the event, please fly to SNA airport. You will be responsible for your flight cost.</li>
+            <li>If you plan to drive to the event, self-parking charges will be covered at the training location.</li>
+          </ul>
+
+          <h3>GROUND TRANSPORTATION</h3>
+
+          <ul>
+            <li>The host hotel offers complimentary shuttle transportation to and from SNA airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
+              <ul>
+                <li>Shuttle Instructions: Complimentary shuttle transportation is offered between 5:30 am and 11:00 pm. When you land and have collected your luggage from baggage claim, please call (714) 825-3333 to let the hotel know you are awaiting pickup. Follow the signs to Ground Transportation (specifically you will need to go to the area labeled Courtesy Shuttles) and this is where you will meet your shuttle.</li>
+              </ul>
+            </li>
+            <li>If you are driving to the training, self-parking charges will be covered at the Doubletree by Hilton Santa Ana &ndash; Orange County Airport.</li>
+          </ul>
+
+          <h3>HOTEL AND LODGING</h3>
+
+          <p *ngIf="!registrant.hotel">Due to your retailer’s proximity to the training location, a hotel room has not been procured for you. Should you desire to book a hotel room at your own expense, you may contact the hotel at (714) 825-3333 to check availability.</p>
+
+          <p *ngIf="registrant.hotel">After you complete your registration, the Land Rover events team will book your hotel room for you at the Doubletree by Hilton Santa Ana &ndash; Orange County Airport for the night prior to your training wave. (For example, if you are attending the training on March 13, your room will be booked for the night of March 12.) You do not need to call the hotel and book a room. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.</p>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <h3>PLEASE NOTE THE FOLLOWING</h3>
+
+          <p>Breakfast, lunch, and refreshments will be provided on your event day, but any dinners while you are traveling will be on your own.</p>
+
+          <p>Please remember to bring a credit or debit card and your driver’s license. (You must be 21 years of age or older to drive at the event.)</p>
+
+          <p>If after registering you need to cancel your reservation, please contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> or call toll-free at (800) 555-5555.</p>
+
+          <p>The cancellation fee policy is as follows:</p>
+
+          <ul>
+            <li>7-14 days prior to event: $1,500</li>
+            <li>0-7 days prior to event: $3,000</li>
+            <li>No Shows will be charged: $3,000</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="row" *ngIf="location.id === 5">
+        <div class="col-12 col-md-6">
+          <h3>TRAVELING TO THE EVENT</h3>
+
+          <ul>
+            <li>If you need to fly to the event, please fly to OAK airport. You will be responsible for your flight cost.</li>
+            <li>If you plan to drive to the event, self-parking charges will be covered at the training location.</li>
+          </ul>
+
+          <h3>GROUND TRANSPORTATION</h3>
+
+          <ul>
+            <li>The Hilton Oakland airport offers shuttle transportation to and from OAK airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
+              <ul>
+                <li>Shuttle Instructions: Upon deplaning and collecting your baggage, follow the signs to the Hotel Shuttles area. You will need to be standing at the 4B or 4G area specifically and look for the Hilton shuttle van. Shuttles cycle approximately every 20 minutes, but if you have any questions you may contact the hotel at (510) 635-5000 to confirm the next available pick-up time.</li>
+              </ul>
+            </li>
+            <li>If you are driving to the training, self-parking charges will be covered at the Hilton Oakland Airport.</li>
+          </ul>
+
+          <h3>HOTEL AND LODGING</h3>
+
+          <p *ngIf="!registrant.hotel">Due to your retailer’s proximity to the training location, a hotel room has not been procured for you. Should you desire to book a hotel room at your own expense, you may contact the hotel at (510) 635-5000 to check availability.</p>
+
+          <p *ngIf="registrant.hotel">After you complete your registration, the Land Rover events team will book your hotel room for you at the Hilton Oakland Airport for the night prior to your training wave. (For example, if you are attending the training on March 18, your room will be booked for the night of March 17.) You do not need to call the hotel and book a room. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.</p>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <h3>PLEASE NOTE THE FOLLOWING</h3>
+
+          <p>Breakfast, lunch, and refreshments will be provided on your event day, but any dinners while you are traveling will be on your own.</p>
+
+          <p>Please remember to bring a credit or debit card and your driver’s license. (You must be 21 years of age or older to drive at the event.)</p>
+
+          <p>If after registering you need to cancel your reservation, please contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> or call toll-free at (800) 555-5555.</p>
+
+          <p>The cancellation fee policy is as follows:</p>
+
+          <ul>
+            <li>7-14 days prior to event: $1,500</li>
+            <li>0-7 days prior to event: $3,000</li>
+            <li>No Shows will be charged: $3,000</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="row" *ngIf="location.id === 6">
+        <div class="col-12 col-md-8 offset-md-2 col-xl-6 offset-xl-3" *ngIf="!registrant.hotel">
+          <h3>PLEASE NOTE THE FOLLOWING</h3>
+
+          <p>Due to your retailer’s proximity to the training location, a hotel room has not been procured for you. Should you desire to book a hotel room at your own expense, you may contact the nearby Sheraton Mahwah Hotel at (201) 529-1660 to check availability for lodging.</p>
+
+          <p>Breakfast, lunch, and refreshments will be provided on your event day, but any dinners will be on your own.</p>
+
+          <p>Please remember to bring your driver’s license. (You must be 21 years of age or older to drive at the event.)</p>
+
+          <p>If after registering you need to cancel your reservation, please contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> or call toll-free at (800) 555-5555.</p>
+
+          <p>The cancellation fee policy is as follows:</p>
+
+          <ul>
+            <li>7-14 days prior to event: $1,500</li>
+            <li>0-7 days prior to event: $3,000</li>
+            <li>No Shows will be charged: $3,000</li>
+          </ul>
+        </div>
+
+        <div *ngIf="registrant.hotel">
+          <div class="col-12 col-md-4">
+            <h3>TRAVELING TO THE EVENT</h3>
+
+            <ul>
+              <li>If you fly to the event, we recommend flying to EWR airport due to its proximity to the training location. You will be responsible for your flight cost and for procuring ground transportation to the Sheraton Mahwah Hotel (see below).</li>
+              <li>If you plan to drive to the event, self-parking charges will be complimentary at the event site as well as at the Sheraton Mahwah Hotel (see below).</li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <h3>HOTEL AND LODGING</h3>
+
+            <p>After you complete your registration, the Land Rover events team will book your hotel room for you at the host hotel for the night prior to your training wave. (For example, if you are attending the training on March 19, your room will be booked for the night of March 18.)</p>
+
+            <p>The host hotel is:</p>
+
+            <h4 class="m-0">Sheraton Mahwah</h4>
+
+            <h6>Route 17 North, 1 International Blvd
+              <br>Mahwah, NJ 07495</h6>
+
+            <p>Please note:</p>
+
+            <ul>
+              <li>You do <em>not</em> need to call the hotel and book a room. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.</li>
+              <li>Shuttle transportation will be provided to you between the hotel and the event site on the day of your training wave.</li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <h3>PLEASE NOTE THE FOLLOWING</h3>
+
+            <p>Breakfast, lunch, and refreshments will be provided on your event day, but any dinners while you are traveling will be on your own.</p>
+
+            <p>Please remember to bring a credit or debit card and your driver’s license. (You must be 21 years of age or older to drive at the event.)</p>
+
+            <p>If after registering you need to cancel your reservation, please contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> or call toll-free at (800) 555-5555.</p>
+
+            <p>The cancellation fee policy is as follows:</p>
+
+            <ul>
+              <li>7-14 days prior to event: $1,500</li>
+              <li>0-7 days prior to event: $3,000</li>
+              <li>No Shows will be charged: $3,000</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="location.id === 7">
+        <div class="col-12 col-md-6">
+          <h3>TRAVELING TO THE EVENT</h3>
+
+          <ul>
+            <li>If you need to fly to the event, please fly to Toronto Pearson (YYZ) airport. You will be responsible for your flight cost.</li>
+            <li>If you plan to drive to the event, self-parking charges will be covered at the training location.</li>
+          </ul>
+
+          <h3>GROUND TRANSPORTATION</h3>
+
+          <ul>
+            <li>The Hilton Garden Inn Toronto Airport offers complimentary shuttle transportation (available 24 hours) to and from YYZ airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
+              <ul>
+                <li>Shuttle Instructions:
+                  <ul>
+                    <li>From Terminal 1, lower level: go to Post S5 and P3 and board Hilton Garden Inn Toronto Airport complimentary shuttle to hotel.</li>
+                    <li>From Terminal 3, the pick-up location is Inner Curb, Post 35-43.</li>
+                    <li>Should you have any questions you may call the hotel at (905)678-0041.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>If you are driving to the training, self-parking charges will be covered at the Hilton Garden Inn Toronto Airport.</li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <h3>HOTEL AND LODGING</h3>
+
+          <p *ngIf="!registrant.hotel">Due to your retailer’s proximity to the training location, a hotel room has not been procured for you. Should you desire to book a hotel room at your own expense, you may contact the hotel at (905)678-0041 to check availability.</p>
+
+          <p *ngIf="registrant.hotel">After you complete your registration, the Land Rover events team will book your hotel room for you at the Hilton Garden Inn Toronto Airport for the night prior to your training wave. (For example, if you are attending the training on April 3, your room will be booked for the night of April 2.) You do not need to call the hotel and book a room. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.</p>
+
+          <h3>PLEASE NOTE THE FOLLOWING</h3>
+
+          <p>Breakfast, lunch, and refreshments will be provided on your event day, but any dinners while you are traveling will be on your own.</p>
+
+          <p>Please remember to bring a credit or debit card and your driver’s license. (You must be 21 years of age or older to drive at the event.)</p>
+
+          <p>If after registering you need to cancel your reservation, please contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> or call toll-free at (800) 555-5555.</p>
+
+          <p>The cancellation fee policy is as follows:</p>
+
+          <ul>
+            <li>7-14 days prior to event: $1,500</li>
+            <li>0-7 days prior to event: $3,000</li>
+            <li>No Shows will be charged: $3,000</li>
+          </ul>
         </div>
       </div>
     </div>

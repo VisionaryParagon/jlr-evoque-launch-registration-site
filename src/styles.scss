@@ -486,6 +486,7 @@ section {
         h6 {
           margin: 0;
           text-transform: uppercase;
+          white-space: pre-wrap;
         }
   
         .form-group {
@@ -504,7 +505,6 @@ section {
 
     .scrollArrow {
       bottom: 0;
-      display: none;
       left: 50%;
       position: absolute;
       -moz-transform: translateX(-50%);
@@ -768,10 +768,6 @@ table.mat-table {
             }
           }
         }
-      }
-
-      .scrollArrow {
-        display: inline-block;
       }
     }
   }
