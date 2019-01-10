@@ -76,6 +76,7 @@ export class RegisterComponent implements OnInit {
   checkRegStatus(data) {
     if (data._id) {
       this.registered = true;
+      this.waveFilter = data.wave.split(' - ');
     } else {
       this.registered = false;
     }
