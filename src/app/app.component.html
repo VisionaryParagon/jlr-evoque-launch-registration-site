@@ -25,6 +25,7 @@
 
         <ul class="secondaryNav">
           <li><a routerLink="/register" routerLinkActive="active" (click)="closeNav()"><fa-icon class="mr-2" [icon]="['fas', 'user-plus']" size="lg"></fa-icon> REGISTER</a></li>
+          <li><a (click)="logout()"><fa-icon class="mr-2" [icon]="['fas', 'sign-out-alt']" size="lg"></fa-icon> LOGOUT</a></li>
         </ul>
       </div>
 
@@ -35,7 +36,7 @@
         </ul>
 
         <ul class="secondaryNav">
-          <li><a (click)="logoutAdmin()"><fa-icon [icon]="['fas', 'sign-out-alt']" size="lg"></fa-icon> LOGOUT</a></li>
+          <li><a (click)="logoutAdmin()"><fa-icon class="mr-2" [icon]="['fas', 'sign-out-alt']" size="lg"></fa-icon> LOGOUT</a></li>
         </ul>
       </div>
     </div>

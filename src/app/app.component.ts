@@ -99,6 +99,12 @@ export class AppComponent implements OnInit {
     document.documentElement.classList.remove('modal-open');
   }
 
+  logout() {
+    this.cookieService.removeAll();
+    this.regService.clearCurrentRegistrant();
+    this.router.navigate(['/login']);
+  }
+
   logoutAdmin() {
     this.cookieService.removeAll();
     this.adminService.loggedIn = false;
