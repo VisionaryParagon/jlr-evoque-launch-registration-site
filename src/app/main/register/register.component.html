@@ -172,20 +172,26 @@
             <br>Mississauga, ON L4V 1A3, Canada</p>
 
           <p>You will receive a confirmation email from <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> with further details about the program. If you do not receive the email, please be sure to check your junk mail.</p>
-        </div>
-    
-        <div class="errorMsg" [@fade]="true" *ngIf="error">
-          <p>Something went wrong... Please make sure you have a WiFi or mobile data connection and try refreshing your&nbsp;browser.</p>
+
+          <button class="lrBtn" (click)="logout()">Logout</button>
         </div>
     
         <div [@fade]="true" *ngIf="registered">
           <p>Our records show that you are already registered for this event. You are registered to attend the event on {{ waveFilter[0] }}, in {{ waveFilter[1] }}. Please contact <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> with any questions related to your registration.</p>
+
+          <button class="lrBtn" (click)="logout()">Logout</button>
         </div>
     
         <div [@fade]="true" *ngIf="full">
           <p>Sorry! Looks like all seats for this event have been filled.</p>
   
           <p>If you think this is an error, or if you have questions about this event, please contact us using the <a routerLink="/contact">Contact Form</a>, via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (800)555-5555.</p>
+
+          <button class="lrBtn" (click)="logout()">Logout</button>
+        </div>
+    
+        <div class="errorMsg" [@fade]="true" *ngIf="error">
+          <p>Something went wrong... Please make sure you have a WiFi or mobile data connection and try refreshing your&nbsp;browser.</p>
         </div>
       </div>
     </div>
