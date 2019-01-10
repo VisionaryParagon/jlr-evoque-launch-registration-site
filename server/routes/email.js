@@ -20,24 +20,30 @@ router.post('/contact', function (req, res) {
 
   // Internal response
   const textContentMsg = `
-    New contact form inquiry from ${data.first_name} ${data.last_name} (${data.email}):
+    New contact form inquiry from ${data.first_name} ${data.last_name} (${data.email}).
 
+    Retailer: ${data.retailer}
+
+    Message:
     ${data.message}
   `;
 
   const htmlContentMsg = `
     <div style="font-size:14px; margin:30px auto 60px; width:640px;">
       <span>
-      New contact form inquiry from ${data.first_name} ${data.last_name} (<a href="mailto:${data.email}">${data.email}</a>):<br><br>
+      New contact form inquiry from ${data.first_name} ${data.last_name} (<a href="mailto:${data.email}">${data.email}</a>).<br><br>
 
+      Retailer: ${data.retailer}<br><br>
+
+      Message:<br>
       ${data.message.split('\n').join('<br>')}
       </span>
     </div>
   `;
 
   const mailOptionsMsg = {
-    from: '"Help Desk" <info@landroverlaunches.com>', // sender address
-    to: '"Help Desk" <info@landroverlaunches.com>', // list of receivers
+    from: '"Land Rover Events Team" <info@landroverlaunches.com>', // sender address
+    to: '"Land Rover Events Team" <info@landroverlaunches.com>', // list of receivers
     replyTo: data.email, // list of replyTo's
     subject: 'Contact Form Inquiry from ' + data.first_name + ' ' + data.last_name, // Subject line
     text: textContentMsg, // plaintext body
@@ -62,11 +68,11 @@ router.post('/contact', function (req, res) {
     We have received your inquiry and will respond within 24 hours.
 
     You may also visit the event website at landroverlaunches.com or call
-    (855) 880-2990, Monday through Friday, 6 a.m.-6p.m. MST, for more information.
+    (800) 555-5555, Monday through Friday, 6 a.m.-6p.m. MST, for more information.
 
     Thank you,
 
-    The New Range Rover Evoque Launch Tour helpline
+    The Land Rover Events Team
   `;
 
   const htmlContentMsg2 = `
@@ -74,19 +80,17 @@ router.post('/contact', function (req, res) {
       <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/landroverlaunches.com/css/fonts.css">
       <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/landroverlaunches.com/css/email-reset.css">
       <div style="margin:30px auto; max-width:768px; min-width:290px; text-align:center; width:90%;">
-        <img src="https://s3-us-west-1.amazonaws.com/landroverlaunches.com/images/land-rover-logo.png" width="230" alt="Land Rover" style="margin:0 auto 15px;">
-        <div style="background:#0c121c; height:2px;"></div>
-        <div style="color:#0c121c; font-family:Apex, Helvetica, Arial, sans-serif; font-weight:400; margin:45px auto 60px; min-height:200px; min-width:200px; text-align:left; width:80%;">
+        <div style="color:#0c121c; font-family:'Avenir LT Std', Arial, Helvetica, sans-serif; font-weight:400; margin:45px auto 60px; min-height:200px; min-width:200px; text-align:left; width:80%;">
           <span style="font-size:14px; line-height:1.4;">
           Thank you for contacting the New Range Rover Evoque Launch Tour&nbsp;helpline.<br><br>
 
           We have received your inquiry and will respond within 24&nbsp;hours.<br><br>
 
-          You may also visit the event website at <a href="https://landroverlaunches.com" target="_blank">landroverlaunches.com</a> or call <a href="tel:(800)555-5555" style="color:#a41f35;">(800)&nbsp;555&#8209;5555</a>, Monday through Friday, 6&nbsp;a.m.&#8209;6&nbsp;p.m. MST, for more&nbsp;information.<br><br>
+          You may also visit the event website at <a href="https://landroverlaunches.com" target="_blank">landroverlaunches.com</a> or call <a href="tel:(800)555-5555" style="color:#0c121c;">(800)&nbsp;555&#8209;5555</a>, Monday through Friday, 6&nbsp;a.m.&#8209;6&nbsp;p.m. MST, for more&nbsp;information.<br><br>
 
           Thank you,<br><br>
 
-          The New Range Rover Evoque Launch Tour&nbsp;helpline
+          The Land Rover Events Team
           </span>
         </div>
       </div>
@@ -94,7 +98,7 @@ router.post('/contact', function (req, res) {
   `;
 
   const mailOptionsMsg2 = {
-    from: '"Help Desk" <info@landroverlaunches.com>', // sender address
+    from: '"Land Rover Events Team" <info@landroverlaunches.com>', // sender address
     to: data.email, // list of receivers
     subject: 'New Range Rover Evoque Launch Tour', // Subject line
     text: textContentMsg2, // plaintext body
@@ -200,17 +204,11 @@ router.post('/confirmation', function (req, res) {
 
     Thank you for registering for the New Range Rover Evoque Launch Tour. Your attendance is confirmed!
 
-    ${waveTextInfo}
-
-    Should you have any questions, please reference our FAQ Page, contact the New Range Rover Evoque Launch Tour helpline at info@landroverlaunches.com or call us at (855) 880-2990, Monday through Friday, 6 a.m.-6 p.m. MST.
-
-    If you provided your mobile phone number, you will receive informational and interactive text blasts leading up to, during and after your event wave.
-
-    We look forward to your participation in the New Range Rover Evoque Launch Tour and the Performance Leadership Summit Reception!
+    Should you have any questions, please reference our FAQ Page, contact the New Range Rover Evoque Launch Tour helpline at info@landroverlaunches.com or call us at (800) 555-5555, Monday through Friday, 6 a.m.-6 p.m. MST.
 
     Thank you,
 
-    The New Range Rover Evoque Launch Tour Team
+    The Land Rover Events Team
   `;
 
   const htmlContent = `
@@ -218,25 +216,17 @@ router.post('/confirmation', function (req, res) {
       <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/landroverlaunches.com/css/fonts.css">
       <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/landroverlaunches.com/css/email-reset.css">
       <div style="margin:30px auto; max-width:768px; min-width:290px; text-align:center; width:90%;">
-        <img src="https://s3-us-west-1.amazonaws.com/landroverlaunches.com/images/land-rover-logo.png" width="230" alt="Land Rover" style="margin:0 auto 15px;">
-        <div style="background:#0c121c; height:2px;"></div>
-        <div style="background-image:url(https://s3-us-west-2.amazonaws.com/landroverlaunches.com/images/quadrifoglio-bg-450.png); background-position:center; background-repeat:no-repeat; color:#0c121c; font-family:Apex, Helvetica, Arial, sans-serif; font-weight:400; margin:45px auto 60px; min-height:200px; min-width:200px; text-align:left; width:80%;">
+        <div style="color:#0c121c; font-family:'Avenir LT Std', Arial, Helvetica, sans-serif; font-weight:400; margin:45px auto 60px; min-height:200px; min-width:200px; text-align:left; width:80%;">
           <span style="font-size:14px; line-height:1.4;">
           Dear ${data.first_name},<br><br>
 
           Thank you for registering for the New Range Rover Evoque Launch Tour. Your attendance is&nbsp;confirmed!<br><br>
 
-          ${waveHtmlInfo}
-
-          Should you have any questions, please reference our <a href="https://landroverlaunches.com/faq" style="color:#a41f35;">FAQ Page</a>, contact the New Range Rover Evoque Launch Tour helpline at <a href="mailto:info@landroverlaunches.com" style="color:#a41f35;">info@landroverlaunches.com</a> or call us at <a href="tel:(800)555-5555" style="color:#a41f35;">(800)&nbsp;555&#8209;5555</a>, Monday through Friday, 6&nbsp;a.m.&#8209;6&nbsp;p.m.&nbsp;MST.<br><br>
-
-          If you provided your mobile phone number, you will receive informational and interactive text blasts leading up to, during and after your event&nbsp;wave.<br><br>
-
-          We look forward to your participation in the New Range Rover Evoque Launch Tour and the Performance Leadership Summit&nbsp;Reception!<br><br>
+          Should you have any questions, please reference our <a href="https://landroverlaunches.com/faq" style="color:#0c121c;">FAQ Page</a>, contact the New Range Rover Evoque Launch Tour helpline at <a href="mailto:info@landroverlaunches.com" style="color:#0c121c;">info@landroverlaunches.com</a> or call us at <a href="tel:(800)555-5555" style="color:#0c121c;">(800)&nbsp;555&#8209;5555</a>, Monday through Friday, 6&nbsp;a.m.&#8209;6&nbsp;p.m.&nbsp;MST.<br><br>
 
           Thank you,<br><br>
 
-          The New Range Rover Evoque Launch Tour&nbsp;Team
+          The Land Rover Events&nbsp;Team
           </span>
         </div>
       </div>
@@ -245,7 +235,7 @@ router.post('/confirmation', function (req, res) {
 
   // send to registrant
   const mailOptions = {
-    from: '"Help Desk" <info@landroverlaunches.com>', // sender address
+    from: '"Land Rover Events Team" <info@landroverlaunches.com>', // sender address
     to: data.email, // list of receivers
     subject: 'Registration Confirmed for ' + data.first_name + ' ' + data.last_name, // Subject line
     text: textContent, // plaintext body
@@ -265,8 +255,8 @@ router.post('/confirmation', function (req, res) {
 
   // send to admin
   const mailOptionsMsg = {
-    from: '"Help Desk" <info@landroverlaunches.com>', // sender address
-    to: '"Help Desk" <info@landroverlaunches.com>', // list of receivers
+    from: '"Land Rover Events Team" <info@landroverlaunches.com>', // sender address
+    to: '"Land Rover Events Team" <info@landroverlaunches.com>', // list of receivers
     replyTo: data.email, // list of replyTo's
     subject: 'Registration Confirmed for ' + data.first_name + ' ' + data.last_name, // Subject line
     text: textContent, // plaintext body
@@ -372,17 +362,11 @@ router.post('/updated', function (req, res) {
 
     Your information has been updated for the New Range Rover Evoque Launch Tour. Your attendance is confirmed!
 
-    ${waveTextInfo}
-
-    Should you have any questions, please reference our FAQ Page, contact the New Range Rover Evoque Launch Tour helpline at info@landroverlaunches.com or call us at (855) 880-2990, Monday through Friday, 6 a.m.-6 p.m. MST.
-
-    If you provided your mobile phone number, you will receive informational and interactive text blasts leading up to, during and after your event wave.
-
-    We look forward to your participation in the New Range Rover Evoque Launch Tour and the Performance Leadership Summit Reception!
+    Should you have any questions, please reference our FAQ Page, contact the New Range Rover Evoque Launch Tour helpline at info@landroverlaunches.com or call us at (800) 555-5555, Monday through Friday, 6 a.m.-6 p.m. MST.
 
     Thank you,
 
-    The New Range Rover Evoque Launch Tour Team
+    The Land Rover Events Team
   `;
 
   const htmlContent = `
@@ -390,25 +374,17 @@ router.post('/updated', function (req, res) {
       <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/landroverlaunches.com/css/fonts.css">
       <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/landroverlaunches.com/css/email-reset.css">
       <div style="margin:30px auto; max-width:768px; min-width:290px; text-align:center; width:90%;">
-        <img src="https://s3-us-west-1.amazonaws.com/landroverlaunches.com/images/land-rover-logo.png" width="230" alt="Land Rover" style="margin:0 auto 15px;">
-        <div style="background:#0c121c; height:2px;"></div>
-        <div style="background-image:url(https://s3-us-west-2.amazonaws.com/landroverlaunches.com/images/quadrifoglio-bg-450.png); background-position:center; background-repeat:no-repeat; color:#0c121c; font-family:Apex, Helvetica, Arial, sans-serif; font-weight:400; margin:45px auto 60px; min-height:200px; min-width:200px; text-align:left; width:80%;">
+        <div style="color:#0c121c; font-family:'Avenir LT Std', Arial, Helvetica, sans-serif; font-weight:400; margin:45px auto 60px; min-height:200px; min-width:200px; text-align:left; width:80%;">
           <span style="font-size:14px; line-height:1.4;">
           Dear ${data.first_name},<br><br>
 
           Your information has been updated for the New Range Rover Evoque Launch Tour. Your attendance is&nbsp;confirmed!<br><br>
 
-          ${waveHtmlInfo}
-
-          Should you have any questions, please reference our <a href="https://landroverlaunches.com/faq" style="color:#a41f35;">FAQ Page</a>, contact the New Range Rover Evoque Launch Tour helpline at <a href="mailto:info@landroverlaunches.com" style="color:#a41f35;">info@landroverlaunches.com</a> or call us at <a href="tel:(800)555-5555" style="color:#a41f35;">(800)&nbsp;555&#8209;5555</a>, Monday through Friday, 6&nbsp;a.m.&#8209;6&nbsp;p.m.&nbsp;MST.<br><br>
-
-          If you provided your mobile phone number, you will receive informational and interactive text blasts leading up to, during and after your event&nbsp;wave.<br><br>
-
-          We look forward to your participation in the New Range Rover Evoque Launch Tour and the Performance Leadership Summit&nbsp;Reception!<br><br>
+          Should you have any questions, please reference our <a href="https://landroverlaunches.com/faq" style="color:#0c121c;">FAQ Page</a>, contact the New Range Rover Evoque Launch Tour helpline at <a href="mailto:info@landroverlaunches.com" style="color:#0c121c;">info@landroverlaunches.com</a> or call us at <a href="tel:(800)555-5555" style="color:#0c121c;">(800)&nbsp;555&#8209;5555</a>, Monday through Friday, 6&nbsp;a.m.&#8209;6&nbsp;p.m.&nbsp;MST.<br><br>
 
           Thank you,<br><br>
 
-          The New Range Rover Evoque Launch Tour&nbsp;Team
+          The Land Rover Events&nbsp;Team
           </span>
         </div>
       </div>
@@ -417,7 +393,7 @@ router.post('/updated', function (req, res) {
 
   // send to registrant
   const mailOptions = {
-    from: '"Help Desk" <info@landroverlaunches.com>', // sender address
+    from: '"Land Rover Events Team" <info@landroverlaunches.com>', // sender address
     to: data.email, // list of receivers
     subject: 'Registration Updated for ' + data.first_name + ' ' + data.last_name, // Subject line
     text: textContent, // plaintext body
@@ -437,8 +413,8 @@ router.post('/updated', function (req, res) {
 
   // send to admin
   const mailOptionsMsg = {
-    from: '"Help Desk" <info@landroverlaunches.com>', // sender address
-    to: '"Help Desk" <info@landroverlaunches.com>', // list of receivers
+    from: '"Land Rover Events Team" <info@landroverlaunches.com>', // sender address
+    to: '"Land Rover Events Team" <info@landroverlaunches.com>', // list of receivers
     replyTo: data.email, // list of replyTo's
     subject: 'Registration Updated for ' + data.first_name + ' ' + data.last_name, // Subject line
     text: textContent, // plaintext body

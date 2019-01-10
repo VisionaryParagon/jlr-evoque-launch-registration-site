@@ -115,7 +115,7 @@
                   </div>
                 </div>
 
-                <p><strong>Please note:</strong> {{ waveNote }}</p>
+                <p>{{ waveNote }}</p>
         
                 <div class="form-group">
                   <label for="diet">Dietary Restrictions</label>
@@ -141,9 +141,37 @@
         <div [@fade]="true" *ngIf="success">
           <h3>Success!</h3>
   
-          <p>Your registration for the New Land Rover Evoque Launch Event is complete. You should receive a confirmation email with all the details shortly.</p>
-          
-          <p>Please keep an eye on your junk/spam folder in case our emails don't make it to your inbox.</p>
+          <p>Thank you for registering for the New Range Rover Evoque North American Launch Training! Your registration has been successfully processed for the training on {{ waveFilter[0] }}, in {{ waveFilter[1] }}, at the following location:</p>
+
+          <p *ngIf="waveFilter[1] === 'Miami, FL'"><strong>Marriott Miami Airport</strong>
+            <br>1201 NW LeJeune Rd Building A
+            <br>Miami, FL 33126</p>
+
+          <p *ngIf="waveFilter[1] === 'Irving, TX'"><strong>Doubletree by Hilton DFW North</strong>
+            <br>4441 W John Carpenter Freeway
+            <br>Irving, TX 75063</p>
+
+          <p *ngIf="waveFilter[1] === 'Rosemont, IL'"><strong>Sheraton Suites O’Hare Airport</strong>
+            <br>6501 Mannheim Rd
+            <br>Rosemont, IL 60018</p>
+
+          <p *ngIf="waveFilter[1] === 'Santa Ana, CA'"><strong>Doubletree by Hilton Santa Ana – Orange County Airport</strong>
+            <br>201 East MacArthur Blvd
+            <br>Santa Ana, CA 92707</p>
+
+          <p *ngIf="waveFilter[1] === 'Oakland, CA'"><strong>Hilton Oakland Airport</strong>
+            <br>1 Hegenberger Rd
+            <br>Oakland, CA 94621</p>
+
+          <p *ngIf="waveFilter[1] === 'Mahwah, NJ'"><strong>Jaguar Land Rover North American Headquarters</strong>
+            <br>100 Jaguar Land Rover Way
+            <br>Mahwah, NJ 07495</p>
+
+          <p *ngIf="waveFilter[1] === 'Toronto, ON'"><strong>Hilton Garden Inn Toronto Airport</strong>
+            <br>3311 Caroga Dr
+            <br>Mississauga, ON L4V 1A3, Canada</p>
+
+          <p>You will receive a confirmation email from <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> with further details about the program. If you do not receive the email, please be sure to check your junk mail.</p>
         </div>
     
         <div class="errorMsg" [@fade]="true" *ngIf="error">
@@ -151,15 +179,13 @@
         </div>
     
         <div [@fade]="true" *ngIf="registered">
-          <p>Our records indicate you have already registered for this event. Please check your confirmation email for the event details.</p>
-  
-          <p>If you think this is an error, or if you have questions about your registration, please contact the JLR Event Support Team using the <a routerLink="/contact">Contact Form</a>, via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (800)555-5555.</p>
+          <p>Our records show that you are already registered for this event. You are registered to attend the event on {{ waveFilter[0] }}, in {{ waveFilter[1] }}. Please contact <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> with any questions related to your registration.</p>
         </div>
     
         <div [@fade]="true" *ngIf="full">
           <p>Sorry! Looks like all seats for this event have been filled.</p>
   
-          <p>If you think this is an error, or if you have questions about this event, please contact the JLR Event Support Team using the <a routerLink="/contact">Contact Form</a>, via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (800)555-5555.</p>
+          <p>If you think this is an error, or if you have questions about this event, please contact us using the <a routerLink="/contact">Contact Form</a>, via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (800)555-5555.</p>
         </div>
       </div>
     </div>

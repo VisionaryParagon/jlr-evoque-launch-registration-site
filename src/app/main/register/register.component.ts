@@ -25,7 +25,8 @@ export class RegisterComponent implements OnInit {
   registered = false;
   full = false;
   anyVal;
-  waveNote = 'insert dynamic note here...';
+  waveNote = '';
+  waveFilter: string[];
   regChecked = false;
   submitted = false;
   loading = false;
@@ -97,12 +98,48 @@ export class RegisterComponent implements OnInit {
         res => {
           this.waves = res;
 
+          this.setWaveNote(res);
+
           this.full = this.testCaps(res);
 
           this.checkFormStatus();
         },
         err => this.showError()
       );
+  }
+
+  setWaveNote(waves) {
+    const wave = waves[0].wave;
+
+    if (wave.indexOf('Miami, FL') !== -1 && this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Marriott Miami Airport. We’ll book a hotel room for you the night PRIOR to your training date.';
+    } else if (wave.indexOf('Miami, FL') !== -1 && !this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Marriott Miami Airport.';
+    } else if (wave.indexOf('Irving, TX') !== -1 && this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Doubletree by Hilton DFW North. We’ll book a hotel room for you the night PRIOR to your training date.';
+    } else if (wave.indexOf('Irving, TX') !== -1 && !this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Doubletree by Hilton DFW North.';
+    } else if (wave.indexOf('Rosemont, IL') !== -1 && this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is theSheraton Suites O’Hare Airport. We’ll book a hotel room for you the night PRIOR to your training date.';
+    } else if (wave.indexOf('Rosemont, IL') !== -1 && !this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Sheraton Suites O’Hare Airport.';
+    } else if (wave.indexOf('Santa Ana, CA') !== -1 && this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Doubletree by Hilton Santa Ana - Orange County Airport. We’ll book a hotel room for you the night PRIOR to your training date.';
+    } else if (wave.indexOf('Santa Ana, CA') !== -1 && !this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Doubletree by Hilton Santa Ana - Orange County Airport.';
+    } else if (wave.indexOf('Oakland, CA') !== -1 && this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Hilton Oakland Airport. We’ll book a hotel room for you the night PRIOR to your training date.';
+    } else if (wave.indexOf('Oakland, CA') !== -1 && !this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Hilton Oakland Airport.';
+    } else if (wave.indexOf('Mahwah, NJ') !== -1 && this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Jaguar Land Rover North American Headquarters. We will book a hotel room for you at the Sheraton Mahwah Hotel the night PRIOR to your training date.';
+    } else if (wave.indexOf('Mahwah, NJ') !== -1 && !this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Jaguar Land Rover North American Headquarters - Mahwah, NJ.';
+    } else if (wave.indexOf('Toronto, ON') !== -1 && this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Hilton Garden Inn Toronto Airport. We’ll book a hotel room for you the night PRIOR to your training date.';
+    } else if (wave.indexOf('Toronto, ON') !== -1 && !this.registrant.hotel) {
+      this.waveNote = 'Your Training Location is the Hilton Garden Inn Toronto Airport.';
+    }
   }
 
   testCaps(caps) {
@@ -162,6 +199,8 @@ export class RegisterComponent implements OnInit {
         .subscribe(
           regRes => {
             this.regService.setCurrentRegistrant(regRes);
+
+            this.waveFilter = this.registrant.wave.split(' - ');
 
             this.emailService.sendConfirmation(regRes)
               .subscribe(
