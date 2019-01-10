@@ -246,6 +246,7 @@ header {
         order: 2;
         padding: 18px 16px 17px;
         position: absolute;
+        text-decoration: none !important;
         top: 0;
         -moz-transition: background-color .25s ease;
         -o-transition: background-color .25s ease;
@@ -254,7 +255,9 @@ header {
 
         fa-icon {
           display: inline-block;
+          text-align: center;
           vertical-align: middle;
+          width: 12px;
         }
 
         .btnLabel {

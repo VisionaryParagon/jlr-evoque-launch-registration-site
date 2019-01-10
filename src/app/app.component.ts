@@ -100,12 +100,14 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
+    this.closeNav();
     this.cookieService.removeAll();
     this.regService.clearCurrentRegistrant();
     this.router.navigate(['/login']);
   }
 
   logoutAdmin() {
+    this.closeNav();
     this.cookieService.removeAll();
     this.adminService.loggedIn = false;
     this.adminService.logout()
