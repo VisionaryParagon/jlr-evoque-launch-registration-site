@@ -5,7 +5,7 @@ const router = express.Router();
 const registrants = require('../models/registrant');
 const employees = require('../models/employee');
 const retailers = require('../models/retailer');
-const waves = require('../models/waves');
+const waves = require('../models/wave');
 
 // login registrant
 router.post('/registrants/login', (req, res) => {

@@ -1,20 +1,20 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
 
-import { Registrant } from '../../services/classes';
-import { RegistrationService } from '../../services/registration.service';
+import { Employee } from '../../services/classes';
+import { EmployeeService } from '../../services/employee.service';
 
 import { FadeAnimation, TopDownAnimation } from '../../animations';
 
 @Component({
-  selector: 'app-registrants',
-  templateUrl: './registrants.component.html',
-  styleUrls: ['./registrants.component.scss'],
+  selector: 'app-employees',
+  templateUrl: './employees.component.html',
+  styleUrls: ['./employees.component.scss'],
   animations: [ FadeAnimation, TopDownAnimation ]
 })
-export class RegistrantsComponent implements OnInit {
-  registrants: Registrant[];
-  dataSource: MatTableDataSource<Registrant>;
+export class EmployeesComponent implements OnInit {
+  employees: Employee[];
+  dataSource: MatTableDataSource<Employee>;
   displayedColumns: string[] = [
     'first_name',
     'last_name',
@@ -22,18 +22,9 @@ export class RegistrantsComponent implements OnInit {
     'jlr_id',
     'job',
     'retailer',
-    'retailer_code',
-    'region_number',
-    'region',
-    'market',
-    'hotel',
-    'wave',
-    'diet',
-    'special',
-    'created',
-    'modified'
+    'region_number'
   ];
-  selectedRegistrant: Registrant;
+  selectedEmployee: Employee;
   loading = true;
   error = false;
 
@@ -42,11 +33,11 @@ export class RegistrantsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-    private regService: RegistrationService
+    private employeeService: EmployeeService
   ) { }
 
   ngOnInit() {
-    this.regService.getRegistrants()
+    this.employeeService.getEmployees()
       .subscribe(
         res => {
           this.dataSource = new MatTableDataSource(res);
@@ -70,8 +61,8 @@ export class RegistrantsComponent implements OnInit {
     this.dataSource.filter = data.trim().toLowerCase();
   }
 
-  select(registrant) {
-    this.selectedRegistrant === registrant ? this.selectedRegistrant = null : this.selectedRegistrant = registrant;
+  select(employee) {
+    this.selectedEmployee === employee ? this.selectedEmployee = null : this.selectedEmployee = employee;
   }
 
   showError() {

@@ -19,7 +19,7 @@ import {
   faArrowDown,
   faBars,
   faEdit,
-  faPlus,
+  faFileExport,
   faSearch,
   faSignOutAlt,
   faTimes,
@@ -32,11 +32,14 @@ import { CookieModule } from 'ngx-cookie';
 // Snippets
 import { ScrollArrowComponent } from './main/snippets/scroll-arrow/scroll-arrow.component';
 
+// Pipes
+import { NoBreakSpacePipe } from './pipes/no-break-space.pipe';
+
 // Icons for fontawesome library
 library.add(faArrowDown);
 library.add(faBars);
 library.add(faEdit);
-library.add(faPlus);
+library.add(faFileExport);
 library.add(faSearch);
 library.add(faSignOutAlt);
 library.add(faTimes);
@@ -60,7 +63,8 @@ library.add(faUserPlus);
     CookieModule.forRoot()
   ],
   declarations: [
-    ScrollArrowComponent
+    ScrollArrowComponent,
+    NoBreakSpacePipe
   ],
   exports: [
     CommonModule,
@@ -76,7 +80,8 @@ library.add(faUserPlus);
     MatTableModule,
     FontAwesomeModule,
     CookieModule,
-    ScrollArrowComponent
+    ScrollArrowComponent,
+    NoBreakSpacePipe
   ]
 })
 export class AppSharedModule { }

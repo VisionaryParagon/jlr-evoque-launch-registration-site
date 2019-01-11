@@ -413,6 +413,10 @@ section {
     }
   }
 
+  &.admin {
+    padding: 78px 0 30px;
+  }
+
   .heroContainer {
     background-color: #fff;
     background-position: center;
@@ -544,6 +548,7 @@ section {
 /*~~  Admin ~~*/
 
 .adminTable {
+  background: #fff;
   overflow: auto;
   width: 100%;
 
@@ -553,7 +558,7 @@ section {
     }
 
     &.selectedRow {
-      background: rgba(187, 22, 43, 0.5);
+      background: rgba(0, 90, 43, 0.5);
     }
 
     td.mat-cell {
@@ -561,7 +566,6 @@ section {
     }
   }
 }
-
 
 /*~~  Material Design Elements ~~*/
 
@@ -754,6 +758,10 @@ table.mat-table {
 
     &:first-of-type {
       padding: 72px 0 0;
+    }
+
+    &.admin {
+      padding: 102px 0 30px;
     }
 
     .heroContainer {

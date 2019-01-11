@@ -32,10 +32,12 @@ mongoose.connect('mongodb://' + process.env.DBUSR + ':' + process.env.DBPWD + '@
 const admin = require('./server/models/admin');
 
 // get routes
-const regRoute = require('./server/routes/registrant');
-const emailRoute = require('./server/routes/email');
 const adminRoute = require('./server/routes/admin');
-const waveRoute = require('./server/routes/waves');
+const emailRoute = require('./server/routes/email');
+const employeeRoute = require('./server/routes/employee');
+const regRoute = require('./server/routes/registrant');
+const retailerRoute = require('./server/routes/retailer');
+const waveRoute = require('./server/routes/wave');
 
 const app = express();
 
@@ -68,9 +70,11 @@ app.all('*', (req, res, next) => {
 });
 
 // API endpoints
-app.use('/reg', regRoute);
-app.use('/eml', emailRoute);
 app.use('/admn', adminRoute);
+app.use('/eml', emailRoute);
+app.use('/emp', employeeRoute);
+app.use('/reg', regRoute);
+app.use('/ret', retailerRoute);
 app.use('/wvs', waveRoute);
 
 // Serve static files from dist folder

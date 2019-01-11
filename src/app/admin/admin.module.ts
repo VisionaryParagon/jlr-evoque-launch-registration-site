@@ -9,6 +9,8 @@ import { AdminComponent } from './admin.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrantsComponent } from './registrants/registrants.component';
 import { WavesComponent } from './waves/waves.component';
+import { RetailersComponent } from './retailers/retailers.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 // Admin components
 
@@ -21,7 +23,9 @@ import { WavesComponent } from './waves/waves.component';
     AdminComponent,
     LoginComponent,
     RegistrantsComponent,
-    WavesComponent
+    WavesComponent,
+    RetailersComponent,
+    EmployeesComponent
   ]
 })
 export class AdminModule { }

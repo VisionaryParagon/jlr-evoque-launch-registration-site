@@ -1,7 +1,7 @@
 <section class="admin" [@fade]="true">
     <div class="container">
       <div #tableFunctions>
-        <h1 class="mt-0 text-center">Waves</h1>
+        <h1 class="mt-0 text-center">Retailers</h1>
   
         <div class="row">
           <div class="col-12 col-sm-6 order-sm-last text-center text-sm-right">
@@ -9,11 +9,11 @@
               <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
               <span class="d-none d-sm-inline-block">&nbsp;New</span>
             </button>
-            <button class="btn btn-warning mb-3 mx-1" [disabled]="!selectedWave">
+            <button class="btn btn-warning mb-3 mx-1" [disabled]="!selectedRetailer">
               <fa-icon [icon]="['fas', 'edit']"></fa-icon>
               <span class="d-none d-sm-inline-block">&nbsp;Edit</span>
             </button>
-            <button class="btn btn-danger mb-3 mx-1" [disabled]="!selectedWave">
+            <button class="btn btn-danger mb-3 mx-1" [disabled]="!selectedRetailer">
               <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
               <span class="d-none d-sm-inline-block">&nbsp;Delete</span>
             </button>
@@ -36,10 +36,16 @@
       <div class="adminTable" #tableContainer>
         <table mat-table [dataSource]="dataSource" matSort>
         
-          <!-- Wave Column -->
-          <ng-container matColumnDef="wave">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Wave </th>
-            <td mat-cell *matCellDef="let element"> {{element.wave | noBreakSpace}} </td>
+          <!-- Retailer Column -->
+          <ng-container matColumnDef="retailer">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Retailer </th>
+            <td mat-cell *matCellDef="let element"> {{element.retailer | noBreakSpace}} </td>
+          </ng-container>
+        
+          <!-- Hotel Column -->
+          <ng-container matColumnDef="hotel">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Hotel </th>
+            <td mat-cell *matCellDef="let element"> {{element.hotel}} </td>
           </ng-container>
         
           <!-- Seats Column -->
@@ -66,8 +72,32 @@
             <td mat-cell *matCellDef="let element" [ngClass]="{ 'text-success': element.rooms_remaining >= element.rooms * 0.25, 'text-warning': element.rooms_remaining < element.rooms * 0.25 && element.rooms_remaining >= element.rooms * 0.1, 'text-danger': element.rooms_remaining < element.rooms * 0.1 }"> {{element.rooms_remaining}} </td>
           </ng-container>
         
+          <!-- Retailer Code Column -->
+          <ng-container matColumnDef="retailer_code">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Retailer&nbsp;Code </th>
+            <td mat-cell *matCellDef="let element"> {{element.retailer_code}} </td>
+          </ng-container>
+        
+          <!-- Region Column -->
+          <ng-container matColumnDef="region">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Region </th>
+            <td mat-cell *matCellDef="let element"> {{element.region}} </td>
+          </ng-container>
+        
+          <!-- Market Column -->
+          <ng-container matColumnDef="market">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Market </th>
+            <td mat-cell *matCellDef="let element"> {{element.market}} </td>
+          </ng-container>
+        
+          <!-- Waves Column -->
+          <ng-container matColumnDef="waves">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Waves </th>
+            <td mat-cell *matCellDef="let element"> {{element.waves.join(', ') | noBreakSpace}} </td>
+          </ng-container>
+        
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.selectedRow]="selectedWave === row" (click)="select(row)"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.selectedRow]="selectedRetailer === row" (click)="select(row)"></tr>
         </table>
       </div>
     </div>

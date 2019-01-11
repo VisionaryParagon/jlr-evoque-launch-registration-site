@@ -49,6 +49,8 @@ export class Retailer {
   hotel: boolean;
   seats: number;
   rooms: number;
+  seats_remaining?: number;
+  rooms_remaining?: number;
   retailer_code: string;
   region: string;
   market: string;
@@ -60,6 +62,8 @@ export class Wave {
   wave: string;
   seats: number;
   rooms: number;
+  seats_remaining?: number;
+  rooms_remaining?: number;
 }
 
 export class Contact {
