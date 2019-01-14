@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { MatSort, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 import { Registrant, Wave } from '../../services/classes';
 import { RegistrationService } from '../../services/registration.service';
@@ -25,12 +25,14 @@ export class WavesComponent implements OnInit {
     'rooms_remaining'
   ];
   selectedWave: Wave;
+  filter = '';
   loading = true;
   error = false;
 
   @ViewChild('tableFunctions') tableFunctions: ElementRef;
   @ViewChild('tableContainer') tableContainer: ElementRef;
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private regService: RegistrationService,
@@ -56,6 +58,7 @@ export class WavesComponent implements OnInit {
                 });
                 this.dataSource = new MatTableDataSource(this.waves);
                 this.dataSource.sort = this.sort;
+                this.dataSource.paginator = this.paginator;
                 this.setHeight();
                 this.loading = false;
               },
@@ -71,11 +74,24 @@ export class WavesComponent implements OnInit {
   }
 
   setHeight() {
-    this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - 132 + 'px';
+    let offset; // header and section padding
+
+    if (window.innerWidth >= 768) {
+      offset = 132;
+    } else {
+      offset = 108;
+    }
+
+    this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
   }
 
-  filter(data) {
+  search(data) {
     this.dataSource.filter = data.trim().toLowerCase();
+  }
+
+  clearFilter() {
+    this.filter = '';
+    this.search(this.filter);
   }
 
   select(wave) {

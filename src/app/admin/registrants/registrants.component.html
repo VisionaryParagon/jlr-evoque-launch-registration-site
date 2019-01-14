@@ -7,24 +7,25 @@
         <div class="col-12 col-sm-6 order-sm-last text-center text-sm-right">
           <button class="btn btn-success mb-3 mx-1">
             <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
-            <span class="d-none d-sm-inline-block">&nbsp;New</span>
+            <span class="d-none d-lg-inline-block">&nbsp;New</span>
           </button>
           <button class="btn btn-warning mb-3 mx-1" [disabled]="!selectedRegistrant">
             <fa-icon [icon]="['fas', 'edit']"></fa-icon>
-            <span class="d-none d-sm-inline-block">&nbsp;Edit</span>
+            <span class="d-none d-lg-inline-block">&nbsp;Edit</span>
           </button>
           <button class="btn btn-danger mb-3 mx-1" [disabled]="!selectedRegistrant">
             <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
-            <span class="d-none d-sm-inline-block">&nbsp;Delete</span>
+            <span class="d-none d-lg-inline-block">&nbsp;Delete</span>
           </button>
           <button class="btn btn-primary mb-3 mx-1">
             <fa-icon [icon]="['fas', 'file-export']"></fa-icon>
-            <span class="d-none d-sm-inline-block">&nbsp;Export</span>
+            <span class="d-none d-lg-inline-block">&nbsp;Export</span>
           </button>
         </div>
-
-        <div class="col-12 col-sm-6 order-sm-first">
-          <input type="text" class="form-control mb-3" placeholder="Search..." (keyup)="filter($event.target.value)">
+  
+        <div class="filter col-12 col-sm-6 order-sm-first">
+          <input type="text" class="form-control mb-3" placeholder="Search..." [(ngModel)]="filter" (keyup)="search($event.target.value)">
+          <button class="btn mb-3" *ngIf="filter.length" (click)="clearFilter()">&times;</button>
         </div>
       </div>
     </div>
@@ -135,6 +136,8 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.selectedRow]="selectedRegistrant === row" (click)="select(row)"></tr>
       </table>
+
+      <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>
     </div>
   </div>
 </section>

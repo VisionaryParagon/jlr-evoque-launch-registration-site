@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { MatSort, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 import { Employee } from '../../services/classes';
 import { EmployeeService } from '../../services/employee.service';
@@ -25,12 +25,14 @@ export class EmployeesComponent implements OnInit {
     'region_number'
   ];
   selectedEmployee: Employee;
+  filter = '';
   loading = true;
   error = false;
 
   @ViewChild('tableFunctions') tableFunctions: ElementRef;
   @ViewChild('tableContainer') tableContainer: ElementRef;
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private employeeService: EmployeeService
@@ -42,6 +44,7 @@ export class EmployeesComponent implements OnInit {
         res => {
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.sort = this.sort;
+          this.dataSource.paginator = this.paginator;
           this.setHeight();
           this.loading = false;
         },
@@ -54,11 +57,24 @@ export class EmployeesComponent implements OnInit {
   }
 
   setHeight() {
-    this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - 132 + 'px';
+    let offset; // header and section padding
+
+    if (window.innerWidth >= 768) {
+      offset = 132;
+    } else {
+      offset = 108;
+    }
+
+    this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
   }
 
-  filter(data) {
+  search(data) {
     this.dataSource.filter = data.trim().toLowerCase();
+  }
+
+  clearFilter() {
+    this.filter = '';
+    this.search(this.filter);
   }
 
   select(employee) {
