@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
 
             if (res.message === 'Login successful!') {
               // Save login status
-              this.adminService.loggedIn = true;
+              // this.adminService.setLoginStatus(true);
 
               // Redirect to saved URL or home
               this.router.navigateByUrl(this.returnUrl);

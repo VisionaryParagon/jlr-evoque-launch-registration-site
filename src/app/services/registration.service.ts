@@ -12,9 +12,11 @@ import { Registrant, Retailer, Options } from './classes';
 export class RegistrationService {
   private regUrl = '/reg/registrants';
   currentRegistrant: Registrant = new Registrant();
-  currentRetailer: Retailer;
+  currentRetailer: Retailer = new Retailer();
   returnUrl: string;
-  loggedIn = false;
+  state = {
+    loggedIn: false
+  };
 
   constructor(
     private http: HttpClient
@@ -25,6 +27,7 @@ export class RegistrationService {
     return this.http.post<any>(this.regUrl + '/login', data)
       .pipe(
         retry(3),
+        tap(res => this.setCurrentRegistrant(res)),
         catchError(this.handleError)
       );
   }
@@ -38,9 +41,24 @@ export class RegistrationService {
       );
   }
 
+  // get loggedIn status
+  getLoginStatus() {
+    return this.state.loggedIn;
+  }
+
+  // set loggedIn status
+  setLoginStatus(status) {
+    this.state.loggedIn = status;
+  }
+
+  // get current registrant
+  getCurrentRegistrant() {
+    return this.currentRegistrant;
+  }
+
   // set current registrant
   setCurrentRegistrant(data) {
-    this.loggedIn = true;
+    this.setLoginStatus(true);
 
     if (data._id) {
       this.currentRegistrant = data;
@@ -70,16 +88,11 @@ export class RegistrationService {
     }
   }
 
-  // get current registrant
-  getCurrentRegistrant() {
-    return this.currentRegistrant;
-  }
-
   // clear current registrant
   clearCurrentRegistrant() {
     this.currentRegistrant = new Registrant();
     this.currentRetailer = new Retailer();
-    this.loggedIn = false;
+    this.setLoginStatus(false);
   }
 
   // get current retailer

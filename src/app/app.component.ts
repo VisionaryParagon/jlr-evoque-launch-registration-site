@@ -22,8 +22,8 @@ declare let ga: Function;
 export class AppComponent implements OnInit {
   lastPoppedUrl: string;
   yScrollStack: number[] = [];
-  isLoggedIn = false;
-  isLoggedInAdmin = false;
+  isLoggedIn = this.regService.state;
+  isLoggedInAdmin = this.adminService.state;
   isLogin = false;
   isAdmin = false;
   navActive = false;
@@ -60,9 +60,6 @@ export class AppComponent implements OnInit {
         } else {
           window.scrollTo(0, 0);
         }
-
-        this.isLoggedIn = this.regService.loggedIn;
-        this.isLoggedInAdmin = this.adminService.loggedIn;
 
         // route checks for nav
         if (ev.urlAfterRedirects.indexOf('/login') !== -1) {
@@ -109,7 +106,6 @@ export class AppComponent implements OnInit {
   logoutAdmin() {
     this.closeNav();
     this.cookieService.removeAll();
-    this.adminService.loggedIn = false;
     this.adminService.logout()
       .subscribe(
         res => this.router.navigate(['/admin/login']),

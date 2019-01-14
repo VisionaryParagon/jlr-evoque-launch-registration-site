@@ -16,7 +16,7 @@ export class AdminLoginGuardService implements CanActivate {
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean>|Promise<boolean>|boolean {
-    if (!this.adminService.loggedIn) {
+    if (!this.adminService.state.loggedIn) {
       return new Promise(resolve => {
         this.adminService.status()
           .subscribe(

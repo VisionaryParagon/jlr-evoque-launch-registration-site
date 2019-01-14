@@ -1,7 +1,7 @@
 <header>
 	<nav [class.open]="navActive">
     <div class="mobileNav">
-      <a class="mobileNavBtn" *ngIf="!isLogin && (isLoggedIn || isLoggedInAdmin)" (click)="toggleNav()">
+      <a class="mobileNavBtn" *ngIf="!isLogin && (isLoggedIn.loggedIn || isLoggedInAdmin.loggedIn)" (click)="toggleNav()">
         <fa-icon *ngIf="!navActive" [icon]="['fas', 'bars']" size="lg"></fa-icon> 
         <fa-icon *ngIf="navActive" [icon]="['fas', 'times']" size="lg"></fa-icon> 
         <span class="btnLabel">MENU</span>
@@ -9,13 +9,13 @@
 
       <a routerLink="/" class="navLogo"><img src="../assets/images/land-rover-logo.png"></a>
 
-      <div class="mobileIcons" *ngIf="!isLogin && (isLoggedIn || isLoggedInAdmin)">
+      <div class="mobileIcons" *ngIf="!isLogin && (isLoggedIn.loggedIn || isLoggedInAdmin.loggedIn)">
         <a routerLink="/register" routerLinkActive="active" *ngIf="!isAdmin"><fa-icon [icon]="['fas', 'user-plus']" size="lg"></fa-icon></a>
         <a (click)="logoutAdmin()" *ngIf="isAdmin"><fa-icon [icon]="['fas', 'sign-out-alt']" size="lg"></fa-icon></a>
       </div>
     </div>
 
-    <div class="navMenu" *ngIf="!isLogin && (isLoggedIn || isLoggedInAdmin)">
+    <div class="navMenu" *ngIf="!isLogin && (isLoggedIn.loggedIn || isLoggedInAdmin.loggedIn)">
       <div *ngIf="!isAdmin">
         <ul class="primaryNav">
           <li><a routerLink="/location" routerLinkActive="active" (click)="closeNav()">LOCATION</a></li>
