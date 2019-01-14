@@ -7,7 +7,7 @@
       </div>
 
       <div class="formContainer">
-        <div *ngIf="!formLoading && !error && !registered && !full && !success">
+        <div *ngIf="!formLoading && !error && !registered && !retailerFull && !waveFull && !success">
           <p>Complete the form below to register for the New Range Rover Evoque Launch Training.</p>
 
           <form #registrationForm="ngForm" novalidate>
@@ -108,7 +108,7 @@
                   <label for="wave">Wave</label>
                   <select class="form-control" id="wave" name="wave" #wave="ngModel" placeholder="Wave" required [(ngModel)]="registrant.wave" (ngModelChange)="hideError()">
                     <option disabled [value]="anyVal">Select Wave</option>
-                    <option *ngFor="let val of waves" [disabled]="val.capped" [value]="val.wave">{{ val.wave }}<span *ngIf="val.capped"> &ndash; Full</span></option>
+                    <option *ngFor="let val of waves" [disabled]="val.retailerCapped || val.waveCapped" [value]="val.wave">{{ val.wave }}<span *ngIf="val.retailerCapped || val.waveCapped"> &ndash; Full</span></option>
                   </select>
                   <div class="errorMsg" [@topDown]="true" *ngIf="wave.errors && (wave.touched || submitted)">
                     <p *ngIf="wave.errors.required">Please select a wave</p>
@@ -176,13 +176,21 @@
           <button class="lrBtn" (click)="logout()">Logout</button>
         </div>
     
-        <div [@fade]="true" *ngIf="registered">
+        <div [@fade]="true" *ngIf="!error && registered">
           <p>Our records show that you are already registered for this event. You are registered to attend the event on {{ waveFilter[0] }}, in {{ waveFilter[1] }}. Please contact <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> with any questions related to your registration.</p>
 
           <button class="lrBtn" (click)="logout()">Logout</button>
         </div>
     
-        <div [@fade]="true" *ngIf="full">
+        <div [@fade]="true" *ngIf="!error && !registered && retailerFull">
+          <p>Your retailer’s allocated number of seats for this training have already been filled, so we are unable to process your registration. More seats may become available at a later date; your retailer will be advised if and when this occurs.</p>
+  
+          <p>If you think this is an error, or if you have questions about this event, please contact us using the <a routerLink="/contact">Contact Form</a>, via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (800)555-5555.</p>
+
+          <button class="lrBtn" (click)="logout()">Logout</button>
+        </div>
+    
+        <div [@fade]="true" *ngIf="!error && !registered && waveFull">
           <p>Sorry! Looks like all seats for this event have been filled.</p>
   
           <p>If you think this is an error, or if you have questions about this event, please contact us using the <a routerLink="/contact">Contact Form</a>, via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (800)555-5555.</p>

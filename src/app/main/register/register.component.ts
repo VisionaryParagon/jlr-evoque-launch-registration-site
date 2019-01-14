@@ -23,7 +23,8 @@ export class RegisterComponent implements OnInit {
   waves: any[];
   formLoading = true;
   registered = false;
-  full = false;
+  retailerFull = false;
+  waveFull = false;
   anyVal;
   waveNote = '';
   waveFilter: string[];
@@ -101,7 +102,7 @@ export class RegisterComponent implements OnInit {
 
           this.setWaveNote(res);
 
-          this.full = this.testCaps(res);
+          this.testCaps(res);
 
           this.checkFormStatus();
         },
@@ -144,10 +145,13 @@ export class RegisterComponent implements OnInit {
   }
 
   testCaps(caps) {
-    if (caps.filter(cap => cap.capped).length === caps.length) {
-      return true;
+    if (caps.filter(cap => cap.retailerCapped).length === caps.length) {
+      this.retailerFull = true;
+    } else if (caps.filter(cap => cap.waveCapped).length === caps.length) {
+      this.waveFull = true;
     } else {
-      return false;
+      this.retailerFull = false;
+      this.waveFull = false;
     }
   }
 
