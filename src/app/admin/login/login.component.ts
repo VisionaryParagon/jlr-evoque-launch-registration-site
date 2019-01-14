@@ -43,10 +43,6 @@ export class LoginComponent implements OnInit {
             this.loading = false;
 
             if (res.message === 'Login successful!') {
-              // Save login status
-              // this.adminService.setLoginStatus(true);
-
-              // Redirect to saved URL or home
               this.router.navigateByUrl(this.returnUrl);
             } else {
               this.invalid = true;
@@ -55,7 +51,7 @@ export class LoginComponent implements OnInit {
           err => {
             this.loading = false;
 
-            if (err.error.name === ('IncorrectUsernameError' || 'IncorrectPasswordError')) {
+            if (err.error.name === 'IncorrectUsernameError' || err.error.name === 'IncorrectPasswordError') {
               this.invalid = true;
             } else {
               this.showError();
