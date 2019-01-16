@@ -17,8 +17,6 @@ import { FadeAnimation } from '../../animations';
 export class FaqComponent implements OnInit {
   registrant: Registrant = this.regService.getCurrentRegistrant();
   regId: string = this.cookieService.get('regId');
-  bgImage = '../../../assets/images/evoque-home-bg.jpg';
-  showBox = false;
 
   constructor(
     private router: Router,
@@ -27,10 +25,6 @@ export class FaqComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.showBox = true;
-    }, 500);
-
     if (this.regId && !this.registrant.jlr_id) {
       this.registrant.jlr_id = this.regId;
       this.regService.loginRegistrant(this.registrant)

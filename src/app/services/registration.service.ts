@@ -27,7 +27,6 @@ export class RegistrationService {
     return this.http.post<any>(this.regUrl + '/login', data)
       .pipe(
         retry(3),
-        tap(res => this.setCurrentRegistrant(res)),
         catchError(this.handleError)
       );
   }

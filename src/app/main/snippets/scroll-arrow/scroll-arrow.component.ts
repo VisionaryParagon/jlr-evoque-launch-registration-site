@@ -28,7 +28,7 @@ export class ScrollArrowComponent implements OnInit {
     } else {
       scrl -= 72;
     }
-    console.log('scrolling to', scrl);
+    // console.log('scrolling to', scrl);
     window.scrollTo({top: scrl, left: 0, behavior: 'smooth'});
   }
 
