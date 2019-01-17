@@ -33,6 +33,8 @@ export class RegisterComponent implements OnInit {
   loading = false;
   success = false;
   invalid = false;
+  waveError = false;
+  waveErr = '';
   error = false;
   err = '';
 
@@ -200,21 +202,45 @@ export class RegisterComponent implements OnInit {
     if (isValid) {
       this.loading = true;
 
-      this.regService.createRegistrant(data)
+      this.regService.getCaps(this.retailer)
         .subscribe(
-          regRes => {
-            this.regService.setCurrentRegistrant(regRes);
+          capRes => {
+            const capCheck = capRes.filter(cap => cap.wave === data.wave)[0];
 
-            this.waveFilter = this.registrant.wave.split(' - ');
+            if (capRes.filter(cap => cap.retailerCapped).length === capRes.length) {
+              this.retailerFull = true;
+              this.loading = false;
+            } else if (capRes.filter(cap => cap.waveCapped).length === capRes.length) {
+              this.waveFull = true;
+              this.loading = false;
+            } else if (capCheck.waveCapped) {
+              this.waves = capRes;
+              this.waveError = true;
+              this.waveErr = 'The wave you selected has just been filled. Please select another wave.';
+              this.loading = false;
+            } else {
+              this.retailerFull = false;
+              this.waveFull = false;
 
-            this.emailService.sendConfirmation(regRes)
-              .subscribe(
-                emlRes => {
-                  this.loading = false;
-                  this.success = true;
-                },
-                err => this.showError()
-              );
+              this.regService.createRegistrant(data)
+                .subscribe(
+                  regRes => {
+                    this.regService.setCurrentRegistrant(regRes);
+
+                    this.waveFilter = this.registrant.wave.split(' - ');
+
+                    this.emailService.sendConfirmation(regRes)
+                      .subscribe(
+                        emlRes => {
+                          this.loading = false;
+                          this.success = true;
+                        },
+                        err => this.showError()
+                      );
+                  },
+                  err => this.showError()
+                );
+            }
           },
           err => this.showError()
         );
@@ -229,6 +255,8 @@ export class RegisterComponent implements OnInit {
 
   hideError() {
     this.invalid = false;
+    this.waveError = false;
+    this.waveErr = '';
     this.error = false;
     this.err = '';
   }

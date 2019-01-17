@@ -104,7 +104,7 @@
 
                 <p>Fill out the rest of the form below and hit Submit to complete your registration.</p>
   
-                <div class="form-group" [class.nope]="wave.errors && (wave.touched || submitted)">
+                <div class="form-group" [class.nope]="waveError || (wave.errors && (wave.touched || submitted))">
                   <label for="wave">Wave</label>
                   <select class="form-control" id="wave" name="wave" #wave="ngModel" placeholder="Wave" required [(ngModel)]="registrant.wave" (ngModelChange)="hideError()">
                     <option disabled [value]="anyVal">Select Wave</option>
@@ -112,6 +112,9 @@
                   </select>
                   <div class="errorMsg" [@topDown]="true" *ngIf="wave.errors && (wave.touched || submitted)">
                     <p *ngIf="wave.errors.required">Please select a wave</p>
+                  </div>
+                  <div class="errorMsg" [@topDown]="true" *ngIf="waveError">
+                    <p>{{ waveErr }}</p>
                   </div>
                 </div>
 
