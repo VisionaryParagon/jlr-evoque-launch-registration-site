@@ -92,6 +92,7 @@ export class WaveFormComponent implements OnInit {
                 this.loading = false;
                 this.success = true;
               } else {
+                this.loading = false;
                 this.invalid = true;
                 this.err = 'Wave already exists';
               }

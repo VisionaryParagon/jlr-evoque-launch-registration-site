@@ -33,7 +33,7 @@ router.post('/waves', (req, res) => {
     wave: req.body.wave
   }, (findErr, findData) => {
     if (findErr) return res.status(500).send(findErr);
-    if (findData.length > 0) return res.status(200).send({});
+    if (findData.length > 0) return res.status(200).send({ retailer: 'Wave already exists' });
 
     waves.create(req.body, (err, data) => {
       if (err) return res.status(500).send(err);
