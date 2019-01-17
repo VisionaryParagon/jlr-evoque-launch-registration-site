@@ -1,11 +1,15 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 import { Registrant, Wave } from '../../services/classes';
 import { RegistrationService } from '../../services/registration.service';
 import { WaveService } from '../../services/wave.service';
 
 import { FadeAnimation, TopDownAnimation } from '../../animations';
+
+import { WaveFormComponent } from '../modals/wave-form/wave-form.component';
+import { WaveDeleteComponent } from '../modals/wave-delete/wave-delete.component';
+import { WaveCsvComponent } from '../csv/wave-csv/wave-csv.component';
 
 @Component({
   selector: 'app-waves',
@@ -24,7 +28,7 @@ export class WavesComponent implements OnInit {
     'rooms',
     'rooms_remaining'
   ];
-  selectedWave: Wave;
+  selectedWave: Wave = new Wave();
   filter = '';
   loading = true;
   error = false;
@@ -35,11 +39,32 @@ export class WavesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
+    public dialog: MatDialog,
     private regService: RegistrationService,
     private waveService: WaveService
   ) { }
 
   ngOnInit() {
+    this.getWaves();
+  }
+
+  @HostListener('window:resize') resize() {
+    this.setHeight();
+  }
+
+  setHeight() {
+    let offset; // header and section padding
+
+    if (window.innerWidth >= 768) {
+      offset = 132;
+    } else {
+      offset = 108;
+    }
+
+    this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
+  }
+
+  getWaves() {
     this.waveService.getWaves()
       .subscribe(
         wvRes => {
@@ -59,6 +84,7 @@ export class WavesComponent implements OnInit {
                 this.dataSource = new MatTableDataSource(this.waves);
                 this.dataSource.sort = this.sort;
                 this.dataSource.paginator = this.paginator;
+                this.search(this.filter);
                 this.setHeight();
                 this.loading = false;
               },
@@ -67,22 +93,6 @@ export class WavesComponent implements OnInit {
         },
         err => this.showError()
       );
-  }
-
-  @HostListener('window:resize') resize() {
-    this.setHeight();
-  }
-
-  setHeight() {
-    let offset; // header and section padding
-
-    if (window.innerWidth >= 768) {
-      offset = 132;
-    } else {
-      offset = 108;
-    }
-
-    this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
   }
 
   search(data) {
@@ -95,7 +105,61 @@ export class WavesComponent implements OnInit {
   }
 
   select(wave) {
-    this.selectedWave === wave ? this.selectedWave = null : this.selectedWave = wave;
+    this.selectedWave === wave ? this.selectedWave = new Wave() : this.selectedWave = wave;
+  }
+
+  newWave() {
+    const dialogRef = this.dialog.open(WaveFormComponent, {
+      data: new Wave(),
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedWave = new Wave();
+          this.getWaves();
+        }
+      );
+  }
+
+  editWave(wave) {
+    const dialogRef = this.dialog.open(WaveFormComponent, {
+      data: wave,
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedWave = new Wave();
+          this.getWaves();
+        }
+      );
+  }
+
+  deleteWave(wave) {
+    const dialogRef = this.dialog.open(WaveDeleteComponent, {
+      data: wave,
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedWave = new Wave();
+          this.getWaves();
+        }
+      );
   }
 
   showError() {

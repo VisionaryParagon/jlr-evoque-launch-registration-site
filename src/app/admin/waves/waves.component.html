@@ -5,22 +5,19 @@
   
         <div class="row">
           <div class="col-12 col-sm-6 order-sm-last text-center text-sm-right">
-            <button class="btn btn-success mb-3 mx-1">
+            <button class="btn btn-success mb-3 mx-1" (click)="newWave()">
               <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
               <span class="d-none d-lg-inline-block">&nbsp;New</span>
             </button>
-            <button class="btn btn-warning mb-3 mx-1" [disabled]="!selectedWave">
+            <button class="btn btn-warning mb-3 mx-1" [disabled]="!selectedWave._id" (click)="editWave(selectedWave)">
               <fa-icon [icon]="['fas', 'edit']"></fa-icon>
               <span class="d-none d-lg-inline-block">&nbsp;Edit</span>
             </button>
-            <button class="btn btn-danger mb-3 mx-1" [disabled]="!selectedWave">
+            <button class="btn btn-danger mb-3 mx-1" [disabled]="!selectedWave._id" (click)="deleteWave(selectedWave)">
               <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
               <span class="d-none d-lg-inline-block">&nbsp;Delete</span>
             </button>
-            <button class="btn btn-primary mb-3 mx-1">
-              <fa-icon [icon]="['fas', 'file-export']"></fa-icon>
-              <span class="d-none d-lg-inline-block">&nbsp;Export</span>
-            </button>
+            <app-wave-csv [data]="waves"></app-wave-csv>
           </div>
   
           <div class="filter col-12 col-sm-6 order-sm-first">

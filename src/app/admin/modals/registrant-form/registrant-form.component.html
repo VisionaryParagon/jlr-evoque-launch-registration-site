@@ -1,0 +1,188 @@
+<h1 mat-dialog-title *ngIf="!edit">New Registrant</h1>
+<h1 mat-dialog-title *ngIf="edit">Editing {{ registrant.first_name }} {{ registrant.last_name }}</h1>
+
+<button class="mat-dialog-close" (click)="closeDialog()">&times;</button>
+
+<form #registrationForm="ngForm" novalidate>
+  <div mat-dialog-content>
+    <mat-horizontal-stepper #stepper *ngIf="!error && !retailerFull && !waveFull && !success" [selectedIndex]="selectedIndex">
+      <mat-step>
+        <div class="container" *ngIf="!edit">
+          <div class="form-group" [class.nope]="invalid || (jlr_id.errors && (jlr_id.touched || regChecked))">
+            <label for="jlr_id">Training ID</label>
+            <input type="text" class="form-control" id="jlr_id" name="jlr_id" #jlr_id="ngModel" autocomplete="off" placeholder="Training ID" required [(ngModel)]="registrant.jlr_id" (ngModelChange)="hideError(); changed()">
+            <div class="errorMsg" [@topDown]="true" *ngIf="jlr_id.errors && (jlr_id.touched || regChecked)">
+              <p *ngIf="jlr_id.errors.required">Training ID is required</p>
+            </div>
+            <div class="errorMsg" [@topDown]="true" *ngIf="invalid">
+              <p>{{ err }}</p>
+            </div>
+          </div>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <div class="pageLoader" *ngIf="formLoading">
+          <mat-spinner class="mx-auto"></mat-spinner>
+        </div>
+
+        <div class="container" *ngIf="!formLoading">
+          <div class="form-group" [class.nope]="(first_name.errors && last_name.errors) && (first_name.touched || last_name.touched || submitted)">
+            <label for="first_name">Name</label>
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <input type="text" class="form-control" id="first_name" name="first_name" #first_name="ngModel" autocomplete="off" placeholder="First" required [(ngModel)]="registrant.first_name" (ngModelChange)="hideError(); changed()">
+                <div class="errorMsg" [@topDown]="true" *ngIf="first_name.errors && (first_name.touched || submitted)">
+                  <p *ngIf="first_name.errors.required">First Name is required</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <input type="text" class="form-control" id="last_name" name="last_name" #last_name="ngModel" autocomplete="off" placeholder="Last" required [(ngModel)]="registrant.last_name" (ngModelChange)="hideError(); changed()">
+                <div class="errorMsg" [@topDown]="true" *ngIf="last_name.errors && (last_name.touched || submitted)">
+                  <p *ngIf="last_name.errors.required">Last Name is required</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-group" [class.nope]="email.errors && (email.touched || submitted)">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" #email="ngModel" autocomplete="off" placeholder="name@domain.com" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" required [(ngModel)]="registrant.email" (ngModelChange)="hideError(); changed()">
+                <div class="errorMsg" [@topDown]="true" *ngIf="email.errors && (email.touched || submitted)">
+                  <p *ngIf="email.errors.required">Email Address is required</p>
+                  <p *ngIf="email.errors.pattern">Email Address is invalid</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group" [class.nope]="invalid || (jlr_id_edit.errors && (jlr_id_edit.touched || submitted))">
+                <label for="jlr_id_edit">Training ID</label>
+                <input type="text" class="form-control" id="jlr_id_edit" name="jlr_id_edit" #jlr_id_edit="ngModel" autocomplete="off" placeholder="Training ID" required disabled [(ngModel)]="registrant.jlr_id" (ngModelChange)="hideError(); changed()">
+                <div class="errorMsg" [@topDown]="true" *ngIf="jlr_id_edit.errors && (jlr_id_edit.touched || submitted)">
+                  <p *ngIf="jlr_id_edit.errors.required">Training ID is required</p>
+                </div>
+                <div class="errorMsg" [@topDown]="true" *ngIf="invalid">
+                  <p>{{ err }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-group" [class.nope]="job.errors && (job.touched || submitted)">
+                <label for="job">Job Title</label>
+                <select class="form-control" id="job" name="job" #job="ngModel" placeholder="Job Title" required [(ngModel)]="registrant.job" (ngModelChange)="hideError(); changed()">
+                  <option [value]="anyVal">Select Job Title</option>
+                  <option *ngFor="let val of options.jobs" [value]="val">{{ val }}</option>
+                </select>
+                <div class="errorMsg" [@topDown]="true" *ngIf="job.errors && (job.touched || submitted)">
+                  <p *ngIf="job.errors.required">Job Title is required</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group" [class.nope]="retailer.errors && (retailer.touched || submitted)">
+                <label for="retailer">Retailer</label>
+                <select class="form-control" id="retailer" name="retailer" #retailer="ngModel" placeholder="Retailer Name" required [(ngModel)]="registrant.retailer" (ngModelChange)="hideError(); changed()">
+                  <option [value]="anyVal">Select Retailer</option>
+                  <option *ngFor="let val of options.retailers" [value]="val">{{ val }}</option>
+                </select>
+                <div class="errorMsg" [@topDown]="true" *ngIf="retailer.errors && (retailer.touched || submitted)">
+                  <p *ngIf="retailer.errors.required">Retailer is required</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" [class.nope]="wave.errors && (wave.touched || submitted)">
+            <label for="wave">Wave</label>
+            <select class="form-control" id="wave" name="wave" #wave="ngModel" placeholder="Wave" required [(ngModel)]="registrant.wave" (ngModelChange)="hideError(); changed()">
+              <option disabled [value]="anyVal">Select Wave</option>
+              <option *ngFor="let val of waves" [disabled]="val.waveCapped" [value]="val.wave">{{ val.wave }}<span *ngIf="val.waveCapped"> &ndash; Full</span></option>
+            </select>
+            <div class="errorMsg" [@topDown]="true" *ngIf="wave.errors && (wave.touched || submitted)">
+              <p *ngIf="wave.errors.required">Please select a wave</p>
+            </div>
+          </div>
+
+          <p>{{ waveNote }}</p>
+
+          <div class="form-group">
+            <label for="diet">Dietary Restrictions</label>
+            <input type="text" class="form-control" id="diet" name="diet" #diet="ngModel" [(ngModel)]="registrant.diet" (ngModelChange)="hideError(); changed()">
+          </div>
+
+          <div class="form-group">
+            <label for="special">Special Needs</label>
+            <input type="text" class="form-control" id="special" name="special" #special="ngModel" [(ngModel)]="registrant.special" (ngModelChange)="hideError(); changed()">
+          </div>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  
+    <div [@fade]="true" *ngIf="success">
+      <h3>Success!</h3>
+
+      <p>{{ registrant.first_name }}’s registration has been successfully processed for the training on {{ waveFilter[0] }}, in {{ waveFilter[1] }}, at the following location:</p>
+
+      <p *ngIf="waveFilter[1] === 'Miami, FL'"><strong>Marriott Miami Airport</strong>
+        <br>1201 NW LeJeune Rd Building A
+        <br>Miami, FL 33126</p>
+
+      <p *ngIf="waveFilter[1] === 'Irving, TX'"><strong>Doubletree by Hilton DFW North</strong>
+        <br>4441 W John Carpenter Freeway
+        <br>Irving, TX 75063</p>
+
+      <p *ngIf="waveFilter[1] === 'Rosemont, IL'"><strong>Sheraton Suites O’Hare Airport</strong>
+        <br>6501 Mannheim Rd
+        <br>Rosemont, IL 60018</p>
+
+      <p *ngIf="waveFilter[1] === 'Santa Ana, CA'"><strong>Doubletree by Hilton Santa Ana – Orange County Airport</strong>
+        <br>201 East MacArthur Blvd
+        <br>Santa Ana, CA 92707</p>
+
+      <p *ngIf="waveFilter[1] === 'Oakland, CA'"><strong>Hilton Oakland Airport</strong>
+        <br>1 Hegenberger Rd
+        <br>Oakland, CA 94621</p>
+
+      <p *ngIf="waveFilter[1] === 'Mahwah, NJ'"><strong>Jaguar Land Rover North American Headquarters</strong>
+        <br>100 Jaguar Land Rover Way
+        <br>Mahwah, NJ 07495</p>
+
+      <p *ngIf="waveFilter[1] === 'Toronto, ON'"><strong>Hilton Garden Inn Toronto Airport</strong>
+        <br>3311 Caroga Dr
+        <br>Mississauga, ON L4V 1A3, Canada</p>
+
+      <p>A confirmation email has been sent to {{ registrant.email }} with further details about the program.</p>
+    </div>
+
+    <div class="errorMsg" [@fade]="true" *ngIf="error">
+      <p>Something went wrong... Please make sure you have a WiFi or mobile data connection and try refreshing your&nbsp;browser.</p>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <div class="d-flex" *ngIf="!success">
+      <button class="lrBtn dialog secondary" type="button" (click)="closeDialog()">Cancel</button>
+      <button class="lrBtn dialog" *ngIf="selectedIndex === 0" [disabled]="loading" (click)="checkReg(registrant, registrationForm)">
+        <span *ngIf="!loading">Next</span>
+        <span *ngIf="loading">
+          <mat-spinner class="mx-auto" [diameter]="20" [strokeWidth]="3"></mat-spinner>
+        </span>
+      </button>
+      <button class="lrBtn dialog" *ngIf="selectedIndex === 1" [disabled]="loading" (click)="submit(registrant, registrationForm.valid)">
+        <span *ngIf="!loading">Submit</span>
+        <span *ngIf="loading">
+          <mat-spinner class="mx-auto" [diameter]="20" [strokeWidth]="3"></mat-spinner>
+        </span>
+      </button>
+    </div>
+    <div class="d-flex" *ngIf="success">
+      <button class="lrBtn dialog" type="button" (click)="closeDialog()">Close</button>
+    </div>
+  </div>
+</form>

@@ -1,10 +1,14 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 import { Registrant } from '../../services/classes';
 import { RegistrationService } from '../../services/registration.service';
 
 import { FadeAnimation, TopDownAnimation } from '../../animations';
+
+import { RegistrantFormComponent } from '../modals/registrant-form/registrant-form.component';
+import { RegistrantDeleteComponent } from '../modals/registrant-delete/registrant-delete.component';
+import { RegistrantCsvComponent } from '../csv/registrant-csv/registrant-csv.component';
 
 @Component({
   selector: 'app-registrants',
@@ -33,7 +37,7 @@ export class RegistrantsComponent implements OnInit {
     'created',
     'modified'
   ];
-  selectedRegistrant: Registrant;
+  selectedRegistrant: Registrant = new Registrant();
   filter = '';
   loading = true;
   error = false;
@@ -44,21 +48,12 @@ export class RegistrantsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
+    public dialog: MatDialog,
     private regService: RegistrationService
   ) { }
 
   ngOnInit() {
-    this.regService.getRegistrants()
-      .subscribe(
-        res => {
-          this.dataSource = new MatTableDataSource(res);
-          this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator;
-          this.setHeight();
-          this.loading = false;
-        },
-        err => this.showError()
-      );
+    this.getRegistrants();
   }
 
   @HostListener('window:resize') resize() {
@@ -77,6 +72,22 @@ export class RegistrantsComponent implements OnInit {
     this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
   }
 
+  getRegistrants() {
+    this.regService.getRegistrants()
+      .subscribe(
+        res => {
+          this.registrants = res;
+          this.dataSource = new MatTableDataSource(res);
+          this.dataSource.sort = this.sort;
+          this.dataSource.paginator = this.paginator;
+          this.search(this.filter);
+          this.setHeight();
+          this.loading = false;
+        },
+        err => this.showError()
+      );
+  }
+
   search(data) {
     this.dataSource.filter = data.trim().toLowerCase();
   }
@@ -87,11 +98,66 @@ export class RegistrantsComponent implements OnInit {
   }
 
   select(registrant) {
-    this.selectedRegistrant === registrant ? this.selectedRegistrant = null : this.selectedRegistrant = registrant;
+    this.selectedRegistrant === registrant ? this.selectedRegistrant = new Registrant() : this.selectedRegistrant = registrant;
+  }
+
+  newReg() {
+    const dialogRef = this.dialog.open(RegistrantFormComponent, {
+      data: new Registrant(),
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedRegistrant = new Registrant();
+          this.getRegistrants();
+        }
+      );
+  }
+
+  editReg(registrant) {
+    const dialogRef = this.dialog.open(RegistrantFormComponent, {
+      data: registrant,
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedRegistrant = new Registrant();
+          this.getRegistrants();
+        }
+      );
+  }
+
+  deleteReg(registrant) {
+    const dialogRef = this.dialog.open(RegistrantDeleteComponent, {
+      data: registrant,
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedRegistrant = new Registrant();
+          this.getRegistrants();
+        }
+      );
   }
 
   showError() {
     this.error = true;
+    this.loading = false;
   }
 
   hideError() {

@@ -41,6 +41,15 @@ export class EmailService {
       );
   }
 
+  // send deleted confirmation email
+  sendDeleted(registrant) {
+    return this.http.post(this.emailUrlRoot + 'deleted', registrant)
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

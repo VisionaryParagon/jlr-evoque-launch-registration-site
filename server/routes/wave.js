@@ -29,9 +29,16 @@ router.get('/waves/:id', (req, res) => {
 // create new wave
 router.post('/waves', (req, res) => {
   if (!req.isAuthenticated()) return res.status(401).send({ message: 'User is not authenticated' });
-  waves.create(req.body, (err, data) => {
-    if (err) return res.status(500).send(err);
-    return res.status(200).send(data);
+  waves.find({
+    wave: req.body.wave
+  }, (findErr, findData) => {
+    if (findErr) return res.status(500).send(findErr);
+    if (findData.length > 0) return res.status(200).send({});
+
+    waves.create(req.body, (err, data) => {
+      if (err) return res.status(500).send(err);
+      return res.status(200).send(data);
+    });
   });
 });
 
@@ -39,7 +46,7 @@ router.post('/waves', (req, res) => {
 router.delete('/waves/:id', (req, res) => {
   if (!req.isAuthenticated()) return res.status(401).send({ message: 'User is not authenticated' });
   waves.findByIdAndRemove(req.params.id, (err, data) => {
-    let deleted = {
+    const deleted = {
       message: 'Wave deleted'
     };
     if (err) return res.status(500).send(err);
