@@ -331,7 +331,7 @@ router.post('/confirmation', function (req, res) {
       <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.</li>
       <li style="Margin:0;"><strong>Doubletree by Hilton DFW North</strong> offers complimentary shuttle transportation to and from DFW airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.)
         <ul style="padding: 0; Margin: 0 0 0 25px;">
-          <li style="Margin:0;">Shuttle Instructions: Shuttle Instructions: Once you have landed and retrieved your bag from baggage claim, call <a href="tel:(972)929-8181" style="color:#0c121c;">(972)&nbsp;929#8209;8181</a> to have the hotel shuttle pick you up at the nearest pickup point. A shuttle driver should meet you within 30&nbsp;minutes.</li>
+          <li style="Margin:0;">Shuttle Instructions: Shuttle Instructions: Once you have landed and retrieved your bag from baggage claim, call <a href="tel:(972)929-8181" style="color:#0c121c;">(972)&nbsp;929&#8209;8181</a> to have the hotel shuttle pick you up at the nearest pickup point. A shuttle driver should meet you within 30&nbsp;minutes.</li>
         </ul>
       </li>
     </ul><br>
@@ -1461,7 +1461,7 @@ router.post('/updated', function (req, res) {
       <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.</li>
       <li style="Margin:0;"><strong>Doubletree by Hilton DFW North</strong> offers complimentary shuttle transportation to and from DFW airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.)
         <ul style="padding: 0; Margin: 0 0 0 25px;">
-          <li style="Margin:0;">Shuttle Instructions: Shuttle Instructions: Once you have landed and retrieved your bag from baggage claim, call <a href="tel:(972)929-8181" style="color:#0c121c;">(972)&nbsp;929#8209;8181</a> to have the hotel shuttle pick you up at the nearest pickup point. A shuttle driver should meet you within 30&nbsp;minutes.</li>
+          <li style="Margin:0;">Shuttle Instructions: Shuttle Instructions: Once you have landed and retrieved your bag from baggage claim, call <a href="tel:(972)929-8181" style="color:#0c121c;">(972)&nbsp;929&#8209;8181</a> to have the hotel shuttle pick you up at the nearest pickup point. A shuttle driver should meet you within 30&nbsp;minutes.</li>
         </ul>
       </li>
     </ul><br>

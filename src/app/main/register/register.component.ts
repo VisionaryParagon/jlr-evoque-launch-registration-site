@@ -124,7 +124,7 @@ export class RegisterComponent implements OnInit {
     } else if (wave.indexOf('Irving, TX') !== -1 && !this.registrant.hotel) {
       this.waveNote = 'Your Training Location is the Doubletree by Hilton DFW North.';
     } else if (wave.indexOf('Rosemont, IL') !== -1 && this.registrant.hotel) {
-      this.waveNote = 'Your Training Location is theSheraton Suites O’Hare Airport. We’ll book a hotel room for you the night PRIOR to your training date.';
+      this.waveNote = 'Your Training Location is the Sheraton Suites O’Hare Airport. We’ll book a hotel room for you the night PRIOR to your training date.';
     } else if (wave.indexOf('Rosemont, IL') !== -1 && !this.registrant.hotel) {
       this.waveNote = 'Your Training Location is the Sheraton Suites O’Hare Airport.';
     } else if (wave.indexOf('Santa Ana, CA') !== -1 && this.registrant.hotel) {
