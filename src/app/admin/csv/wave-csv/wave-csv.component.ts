@@ -1,13 +1,4 @@
 import { Component, Input, Renderer } from '@angular/core';
-import { DatePipe } from '@angular/common';
-
-import * as moment from 'moment';
-
-class DateTimePipe extends DatePipe {
-  public transform(value): any {
-    return super.transform(value, 'MMMM d, y, h:mm:ss a');
-  }
-}
 
 import { Wave } from '../../../services/classes';
 
@@ -66,15 +57,10 @@ export class WaveCsvComponent {
       tabText += '\r\n';
     }
 
-    this.data.reverse().forEach(d => {
+    this.data.forEach(d => {
       keys.forEach(k => {
         if (d.hasOwnProperty(k) && d[k] != null) {
-          if (moment(d[k], moment.ISO_8601, true).isValid()) {
-            const pipe = new DateTimePipe('en-US');
-            tabText += '"' + pipe.transform(d[k]) + '",';
-          } else {
-            tabText += '"' + d[k] + '",';
-          }
+          tabText += '"' + d[k] + '",';
         } else {
           tabText += '"",';
         }
