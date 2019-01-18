@@ -167,6 +167,7 @@
   </div>
   <div mat-dialog-actions>
     <div class="d-flex" *ngIf="!success">
+      <p class="errorMsg" [@fade]="true" *ngIf="(!registrationForm.valid || invalid) && submitted">Please fix errors above</p>
       <button class="lrBtn dialog secondary" type="button" (click)="closeDialog()">Cancel</button>
       <button class="lrBtn dialog" *ngIf="selectedIndex === 0" [disabled]="loading" (click)="checkReg(registrant, registrationForm)">
         <span *ngIf="!loading">Next</span>

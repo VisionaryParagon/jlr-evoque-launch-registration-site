@@ -62,6 +62,7 @@
   </div>
   <div mat-dialog-actions>
     <div class="d-flex" *ngIf="!success">
+      <p class="errorMsg" [@fade]="true" *ngIf="(!waveForm.valid || invalid) && submitted">Please fix errors above</p>
       <button class="lrBtn dialog secondary" type="button" (click)="closeDialog()">Cancel</button>
       <button class="lrBtn dialog" [disabled]="loading" (click)="submit(wave, waveForm.valid)">
         <span *ngIf="!loading">Submit</span>
