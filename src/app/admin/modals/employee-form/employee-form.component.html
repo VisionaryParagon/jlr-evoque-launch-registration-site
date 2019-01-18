@@ -5,11 +5,7 @@
 
 <form #employeeForm="ngForm" novalidate>
   <div mat-dialog-content>
-    <div class="pageLoader" *ngIf="formLoading">
-      <mat-spinner class="mx-auto"></mat-spinner>
-    </div>
-
-    <div class="container" *ngIf="!error && !success && !formLoading">
+    <div class="container" *ngIf="!error && !success">
       <div class="form-group" [class.nope]="(first_name.errors && last_name.errors) && (first_name.touched || last_name.touched || submitted)">
         <label for="first_name">Name</label>
         <div class="row">

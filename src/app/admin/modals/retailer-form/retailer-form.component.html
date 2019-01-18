@@ -5,11 +5,7 @@
 
 <form #retailerForm="ngForm" novalidate>
   <div mat-dialog-content>
-    <div class="pageLoader" *ngIf="formLoading">
-      <mat-spinner class="mx-auto"></mat-spinner>
-    </div>
-
-    <div class="container" *ngIf="!error && !success && !formLoading">
+    <div class="container" *ngIf="!error && !success">
       <div class="form-group" [class.nope]="invalid || (name.errors && (name.touched || submitted))">
         <label for="name">Retailer</label>
         <input type="text" class="form-control" id="name" name="name" #name="ngModel" autocomplete="off" placeholder="Retailer" required [disabled]="edit" [(ngModel)]="retailer.retailer" (ngModelChange)="hideError(); changed()">

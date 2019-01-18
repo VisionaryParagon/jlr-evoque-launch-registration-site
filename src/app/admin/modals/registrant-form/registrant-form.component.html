@@ -5,7 +5,7 @@
 
 <form #registrationForm="ngForm" novalidate>
   <div mat-dialog-content>
-    <mat-horizontal-stepper #stepper *ngIf="!error && !retailerFull && !waveFull && !success" [selectedIndex]="selectedIndex">
+    <mat-horizontal-stepper #stepper *ngIf="!error && !success" [selectedIndex]="selectedIndex">
       <mat-step>
         <div class="container" *ngIf="!edit">
           <div class="form-group" [class.nope]="invalid || (jlr_id.errors && (jlr_id.touched || regChecked))">
