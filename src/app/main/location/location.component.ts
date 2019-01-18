@@ -120,7 +120,7 @@ export class LocationComponent implements OnInit {
       this.location.venueDates = 'Training waves at this location will be held on March 18, 19, 20 & 21. If one of these dates does not appear as an option while you are registering, it is likely full, so please select a different date.';
     } else if (city === 'Toronto, ON') {
       this.location.id = 7;
-      this.location.subtitle = 'Hogtown';
+      this.location.subtitle = '';
       this.location.image = '../../../assets/images/location-toronto.jpg';
       this.location.venue = 'Hilton Garden Inn Toronto Airport';
       this.location.venueImage = '../../../assets/images/venue-toronto.jpg';
