@@ -29,9 +29,16 @@ router.get('/retailers/:id', (req, res) => {
 // create new retailer
 router.post('/retailers', (req, res) => {
   if (!req.isAuthenticated()) return res.status(401).send({ message: 'User is not authenticated' });
-  retailers.create(req.body, (err, data) => {
-    if (err) return res.status(500).send(err);
-    return res.status(200).send(data);
+  retailers.find({
+    retailer: req.body.retailer
+  }, (findErr, findData) => {
+    if (findErr) return res.status(500).send(findErr);
+    if (findData.length > 0) return res.status(200).send({ retailer: 'Retailer already exists' });
+
+    retailers.create(req.body, (err, data) => {
+      if (err) return res.status(500).send(err);
+      return res.status(200).send(data);
+    });
   });
 });
 
@@ -39,7 +46,7 @@ router.post('/retailers', (req, res) => {
 router.delete('/retailers/:id', (req, res) => {
   if (!req.isAuthenticated()) return res.status(401).send({ message: 'User is not authenticated' });
   retailers.findByIdAndRemove(req.params.id, (err, data) => {
-    let deleted = {
+    const deleted = {
       message: 'Retailer deleted'
     };
     if (err) return res.status(500).send(err);

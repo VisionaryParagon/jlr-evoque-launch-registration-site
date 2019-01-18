@@ -1,0 +1,11 @@
+
+<button class="btn btn-primary mb-3 mx-1" [disabled]="loading" (click)="build()">
+  <span *ngIf="!loading">
+    <fa-icon [icon]="['fas', 'file-export']"></fa-icon>
+    <span class="d-none d-lg-inline-block">&nbsp;Export</span>
+  </span>
+  <span *ngIf="loading">
+    <mat-spinner class="mx-auto" [diameter]="20" [strokeWidth]="3"></mat-spinner>
+  </span>
+</button>
+  

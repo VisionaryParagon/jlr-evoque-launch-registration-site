@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Delete {{ data.retailer }}?</h1>
+
+<button class="mat-dialog-close" mat-dialog-close>&times;</button>
+
+<div mat-dialog-content>
+  <div *ngIf="!success">
+    <p>Are you sure you want to remove <strong>{{ data.retailer }}</strong> from this event?</p>
+    
+    <p><strong>This cannot be undone.</strong></p>
+  </div>
+
+  <div [@fade]="true" *ngIf="success">
+    <p>{{ data.retailer }} has successfully been removed.</p>
+  </div>
+
+  <div class="errorMsg" [@fade]="true" *ngIf="error">
+    <p>Something went wrong... Please make sure you have a WiFi or mobile data connection and try refreshing your&nbsp;browser.</p>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <div class="d-flex" *ngIf="!success">
+    <button class="lrBtn dialog secondary" type="button" mat-dialog-close>Cancel</button>
+    <button class="lrBtn dialog" [disabled]="loading" (click)="delete()">
+      <span *ngIf="!loading">Delete</span>
+      <span *ngIf="loading">
+        <mat-spinner class="mx-auto" [diameter]="20" [strokeWidth]="3"></mat-spinner>
+      </span>
+    </button>
+  </div>
+  <div class="d-flex" *ngIf="success">
+    <button class="lrBtn dialog" type="button" mat-dialog-close>Close</button>
+  </div>
+</div>

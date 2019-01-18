@@ -29,9 +29,16 @@ router.get('/employees/:id', (req, res) => {
 // create new employee
 router.post('/employees', (req, res) => {
   if (!req.isAuthenticated()) return res.status(401).send({ message: 'User is not authenticated' });
-  employees.create(req.body, (err, data) => {
-    if (err) return res.status(500).send(err);
-    return res.status(200).send(data);
+  employees.find({
+    jlr_id: req.body.jlr_id
+  }, (findErr, findData) => {
+    if (findErr) return res.status(500).send(findErr);
+    if (findData.length > 0) return res.status(200).send({ retailer: 'Employee already exists' });
+
+    employees.create(req.body, (err, data) => {
+      if (err) return res.status(500).send(err);
+      return res.status(200).send(data);
+    });
   });
 });
 

@@ -1,10 +1,14 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 import { Employee } from '../../services/classes';
 import { EmployeeService } from '../../services/employee.service';
 
 import { FadeAnimation, TopDownAnimation } from '../../animations';
+
+import { EmployeeFormComponent } from '../modals/employee-form/employee-form.component';
+import { EmployeeDeleteComponent } from '../modals/employee-delete/employee-delete.component';
+import { EmployeeCsvComponent } from '../csv/employee-csv/employee-csv.component';
 
 @Component({
   selector: 'app-employees',
@@ -24,7 +28,7 @@ export class EmployeesComponent implements OnInit {
     'retailer',
     'region_number'
   ];
-  selectedEmployee: Employee;
+  selectedEmployee: Employee = new Employee();
   filter = '';
   loading = true;
   error = false;
@@ -35,21 +39,12 @@ export class EmployeesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
+    public dialog: MatDialog,
     private employeeService: EmployeeService
   ) { }
 
   ngOnInit() {
-    this.employeeService.getEmployees()
-      .subscribe(
-        res => {
-          this.dataSource = new MatTableDataSource(res);
-          this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator;
-          this.setHeight();
-          this.loading = false;
-        },
-        err => this.showError()
-      );
+    this.getEmployees();
   }
 
   @HostListener('window:resize') resize() {
@@ -68,6 +63,22 @@ export class EmployeesComponent implements OnInit {
     this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
   }
 
+  getEmployees() {
+    this.employeeService.getEmployees()
+      .subscribe(
+        res => {
+          this.employees = res;
+          this.dataSource = new MatTableDataSource(res);
+          this.dataSource.sort = this.sort;
+          this.dataSource.paginator = this.paginator;
+          this.search(this.filter);
+          this.setHeight();
+          this.loading = false;
+        },
+        err => this.showError()
+      );
+  }
+
   search(data) {
     this.dataSource.filter = data.trim().toLowerCase();
   }
@@ -78,7 +89,61 @@ export class EmployeesComponent implements OnInit {
   }
 
   select(employee) {
-    this.selectedEmployee === employee ? this.selectedEmployee = null : this.selectedEmployee = employee;
+    this.selectedEmployee === employee ? this.selectedEmployee = new Employee() : this.selectedEmployee = employee;
+  }
+
+  newEmployee() {
+    const dialogRef = this.dialog.open(EmployeeFormComponent, {
+      data: new Employee(),
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedEmployee = new Employee();
+          this.getEmployees();
+        }
+      );
+  }
+
+  editEmployee(employee) {
+    const dialogRef = this.dialog.open(EmployeeFormComponent, {
+      data: employee,
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedEmployee = new Employee();
+          this.getEmployees();
+        }
+      );
+  }
+
+  deleteEmployee(employee) {
+    const dialogRef = this.dialog.open(EmployeeDeleteComponent, {
+      data: employee,
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedEmployee = new Employee();
+          this.getEmployees();
+        }
+      );
   }
 
   showError() {

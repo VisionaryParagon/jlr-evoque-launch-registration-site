@@ -1,11 +1,15 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 import { Registrant, Retailer } from '../../services/classes';
 import { RegistrationService } from '../../services/registration.service';
 import { RetailerService } from '../../services/retailer.service';
 
 import { FadeAnimation, TopDownAnimation } from '../../animations';
+
+import { RetailerFormComponent } from '../modals/retailer-form/retailer-form.component';
+import { RetailerDeleteComponent } from '../modals/retailer-delete/retailer-delete.component';
+import { RetailerCsvComponent } from '../csv/retailer-csv/retailer-csv.component';
 
 @Component({
   selector: 'app-retailers',
@@ -29,7 +33,7 @@ export class RetailersComponent implements OnInit {
     'market',
     'waves'
   ];
-  selectedRetailer: Retailer;
+  selectedRetailer: Retailer = new Retailer();
   filter = '';
   loading = true;
   error = false;
@@ -40,11 +44,32 @@ export class RetailersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
+    public dialog: MatDialog,
     private regService: RegistrationService,
     private retailerService: RetailerService
   ) { }
 
   ngOnInit() {
+    this.getRetailers();
+  }
+
+  @HostListener('window:resize') resize() {
+    this.setHeight();
+  }
+
+  setHeight() {
+    let offset; // header and section padding
+
+    if (window.innerWidth >= 768) {
+      offset = 132;
+    } else {
+      offset = 108;
+    }
+
+    this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
+  }
+
+  getRetailers() {
     this.retailerService.getRetailers()
       .subscribe(
         retRes => {
@@ -67,6 +92,7 @@ export class RetailersComponent implements OnInit {
                 this.dataSource = new MatTableDataSource(this.retailers);
                 this.dataSource.sort = this.sort;
                 this.dataSource.paginator = this.paginator;
+                this.search(this.filter);
                 this.setHeight();
                 this.loading = false;
               },
@@ -75,22 +101,6 @@ export class RetailersComponent implements OnInit {
         },
         err => this.showError()
       );
-  }
-
-  @HostListener('window:resize') resize() {
-    this.setHeight();
-  }
-
-  setHeight() {
-    let offset; // header and section padding
-
-    if (window.innerWidth >= 768) {
-      offset = 132;
-    } else {
-      offset = 108;
-    }
-
-    this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
   }
 
   search(data) {
@@ -103,7 +113,61 @@ export class RetailersComponent implements OnInit {
   }
 
   select(retailer) {
-    this.selectedRetailer === retailer ? this.selectedRetailer = null : this.selectedRetailer = retailer;
+    this.selectedRetailer === retailer ? this.selectedRetailer = new Retailer() : this.selectedRetailer = retailer;
+  }
+
+  newRetailer() {
+    const dialogRef = this.dialog.open(RetailerFormComponent, {
+      data: new Retailer(),
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedRetailer = new Retailer();
+          this.getRetailers();
+        }
+      );
+  }
+
+  editRetailer(retailer) {
+    const dialogRef = this.dialog.open(RetailerFormComponent, {
+      data: retailer,
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedRetailer = new Retailer();
+          this.getRetailers();
+        }
+      );
+  }
+
+  deleteRetailer(retailer) {
+    const dialogRef = this.dialog.open(RetailerDeleteComponent, {
+      data: retailer,
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: '768px'
+    });
+
+    dialogRef.afterClosed()
+      .subscribe(
+        data => {
+          this.loading = true;
+          this.selectedRetailer = new Retailer();
+          this.getRetailers();
+        }
+      );
   }
 
   showError() {

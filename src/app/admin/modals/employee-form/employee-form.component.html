@@ -1,0 +1,104 @@
+<h1 mat-dialog-title *ngIf="!edit">New Employee</h1>
+<h1 mat-dialog-title *ngIf="edit">Editing {{ employee.first_name }} {{ employee.last_name }}</h1>
+
+<button class="mat-dialog-close" (click)="closeDialog()">&times;</button>
+
+<form #employeeForm="ngForm" novalidate>
+  <div mat-dialog-content>
+    <div class="pageLoader" *ngIf="formLoading">
+      <mat-spinner class="mx-auto"></mat-spinner>
+    </div>
+
+    <div class="container" *ngIf="!error && !success && !formLoading">
+      <div class="form-group" [class.nope]="(first_name.errors && last_name.errors) && (first_name.touched || last_name.touched || submitted)">
+        <label for="first_name">Name</label>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <input type="text" class="form-control" id="first_name" name="first_name" #first_name="ngModel" autocomplete="off" placeholder="First" required [(ngModel)]="employee.first_name" (ngModelChange)="hideError(); changed()">
+            <div class="errorMsg" [@topDown]="true" *ngIf="first_name.errors && (first_name.touched || submitted)">
+              <p *ngIf="first_name.errors.required">First Name is required</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <input type="text" class="form-control" id="last_name" name="last_name" #last_name="ngModel" autocomplete="off" placeholder="Last" required [(ngModel)]="employee.last_name" (ngModelChange)="hideError(); changed()">
+            <div class="errorMsg" [@topDown]="true" *ngIf="last_name.errors && (last_name.touched || submitted)">
+              <p *ngIf="last_name.errors.required">Last Name is required</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" [class.nope]="email.errors && (email.touched || submitted)">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" #email="ngModel" autocomplete="off" placeholder="name@domain.com" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" required [(ngModel)]="employee.email" (ngModelChange)="hideError(); changed()">
+        <div class="errorMsg" [@topDown]="true" *ngIf="email.errors && (email.touched || submitted)">
+          <p *ngIf="email.errors.required">Email Address is required</p>
+          <p *ngIf="email.errors.pattern">Email Address is invalid</p>
+        </div>
+      </div>
+
+      <div class="form-group" [class.nope]="invalid || (jlr_id.errors && (jlr_id.touched || submitted))">
+        <label for="jlr_id">Training ID</label>
+        <input type="text" class="form-control" id="jlr_id" name="jlr_id" #jlr_id="ngModel" autocomplete="off" placeholder="Training ID" required [disabled]="edit" [(ngModel)]="employee.jlr_id" (ngModelChange)="hideError(); changed()">
+        <div class="errorMsg" [@topDown]="true" *ngIf="jlr_id.errors && (jlr_id.touched || submitted)">
+          <p *ngIf="jlr_id.errors.required">Training ID is required</p>
+        </div>
+        <div class="errorMsg" [@topDown]="true" *ngIf="invalid">
+          <p>{{ err }}</p>
+        </div>
+      </div>
+
+      <div class="form-group" [class.nope]="job.errors && (job.touched || submitted)">
+        <label for="job">Job Title</label>
+        <input type="text" class="form-control" id="job" name="job" #job="ngModel" autocomplete="off" placeholder="Job Title" required [(ngModel)]="employee.job" (ngModelChange)="hideError(); changed()">
+        <div class="errorMsg" [@topDown]="true" *ngIf="job.errors && (job.touched || submitted)">
+          <p *ngIf="job.errors.required">Job Title is required</p>
+        </div>
+      </div>
+
+      <div class="form-group" [class.nope]="retailer.errors && (retailer.touched || submitted)">
+        <label for="retailer">Retailer</label>
+        <select class="form-control" id="retailer" name="retailer" #retailer="ngModel" placeholder="Retailer Name" required [(ngModel)]="employee.retailer" (ngModelChange)="hideError(); changed()">
+          <option [value]="anyVal">Select Retailer</option>
+          <option *ngFor="let val of retailers" [value]="val.retailer">{{ val.retailer }}</option>
+        </select>
+        <div class="errorMsg" [@topDown]="true" *ngIf="retailer.errors && (retailer.touched || submitted)">
+          <p *ngIf="retailer.errors.required">Retailer is required</p>
+        </div>
+      </div>
+
+      <div class="form-group" [class.nope]="region_number.errors && (region_number.touched || submitted)">
+        <label for="region_number">Region Number</label>
+        <input type="text" class="form-control" id="region_number" name="region_number" #region_number="ngModel" autocomplete="off" placeholder="Region Number" required [(ngModel)]="employee.region_number" (ngModelChange)="hideError(); changed()">
+        <div class="errorMsg" [@topDown]="true" *ngIf="region_number.errors && (region_number.touched || submitted)">
+          <p *ngIf="region_number.errors.required">Region Number is required</p>
+        </div>
+      </div>
+    </div>
+  
+    <div [@fade]="true" *ngIf="success">
+      <h3>Success!</h3>
+
+      <p>{{ employee.first_name }} {{ employee.last_name }} has been successfully <span *ngIf="!edit">added</span> <span *ngIf="edit">edited</span>.</p>
+    </div>
+
+    <div class="errorMsg" [@fade]="true" *ngIf="error">
+      <p>Something went wrong... Please make sure you have a WiFi or mobile data connection and try refreshing your&nbsp;browser.</p>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <div class="d-flex" *ngIf="!success">
+      <p class="errorMsg" [@fade]="true" *ngIf="(!employeeForm.valid || invalid) && submitted">Please fix errors above</p>
+      <button class="lrBtn dialog secondary" type="button" (click)="closeDialog()">Cancel</button>
+      <button class="lrBtn dialog" [disabled]="loading" (click)="submit(employee, employeeForm.valid)">
+        <span *ngIf="!loading">Submit</span>
+        <span *ngIf="loading">
+          <mat-spinner class="mx-auto" [diameter]="20" [strokeWidth]="3"></mat-spinner>
+        </span>
+      </button>
+    </div>
+    <div class="d-flex" *ngIf="success">
+      <button class="lrBtn dialog" type="button" (click)="closeDialog()">Close</button>
+    </div>
+  </div>
+</form>
