@@ -5,15 +5,15 @@
   
         <div class="row">
           <div class="col-12 col-sm-6 order-sm-last text-center text-sm-right">
-              <button class="btn btn-success mb-3 mx-1" (click)="newEmployee()">
+              <button class="btn btn-success mb-3 mx-1" *ngIf="admin.permissions === 'automatik'" (click)="newEmployee()">
                 <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
                 <span class="d-none d-lg-inline-block">&nbsp;New</span>
               </button>
-              <button class="btn btn-warning mb-3 mx-1" [disabled]="!selectedEmployee._id" (click)="editEmployee(selectedEmployee)">
+              <button class="btn btn-warning mb-3 mx-1" *ngIf="admin.permissions === 'automatik'" [disabled]="!selectedEmployee._id" (click)="editEmployee(selectedEmployee)">
                 <fa-icon [icon]="['fas', 'edit']"></fa-icon>
                 <span class="d-none d-lg-inline-block">&nbsp;Edit</span>
               </button>
-              <button class="btn btn-danger mb-3 mx-1" [disabled]="!selectedEmployee._id" (click)="deleteEmployee(selectedEmployee)">
+              <button class="btn btn-danger mb-3 mx-1" *ngIf="admin.permissions === 'automatik'" [disabled]="!selectedEmployee._id" (click)="deleteEmployee(selectedEmployee)">
                 <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
                 <span class="d-none d-lg-inline-block">&nbsp;Delete</span>
               </button>

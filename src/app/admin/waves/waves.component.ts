@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 import { Registrant, Wave } from '../../services/classes';
+import { AdminService } from '../../services/admin.service';
 import { RegistrationService } from '../../services/registration.service';
 import { WaveService } from '../../services/wave.service';
 
@@ -18,6 +19,7 @@ import { WaveCsvComponent } from '../csv/wave-csv/wave-csv.component';
   animations: [ FadeAnimation, TopDownAnimation ]
 })
 export class WavesComponent implements OnInit {
+  admin = this.adminService.state;
   waves: Wave[];
   registrants: Registrant[];
   dataSource: MatTableDataSource<Wave>;
@@ -40,6 +42,7 @@ export class WavesComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
+    private adminService: AdminService,
     private regService: RegistrationService,
     private waveService: WaveService
   ) { }

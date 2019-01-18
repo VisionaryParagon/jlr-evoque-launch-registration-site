@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 import { Registrant, Retailer } from '../../services/classes';
+import { AdminService } from '../../services/admin.service';
 import { RegistrationService } from '../../services/registration.service';
 import { RetailerService } from '../../services/retailer.service';
 
@@ -18,6 +19,7 @@ import { RetailerCsvComponent } from '../csv/retailer-csv/retailer-csv.component
   animations: [ FadeAnimation, TopDownAnimation ]
 })
 export class RetailersComponent implements OnInit {
+  admin = this.adminService.state;
   retailers: Retailer[];
   registrants: Registrant[];
   dataSource: MatTableDataSource<Retailer>;
@@ -45,6 +47,7 @@ export class RetailersComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
+    private adminService: AdminService,
     private regService: RegistrationService,
     private retailerService: RetailerService
   ) { }

@@ -5,15 +5,15 @@
   
         <div class="row">
           <div class="col-12 col-sm-6 order-sm-last text-center text-sm-right">
-              <button class="btn btn-success mb-3 mx-1" (click)="newRetailer()">
+              <button class="btn btn-success mb-3 mx-1" *ngIf="admin.permissions === 'automatik'" (click)="newRetailer()">
                 <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
                 <span class="d-none d-lg-inline-block">&nbsp;New</span>
               </button>
-              <button class="btn btn-warning mb-3 mx-1" [disabled]="!selectedRetailer._id" (click)="editRetailer(selectedRetailer)">
+              <button class="btn btn-warning mb-3 mx-1" *ngIf="admin.permissions === 'automatik'" [disabled]="!selectedRetailer._id" (click)="editRetailer(selectedRetailer)">
                 <fa-icon [icon]="['fas', 'edit']"></fa-icon>
                 <span class="d-none d-lg-inline-block">&nbsp;Edit</span>
               </button>
-              <button class="btn btn-danger mb-3 mx-1" [disabled]="!selectedRetailer._id" (click)="deleteRetailer(selectedRetailer)">
+              <button class="btn btn-danger mb-3 mx-1" *ngIf="admin.permissions === 'automatik'" [disabled]="!selectedRetailer._id" (click)="deleteRetailer(selectedRetailer)">
                 <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
                 <span class="d-none d-lg-inline-block">&nbsp;Delete</span>
               </button>

@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 import { Employee } from '../../services/classes';
+import { AdminService } from '../../services/admin.service';
 import { EmployeeService } from '../../services/employee.service';
 
 import { FadeAnimation, TopDownAnimation } from '../../animations';
@@ -17,6 +18,7 @@ import { EmployeeCsvComponent } from '../csv/employee-csv/employee-csv.component
   animations: [ FadeAnimation, TopDownAnimation ]
 })
 export class EmployeesComponent implements OnInit {
+  admin = this.adminService.state;
   employees: Employee[];
   dataSource: MatTableDataSource<Employee>;
   displayedColumns: string[] = [
@@ -40,6 +42,7 @@ export class EmployeesComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
+    private adminService: AdminService,
     private employeeService: EmployeeService
   ) { }
 

@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 import { Registrant } from '../../services/classes';
+import { AdminService } from '../../services/admin.service';
 import { RegistrationService } from '../../services/registration.service';
 
 import { FadeAnimation, TopDownAnimation } from '../../animations';
@@ -17,6 +18,7 @@ import { RegistrantCsvComponent } from '../csv/registrant-csv/registrant-csv.com
   animations: [ FadeAnimation, TopDownAnimation ]
 })
 export class RegistrantsComponent implements OnInit {
+  admin = this.adminService.state;
   registrants: Registrant[];
   dataSource: MatTableDataSource<Registrant>;
   displayedColumns: string[] = [
@@ -49,6 +51,7 @@ export class RegistrantsComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
+    private adminService: AdminService,
     private regService: RegistrationService
   ) { }
 

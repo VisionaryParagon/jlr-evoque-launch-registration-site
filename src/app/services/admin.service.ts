@@ -11,7 +11,8 @@ export class AdminService {
   adminUrlRoot = '/admn/';
   returnUrl: string;
   state = {
-    loggedIn: false
+    loggedIn: false,
+    permissions: ''
   };
 
   constructor(
@@ -20,19 +21,20 @@ export class AdminService {
 
   // get loggedIn status
   getLoginStatus() {
-    return this.state.loggedIn;
+    return this.state;
   }
 
   // set loggedIn status
-  setLoginStatus(status) {
-    this.state.loggedIn = status;
+  setLoginStatus(state) {
+    this.state.loggedIn = state.auth;
+    this.state.permissions = state.permissions;
   }
 
   // login
   login(user) {
     return this.http.post<any>(this.adminUrlRoot + 'login', user)
       .pipe(
-        tap(res => this.setLoginStatus(true)),
+        tap(res => this.setLoginStatus({ auth: true, permissions: res.permissions })),
         catchError(this.handleError)
       );
   }
@@ -41,7 +43,7 @@ export class AdminService {
   logout() {
     return this.http.get<any>(this.adminUrlRoot + 'logout')
       .pipe(
-        tap(res => this.setLoginStatus(false)),
+        tap(res => this.setLoginStatus({ auth: false, permissions: '' })),
         catchError(this.handleError)
       );
   }
@@ -51,7 +53,7 @@ export class AdminService {
     return this.http.get<any>(this.adminUrlRoot + 'status')
       .pipe(
         retry(3),
-        tap(res => this.setLoginStatus(res.auth)),
+        tap(res => this.setLoginStatus(res)),
         catchError(this.handleError)
       );
   }

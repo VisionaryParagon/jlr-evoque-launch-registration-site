@@ -8,13 +8,14 @@ const admin = require('../models/admin');
 // register new admin user
 router.post('/register', (req, res) => {
   admin.register(new admin({
-      username: req.body.username
+      username: req.body.username,
+      permissions: req.body.permissions
     }),
     req.body.password,
     (err, user) => {
       if (err) return res.status(500).send(err);
       passport.authenticate('local')(req, res, () => {
-        return res.status(200).send({ message: 'Registration successful!' });
+        return res.status(200).send({ message: 'Registration successful!', permissions: user.permissions });
       });
     });
 });
@@ -26,7 +27,7 @@ router.post('/login', (req, res, next) => {
     if (!user) return res.status(401).send(info);
     req.logIn(user, err => {
       if (err) return res.status(500).send(err);
-      return res.status(200).send({ message: 'Login successful!' });
+      return res.status(200).send({ message: 'Login successful!', permissions: user.permissions });
     });
   })(req, res, next);
 });
@@ -39,8 +40,12 @@ router.get('/logout', (req, res) => {
 
 // get admin user status
 router.get('/status', (req, res) => {
-  if (!req.isAuthenticated()) return res.status(200).send({ auth: false });
-  return res.status(200).send({ auth: true });
+  let permissions;
+  if (req.user) permissions = req.user.permissions;
+  return res.status(200).send({
+    auth: req.isAuthenticated(),
+    permissions: permissions
+  });
 });
 
 module.exports = router;

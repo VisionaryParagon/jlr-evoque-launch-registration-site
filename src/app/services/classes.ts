@@ -90,4 +90,5 @@ export class Options {
 export class Admin {
   username: string;
   password: string;
+  permissions: string;
 }
