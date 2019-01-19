@@ -141,6 +141,8 @@ router.post('/confirmation', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	If you need to fly to the event, please fly to MIA airport due to the location of the training.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Marriott Miami Airport offers complimentary shuttle transportation to and from MIA airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
         o	Shuttle Instructions: The hotel’s complimentary shuttle service is available between 5am and 1am. Once you have landed and retrieved your bag from baggage claim, proceed to the 2nd floor departures level. Once outside, stand between doors 6 through 33 for pickup and look for the black shuttle with the large red “M” on the side. When you see the shuttle, signal the driver for pickup.
     
@@ -183,7 +185,12 @@ router.post('/confirmation', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">If you need to fly to the event, please fly to MIA airport due to the location of the&nbsp;training.</li>
+      <li style="Margin:0;">If you need to fly to the event, please fly to MIA airport due to the location of the&nbsp;training.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Marriott Miami Airport</strong> offers complimentary shuttle transportation to and from MIA airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions: The hotel’s complimentary shuttle service is available between 5am and 1am. Once you have landed and retrieved your bag from baggage claim, proceed to the 2<sup style="font-size:10px;">nd</sup> floor departures level. Once outside, stand between doors 6 through 33 for pickup and look for the black shuttle with the large red “M” on the side. When you see the shuttle, signal the driver for&nbsp;pickup.</li>
@@ -286,6 +293,8 @@ router.post('/confirmation', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	If you need to fly to the event, please fly to DFW airport due to the location of the training.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Doubletree by Hilton DFW North offers complimentary shuttle transportation to and from DFW airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.)
         o	Shuttle Instructions: Shuttle Instructions: Once you have landed and retrieved your bag from baggage claim, call (972) 929-8181 to have the hotel shuttle pick you up at the nearest pickup point. A shuttle driver should meet you within 30 minutes.
     
@@ -328,7 +337,12 @@ router.post('/confirmation', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.</li>
+      <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Doubletree by Hilton DFW North</strong> offers complimentary shuttle transportation to and from DFW airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.)
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions: Shuttle Instructions: Once you have landed and retrieved your bag from baggage claim, call <a href="tel:(972)929-8181" style="color:#0c121c;">(972)&nbsp;929&#8209;8181</a> to have the hotel shuttle pick you up at the nearest pickup point. A shuttle driver should meet you within 30&nbsp;minutes.</li>
@@ -431,6 +445,8 @@ router.post('/confirmation', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	If you need to fly to the event, please fly to ORD airport due to the location of the training.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Sheraton Suites O’Hare Airport offers complimentary shuttle transportation to and from ORD airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
         o	Shuttle Instructions: To access the complimentary hotel shuttle, you will need to walk to the shuttle bus center after you retrieve your luggage from baggage claim.
             	From Terminals 1, 2 and 3: look for the red and blue arrows on the floor at the baggage claim level. Look also for the red and blue sign overhead which reads “Bus Shuttle Center.”
@@ -478,7 +494,12 @@ router.post('/confirmation', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.</li>
+      <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Sheraton Suites O’Hare Airport</strong> offers complimentary shuttle transportation to and from ORD airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions: To access the complimentary hotel shuttle, you will need to walk to the shuttle bus center after you retrieve your luggage from baggage&nbsp;claim.
@@ -588,6 +609,8 @@ router.post('/confirmation', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	You should plan to fly into Orange County Airport (SNA) due to the location of the training.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:00 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Doubletree by Hilton Santa Ana – Orange County Airport offers complimentary shuttle transportation to and from SNA airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.)
         o	Shuttle Instructions: Complimentary shuttle transportation is offered between 5:30 am and 11:00 pm. When you land and have collected your luggage from baggage claim, please call (714) 825-3333 to let the hotel know you are awaiting pickup. Follow the signs to Ground Transportation (specifically you will need to go to the area labeled Courtesy Shuttles) and this is where you will meet your shuttle.
 
@@ -631,7 +654,12 @@ router.post('/confirmation', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">You should plan to fly into Orange County Airport (SNA) due to the location of the&nbsp;training.</li>
+      <li style="Margin:0;">You should plan to fly into Orange County Airport (SNA) due to the location of the&nbsp;training.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:00 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Doubletree by Hilton Santa Ana &ndash; Orange County Airport</strong> offers complimentary shuttle transportation to and from SNA airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.)
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions: Complimentary shuttle transportation is offered between 5:30 am and 11:00 pm. When you land and have collected your luggage from baggage claim, please call <a href="tel:(714)825-3333" style="color:#0c121c;">(714)&nbsp;825&#8209;3333</a> to let the hotel know you are awaiting pickup. Follow the signs to Ground Transportation (specifically you will need to go to the area labeled Courtesy Shuttles) and this is where you will meet your&nbsp;shuttle.</li>
@@ -734,6 +762,8 @@ router.post('/confirmation', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	You should plan to fly into Oakland airport (OAK) due to the location of the training.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:00 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Hilton Oakland Airport offers complimentary shuttle transportation to and from OAK airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.)
         o	Shuttle Instructions: Upon deplaning and collecting your baggage, follow the signs to the Hotel Shuttles area. You will need to be standing at the 4B or 4G area specifically and look for the Hilton shuttle van. Shuttles cycle approximately every 20 minutes, but if you have any questions you may contact the hotel at (510) 635-5000 to confirm the next available pick-up time.
 
@@ -777,7 +807,12 @@ router.post('/confirmation', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">You should plan to fly into Oakland airport (OAK) due to the location of the&nbsp;training.</li>
+      <li style="Margin:0;">You should plan to fly into Oakland airport (OAK) due to the location of the&nbsp;training.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:00 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Hilton Oakland Airport</strong> offers complimentary shuttle transportation to and from OAK airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.)
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions: Upon deplaning and collecting your baggage, follow the signs to the Hotel Shuttles area. You will need to be standing at the <strong>4B</strong> or <strong>4G</strong> area specifically and look for the Hilton shuttle van. Shuttles cycle approximately every 20 minutes, but if you have any questions you may contact the hotel at <a href="tel:(510)635-5000" style="color:#0c121c;">(510)&nbsp;635&#8209;5000</a> to confirm the next available pick&#8209;up&nbsp;time.</li>
@@ -876,7 +911,9 @@ router.post('/confirmation', function (req, res) {
 
     TRAVEL & GROUND TRANSPORTATION
 
-    •	If you fly to the event, we recommend flying to EWR airport due to its proximity to the training location. You will be responsible for your flight cost and for procuring ground transportation to/from the Sheraton Mahwah Hotel (see below).
+    •	If you fly to the event, we recommend flying to EWR airport due to its proximity to the training location. You will be responsible for your flight cost and for procuring ground transportation from your arrival airport to the Sheraton Mahwah Hotel.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 8:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	If you plan to drive to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training activities.
     
     HOTEL AND LODGING
@@ -892,7 +929,7 @@ router.post('/confirmation', function (req, res) {
 
     Shuttle transportation will be provided to you between the hotel and the event site on the day of your training wave. Shuttle transportation will depart the Sheraton Mahwah for JLR North American Headquarters promptly at 7:40 a.m. on the morning of your training. Please check out of your hotel room prior to boarding the shuttle and bring your luggage with you.
     
-    Should you need a hotel room for additional nights due to travel time/constraints, any additional hotel nights will need to be booked on your own and will be at your own expense.
+    You will have the option of riding the event shuttle to Newark Liberty International Airport (EWR) immediately following your training wave.
     
     PLEASE NOTE THE FOLLOWING
     
@@ -914,7 +951,12 @@ router.post('/confirmation', function (req, res) {
     <strong>TRAVEL &amp; GROUND TRANSPORTATION</strong><br><br>
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
-      <li style="Margin:0;">If you <em>fly</em> to the event, we recommend flying to EWR airport due to its proximity to the training location. You will be responsible for your flight cost and for procuring ground transportation to/from the Sheraton Mahwah Hotel (see&nbsp;below).</li>
+      <li style="Margin:0;">If you <em>fly</em> to the event, we recommend flying to EWR airport due to its proximity to the training location. You will be responsible for your flight cost and for procuring ground transportation from your arrival airport to the Sheraton Mahwah&nbsp;Hotel.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 8:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;">If you plan to <em>drive</em> to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training&nbsp;activities.</li>
     </ul><br>
 
@@ -933,9 +975,11 @@ router.post('/confirmation', function (req, res) {
     Route 17 North, 1 International Blvd<br>
     Mahwah, NJ 07495<br><br>
     
-    You do not need to call the hotel to book your room. The Land Rover events team will book your hotel room on your behalf at the <strong>Sheraton Mahwah</strong> for the night of ${hotelDate}. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.<br><br>
+    You do not need to call the hotel to book your room. The Land Rover events team will book your hotel room on your behalf at the <strong>Sheraton Mahwah</strong> for the night of <strong>${hotelDate}</strong>. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.<br><br>
 
     Shuttle transportation will be provided to you <em>between the hotel and the event site</em> on the day of your training wave. Shuttle transportation will depart the Sheraton Mahwah for JLR North American Headquarters promptly at 7:40 a.m. on the morning of your training. Please check out of your hotel room prior to boarding the shuttle and bring your luggage with&nbsp;you.<br><br>
+
+    You will have the option of riding the event shuttle to Newark Liberty International Airport (EWR) immediately following your training&nbsp;wave.<br><br>
     
     <strong>PLEASE NOTE THE FOLLOWING</strong><br><br>
     
@@ -1010,6 +1054,8 @@ router.post('/confirmation', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	Please fly to Toronto Pearson (YYZ) airport due to the training location.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Hilton Garden Inn Toronto Airport offers complimentary shuttle transportation to and from YYZ airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
         o	Shuttle Instructions:
             	From Terminal 1, lower level: go to Post S5 and P3 and board Hilton Garden Inn Toronto Airport complimentary shuttle to hotel.
@@ -1056,7 +1102,12 @@ router.post('/confirmation', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">Please fly to Toronto Pearson (YYZ) airport due to the training&nbsp;location.</li>
+      <li style="Margin:0;">Please fly to Toronto Pearson (YYZ) airport due to the training&nbsp;location.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Hilton Garden Inn Toronto Airport</strong> offers complimentary shuttle transportation to and from YYZ airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions:
@@ -1271,6 +1322,8 @@ router.post('/updated', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	If you need to fly to the event, please fly to MIA airport due to the location of the training.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Marriott Miami Airport offers complimentary shuttle transportation to and from MIA airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
         o	Shuttle Instructions: The hotel’s complimentary shuttle service is available between 5am and 1am. Once you have landed and retrieved your bag from baggage claim, proceed to the 2nd floor departures level. Once outside, stand between doors 6 through 33 for pickup and look for the black shuttle with the large red “M” on the side. When you see the shuttle, signal the driver for pickup.
     
@@ -1313,7 +1366,12 @@ router.post('/updated', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">If you need to fly to the event, please fly to MIA airport due to the location of the&nbsp;training.</li>
+      <li style="Margin:0;">If you need to fly to the event, please fly to MIA airport due to the location of the&nbsp;training.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Marriott Miami Airport</strong> offers complimentary shuttle transportation to and from MIA airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions: The hotel’s complimentary shuttle service is available between 5am and 1am. Once you have landed and retrieved your bag from baggage claim, proceed to the 2<sup style="font-size:10px;">nd</sup> floor departures level. Once outside, stand between doors 6 through 33 for pickup and look for the black shuttle with the large red “M” on the side. When you see the shuttle, signal the driver for&nbsp;pickup.</li>
@@ -1416,6 +1474,8 @@ router.post('/updated', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	If you need to fly to the event, please fly to DFW airport due to the location of the training.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Doubletree by Hilton DFW North offers complimentary shuttle transportation to and from DFW airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.)
         o	Shuttle Instructions: Shuttle Instructions: Once you have landed and retrieved your bag from baggage claim, call (972) 929-8181 to have the hotel shuttle pick you up at the nearest pickup point. A shuttle driver should meet you within 30 minutes.
     
@@ -1458,7 +1518,12 @@ router.post('/updated', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.</li>
+      <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Doubletree by Hilton DFW North</strong> offers complimentary shuttle transportation to and from DFW airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.)
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions: Shuttle Instructions: Once you have landed and retrieved your bag from baggage claim, call <a href="tel:(972)929-8181" style="color:#0c121c;">(972)&nbsp;929&#8209;8181</a> to have the hotel shuttle pick you up at the nearest pickup point. A shuttle driver should meet you within 30&nbsp;minutes.</li>
@@ -1561,6 +1626,8 @@ router.post('/updated', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	If you need to fly to the event, please fly to ORD airport due to the location of the training.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Sheraton Suites O’Hare Airport offers complimentary shuttle transportation to and from ORD airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
         o	Shuttle Instructions: To access the complimentary hotel shuttle, you will need to walk to the shuttle bus center after you retrieve your luggage from baggage claim.
             	From Terminals 1, 2 and 3: look for the red and blue arrows on the floor at the baggage claim level. Look also for the red and blue sign overhead which reads “Bus Shuttle Center.”
@@ -1608,7 +1675,12 @@ router.post('/updated', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.</li>
+      <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Sheraton Suites O’Hare Airport</strong> offers complimentary shuttle transportation to and from ORD airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions: To access the complimentary hotel shuttle, you will need to walk to the shuttle bus center after you retrieve your luggage from baggage&nbsp;claim.
@@ -1718,6 +1790,8 @@ router.post('/updated', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	You should plan to fly into Orange County Airport (SNA) due to the location of the training.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:00 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Doubletree by Hilton Santa Ana – Orange County Airport offers complimentary shuttle transportation to and from SNA airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.)
         o	Shuttle Instructions: Complimentary shuttle transportation is offered between 5:30 am and 11:00 pm. When you land and have collected your luggage from baggage claim, please call (714) 825-3333 to let the hotel know you are awaiting pickup. Follow the signs to Ground Transportation (specifically you will need to go to the area labeled Courtesy Shuttles) and this is where you will meet your shuttle.
 
@@ -1761,7 +1835,12 @@ router.post('/updated', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">You should plan to fly into Orange County Airport (SNA) due to the location of the&nbsp;training.</li>
+      <li style="Margin:0;">You should plan to fly into Orange County Airport (SNA) due to the location of the&nbsp;training.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:00 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Doubletree by Hilton Santa Ana &ndash; Orange County Airport</strong> offers complimentary shuttle transportation to and from SNA airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.)
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions: Complimentary shuttle transportation is offered between 5:30 am and 11:00 pm. When you land and have collected your luggage from baggage claim, please call <a href="tel:(714)825-3333" style="color:#0c121c;">(714)&nbsp;825&#8209;3333</a> to let the hotel know you are awaiting pickup. Follow the signs to Ground Transportation (specifically you will need to go to the area labeled Courtesy Shuttles) and this is where you will meet your&nbsp;shuttle.</li>
@@ -1864,6 +1943,8 @@ router.post('/updated', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	You should plan to fly into Oakland airport (OAK) due to the location of the training.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:00 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Hilton Oakland Airport offers complimentary shuttle transportation to and from OAK airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.)
         o	Shuttle Instructions: Upon deplaning and collecting your baggage, follow the signs to the Hotel Shuttles area. You will need to be standing at the 4B or 4G area specifically and look for the Hilton shuttle van. Shuttles cycle approximately every 20 minutes, but if you have any questions you may contact the hotel at (510) 635-5000 to confirm the next available pick-up time.
 
@@ -1907,7 +1988,12 @@ router.post('/updated', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">You should plan to fly into Oakland airport (OAK) due to the location of the&nbsp;training.</li>
+      <li style="Margin:0;">You should plan to fly into Oakland airport (OAK) due to the location of the&nbsp;training.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:00 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Hilton Oakland Airport</strong> offers complimentary shuttle transportation to and from OAK airport. (We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.)
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions: Upon deplaning and collecting your baggage, follow the signs to the Hotel Shuttles area. You will need to be standing at the <strong>4B</strong> or <strong>4G</strong> area specifically and look for the Hilton shuttle van. Shuttles cycle approximately every 20 minutes, but if you have any questions you may contact the hotel at <a href="tel:(510)635-5000" style="color:#0c121c;">(510)&nbsp;635&#8209;5000</a> to confirm the next available pick&#8209;up&nbsp;time.</li>
@@ -2006,7 +2092,9 @@ router.post('/updated', function (req, res) {
 
     TRAVEL & GROUND TRANSPORTATION
 
-    •	If you fly to the event, we recommend flying to EWR airport due to its proximity to the training location. You will be responsible for your flight cost and for procuring ground transportation to/from the Sheraton Mahwah Hotel (see below).
+    •	If you fly to the event, we recommend flying to EWR airport due to its proximity to the training location. You will be responsible for your flight cost and for procuring ground transportation from your arrival airport to the Sheraton Mahwah Hotel.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 8:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	If you plan to drive to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training activities.
     
     HOTEL AND LODGING
@@ -2022,7 +2110,7 @@ router.post('/updated', function (req, res) {
 
     Shuttle transportation will be provided to you between the hotel and the event site on the day of your training wave. Shuttle transportation will depart the Sheraton Mahwah for JLR North American Headquarters promptly at 7:40 a.m. on the morning of your training. Please check out of your hotel room prior to boarding the shuttle and bring your luggage with you.
     
-    Should you need a hotel room for additional nights due to travel time/constraints, any additional hotel nights will need to be booked on your own and will be at your own expense.
+    You will have the option of riding the event shuttle to Newark Liberty International Airport (EWR) immediately following your training wave.
     
     PLEASE NOTE THE FOLLOWING
     
@@ -2044,7 +2132,12 @@ router.post('/updated', function (req, res) {
     <strong>TRAVEL &amp; GROUND TRANSPORTATION</strong><br><br>
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
-      <li style="Margin:0;">If you <em>fly</em> to the event, we recommend flying to EWR airport due to its proximity to the training location. You will be responsible for your flight cost and for procuring ground transportation to/from the Sheraton Mahwah Hotel (see&nbsp;below).</li>
+      <li style="Margin:0;">If you <em>fly</em> to the event, we recommend flying to EWR airport due to its proximity to the training location. You will be responsible for your flight cost and for procuring ground transportation from your arrival airport to the Sheraton Mahwah&nbsp;Hotel.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 8:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;">If you plan to <em>drive</em> to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training&nbsp;activities.</li>
     </ul><br>
 
@@ -2063,9 +2156,11 @@ router.post('/updated', function (req, res) {
     Route 17 North, 1 International Blvd<br>
     Mahwah, NJ 07495<br><br>
     
-    You do not need to call the hotel to book your room. The Land Rover events team will book your hotel room on your behalf at the <strong>Sheraton Mahwah</strong> for the night of ${hotelDate}. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.<br><br>
+    You do not need to call the hotel to book your room. The Land Rover events team will book your hotel room on your behalf at the <strong>Sheraton Mahwah</strong> for the night of <strong>${hotelDate}</strong>. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.<br><br>
 
     Shuttle transportation will be provided to you <em>between the hotel and the event site</em> on the day of your training wave. Shuttle transportation will depart the Sheraton Mahwah for JLR North American Headquarters promptly at 7:40 a.m. on the morning of your training. Please check out of your hotel room prior to boarding the shuttle and bring your luggage with&nbsp;you.<br><br>
+
+    You will have the option of riding the event shuttle to Newark Liberty International Airport (EWR) immediately following your training&nbsp;wave.<br><br>
     
     <strong>PLEASE NOTE THE FOLLOWING</strong><br><br>
     
@@ -2140,6 +2235,8 @@ router.post('/updated', function (req, res) {
 
     •	Please know that you will be responsible for your flight cost.
     •	Please fly to Toronto Pearson (YYZ) airport due to the training location.
+        o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
+        o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
     •	Hilton Garden Inn Toronto Airport offers complimentary shuttle transportation to and from YYZ airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own expense.
         o	Shuttle Instructions:
             	From Terminal 1, lower level: go to Post S5 and P3 and board Hilton Garden Inn Toronto Airport complimentary shuttle to hotel.
@@ -2186,7 +2283,12 @@ router.post('/updated', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">Please fly to Toronto Pearson (YYZ) airport due to the training&nbsp;location.</li>
+      <li style="Margin:0;">Please fly to Toronto Pearson (YYZ) airport due to the training&nbsp;location.
+        <ul style="padding: 0; Margin: 0 0 0 25px;">
+          <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
+          <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
+        </ul>
+      </li>
       <li style="Margin:0;"><strong>Hilton Garden Inn Toronto Airport</strong> offers complimentary shuttle transportation to and from YYZ airport. We recommend using the shuttle versus renting a car. If you choose to rent a car, it will be at your own&nbsp;expense.
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">Shuttle Instructions:
