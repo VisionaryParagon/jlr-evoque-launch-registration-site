@@ -1206,7 +1206,7 @@ router.post('/confirmation', function (req, res) {
 
     QUESTIONS?
 
-    If after registering you have questions, please consult our Frequently Asked Questions page, contact the JLR Event Support Team at info@landroverlaunches.com or call our toll-free helpline at (800) 555-5555.
+    If after registering you have questions, please consult our Frequently Asked Questions page, contact the JLR Event Support Team at info@landroverlaunches.com or call our toll-free helpline at (856) 351-5378.
 
     If you need to cancel your registration, please contact the JLR Event Support Team using the information above and please note the cancellation fee policy is as follows:
 
@@ -1232,7 +1232,7 @@ router.post('/confirmation', function (req, res) {
 
             <span style="font-weight:bold;">QUESTIONS?</span><br><br>
 
-            If after registering you have questions, please consult our <a href="https://landroverlaunches.com/faqs" style="color:#0c121c;">Frequently Asked Questions</a> page, contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com" style="color:#0c121c;">info@landroverlaunches.com</a> or call our toll-free helpline at <a href="tel:(800)555-5555" style="color:#0c121c;">(800)&nbsp;555&#8209;5555</a>.<br><br>
+            If after registering you have questions, please consult our <a href="https://landroverlaunches.com/faqs" style="color:#0c121c;">Frequently Asked Questions</a> page, contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com" style="color:#0c121c;">info@landroverlaunches.com</a> or call our toll-free helpline at <a href="tel:(856)351-5378" style="color:#0c121c;">(856)&nbsp;351&#8209;5378</a>.<br><br>
 
             If you need to cancel your registration, please contact the JLR Event Support Team using the information above and please note the cancellation fee policy is as follows:<br><br>
 
@@ -2387,7 +2387,7 @@ router.post('/updated', function (req, res) {
 
     QUESTIONS?
 
-    If after registering you have questions, please consult our Frequently Asked Questions page, contact the JLR Event Support Team at info@landroverlaunches.com or call our toll-free helpline at (800) 555-5555.
+    If after registering you have questions, please consult our Frequently Asked Questions page, contact the JLR Event Support Team at info@landroverlaunches.com or call our toll-free helpline at (856) 351-5378.
 
     If you need to cancel your registration, please contact the JLR Event Support Team using the information above and please note the cancellation fee policy is as follows:
 
@@ -2413,7 +2413,7 @@ router.post('/updated', function (req, res) {
 
             <strong>QUESTIONS?</strong><br><br>
 
-            If after registering you have questions, please consult our <a href="https://landroverlaunches.com/faqs" style="color:#0c121c;">Frequently Asked Questions</a> page, contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com" style="color:#0c121c;">info@landroverlaunches.com</a> or call our toll-free helpline at <a href="tel:(800)555-5555" style="color:#0c121c;">(800)&nbsp;555&#8209;5555</a>.<br><br>
+            If after registering you have questions, please consult our <a href="https://landroverlaunches.com/faqs" style="color:#0c121c;">Frequently Asked Questions</a> page, contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com" style="color:#0c121c;">info@landroverlaunches.com</a> or call our toll-free helpline at <a href="tel:(856)351-5378" style="color:#0c121c;">(856)&nbsp;351&#8209;5378</a>.<br><br>
 
             If you need to cancel your registration, please contact the JLR Event Support Team using the information above and please note the cancellation fee policy is as follows:<br><br>
 
@@ -2485,7 +2485,7 @@ router.post('/deleted', function (req, res) {
   const textContent = `
     Your registration has been removed from the New Range Rover Evoque North American Launch Training.
 
-    Should you have any questions, please consult our Frequently Asked Questions page, contact the JLR Event Support Team at info@landroverlaunches.com or call our toll-free helpline at (800) 555-5555.
+    Should you have any questions, please consult our Frequently Asked Questions page, contact the JLR Event Support Team at info@landroverlaunches.com or call our toll-free helpline at (856) 351-5378.
 
     Thank you,
 
@@ -2501,7 +2501,7 @@ router.post('/deleted', function (req, res) {
           <span style="font-size:14px; line-height:1.4;">
             Your registration has been removed from the New Range Rover Evoque North American Launch&nbsp;Training.<br><br>
 
-            Should you have any questions, please consult our <a href="https://landroverlaunches.com/faqs" style="color:#0c121c;">Frequently Asked Questions</a> page, contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com" style="color:#0c121c;">info@landroverlaunches.com</a> or call our toll-free helpline at <a href="tel:(800)555-5555" style="color:#0c121c;">(800)&nbsp;555&#8209;5555</a>.<br><br>
+            Should you have any questions, please consult our <a href="https://landroverlaunches.com/faqs" style="color:#0c121c;">Frequently Asked Questions</a> page, contact the JLR Event Support Team at <a href="mailto:info@landroverlaunches.com" style="color:#0c121c;">info@landroverlaunches.com</a> or call our toll-free helpline at <a href="tel:(856)351-5378" style="color:#0c121c;">(856)&nbsp;351&#8209;5378</a>.<br><br>
 
             Thank you,<br><br>
 
