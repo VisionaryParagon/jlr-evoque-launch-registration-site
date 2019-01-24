@@ -41,7 +41,11 @@ export class EmployeeFormComponent implements OnInit {
 
     this.retailerService.getRetailers()
       .subscribe(
-        res => this.retailers = res,
+        res => this.retailers = res.sort((a, b) => {
+          const x = a['retailer'];
+          const y = b['retailer'];
+          return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        }),
         err => this.showError()
       );
 
