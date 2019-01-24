@@ -108,9 +108,18 @@ export class RegistrationService {
       );
   }
 
-  // get wave caps
+  // get retailer wave caps
   getCaps(data) {
     return this.http.post<any>(this.regUrl + '/caps', data)
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }
+
+  // get all wave caps
+  getAllCaps(data) {
+    return this.http.post<any>(this.regUrl + '/all-caps', data)
       .pipe(
         retry(3),
         catchError(this.handleError)

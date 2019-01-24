@@ -65,6 +65,7 @@ export class RegistrantFormComponent implements OnInit {
               this.waveFilter = this.registrant.wave.split(' - ');
 
               this.getCaps(this.retailer);
+              this.setWaveNote(this.retailer);
             } else if (res.message === 'Retailer not found') {
               this.invalid = true;
               this.err = 'Registrant’s retailer information could not be found';
@@ -100,12 +101,10 @@ export class RegistrantFormComponent implements OnInit {
   }
 
   getCaps(data) {
-    this.regService.getCaps(data)
+    this.regService.getAllCaps(data)
       .subscribe(
         res => {
           this.waves = res;
-
-          this.setWaveNote(res);
 
           this.testCaps(res);
 
@@ -115,8 +114,8 @@ export class RegistrantFormComponent implements OnInit {
       );
   }
 
-  setWaveNote(waves) {
-    const wave = waves[0].wave;
+  setWaveNote(retailer) {
+    const wave = retailer.waves[0];
 
     if (wave.indexOf('Miami, FL') !== -1 && this.registrant.hotel) {
       this.waveNote = 'Your Training Location is the Marriott Miami Airport. We’ll book a hotel room for you the night PRIOR to your training date.';
