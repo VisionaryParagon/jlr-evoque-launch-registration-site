@@ -103,7 +103,7 @@
             <label for="wave">Wave</label>
             <select class="form-control" id="wave" name="wave" #wave="ngModel" placeholder="Wave" required [(ngModel)]="registrant.wave" (ngModelChange)="hideError(); changed()">
               <option disabled [value]="anyVal">Select Wave</option>
-              <option *ngFor="let val of waves" [disabled]="val.waveCapped" [value]="val.wave">{{ val.wave }}<span *ngIf="val.waveCapped"> &ndash; Full</span></option>
+              <option *ngFor="let val of waves" [value]="val.wave">{{ val.wave }}<span *ngIf="val.waveCapped"> &ndash; Full</span></option>
             </select>
             <div class="errorMsg" [@topDown]="true" *ngIf="wave.errors && (wave.touched || submitted)">
               <p *ngIf="wave.errors.required">Please select a wave</p>
