@@ -168,7 +168,7 @@ router.post('/registrants/caps', (req, res) => {
               info.retailerCapped = true;
               waveInfo.push(info);
             // test registrants with wave and hotel vs wave room cap
-            } else if (regWaveHotel.length >= roomCap) {
+            } else if (regWaveHotel.length >= roomCap || regWaveArray.length >= wave.seats) {
               info.waveCapped = true;
               waveInfo.push(info);
             } else {
@@ -180,7 +180,7 @@ router.post('/registrants/caps', (req, res) => {
               info.retailerCapped = true;
               waveInfo.push(info);
             // test registrants with wave and no hotel vs wave seat cap (minus wave room cap)
-            } else if (regWaveLocal.length >= seatCap) {
+            } else if (regWaveLocal.length >= seatCap || regWaveArray.length >= wave.seats) {
               info.waveCapped = true;
               waveInfo.push(info);
             } else {
@@ -229,7 +229,7 @@ router.post('/registrants/all-caps', (req, res) => {
           const roomCap = wv.rooms;
           const seatCap = wv.seats - roomCap;
           // registrants with wave
-          const regWaveArray = regData.filter(reg => reg.wave === wv);
+          const regWaveArray = regData.filter(reg => reg.wave === wv.wave);
           // registrants with wave and hotel
           const regWaveHotel = regWaveArray.filter(reg => reg.hotel);
           // registrants with wave and no hotel
@@ -241,7 +241,7 @@ router.post('/registrants/all-caps', (req, res) => {
               info.retailerCapped = true;
               waveInfo.push(info);
             // test registrants with wave and hotel vs wave room cap
-            } else if (regWaveHotel.length >= roomCap) {
+            } else if (regWaveHotel.length >= roomCap || regWaveArray.length >= wv.seats) {
               info.waveCapped = true;
               waveInfo.push(info);
             } else {
@@ -253,7 +253,7 @@ router.post('/registrants/all-caps', (req, res) => {
               info.retailerCapped = true;
               waveInfo.push(info);
             // test registrants with wave and no hotel vs wave seat cap (minus wave room cap)
-            } else if (regWaveLocal.length >= seatCap) {
+            } else if (regWaveLocal.length >= seatCap || regWaveArray.length >= wv.seats) {
               info.waveCapped = true;
               waveInfo.push(info);
             } else {
