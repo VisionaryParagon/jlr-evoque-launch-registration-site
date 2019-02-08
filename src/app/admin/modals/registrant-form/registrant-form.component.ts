@@ -64,7 +64,7 @@ export class RegistrantFormComponent implements OnInit {
 
               this.waveFilter = this.registrant.wave.split(' - ');
 
-              this.getCaps(this.retailer);
+              this.getCaps();
               this.setWaveNote(this.retailer);
             } else if (res.message === 'Retailer not found') {
               this.invalid = true;
@@ -100,8 +100,8 @@ export class RegistrantFormComponent implements OnInit {
       );
   }
 
-  getCaps(data) {
-    this.regService.getAllCaps(data)
+  getCaps() {
+    this.regService.getAllCaps()
       .subscribe(
         res => {
           this.waves = res;
@@ -194,7 +194,7 @@ export class RegistrantFormComponent implements OnInit {
                 this.registrant = {...this.regService.getCurrentRegistrant()};
                 this.retailer = this.regService.getCurrentRetailer();
 
-                this.getCaps(this.retailer);
+                this.getCaps();
               }
             } else if (res.message === 'Retailer not found') {
               this.invalid = true;

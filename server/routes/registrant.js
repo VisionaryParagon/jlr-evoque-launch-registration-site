@@ -196,74 +196,36 @@ router.post('/registrants/caps', (req, res) => {
 });
 
 // get all caps
-router.post('/registrants/all-caps', (req, res) => {
+router.get('/registrants/all-caps', (req, res) => {
   const waveInfo = [];
 
-  retailers.findOne({
-    retailer: req.body.retailer
-  }, (retErr, retData) => {
-    if (retErr) return res.status(500).send(retErr);
-    if (!retData) return res.status(200).send({ message: 'Retailer not found' });
+  waves.find({}, (wvErr, wvData) => {
+    if (wvErr) return res.status(500).send(wvErr);
 
-    const hasHotel = retData.hotel;
-    const retailerRooms = retData.rooms;
-    const retailerSeats = retData.seats;
+    registrants.find({}, (regErr, regData) => {
+      if (regErr) return res.status(500).send(regErr);
 
-    waves.find({}, (wvErr, wvData) => {
-      if (wvErr) return res.status(500).send(wvErr);
-
-      registrants.find({}, (regErr, regData) => {
-        if (regErr) return res.status(500).send(regErr);
-
-        // registrants with retailer
-        const regRetailerArray = regData.filter(reg => reg.retailer === req.body.retailer);
-
-        // determine cap for each wave
-        wvData.forEach(wv => {
-          const info = {
-            wave: wv.wave,
-            retailerCapped: false,
-            waveCapped: false
-          };
-          // wave cap data
-          const roomCap = wv.rooms;
-          const seatCap = wv.seats - roomCap;
-          // registrants with wave
-          const regWaveArray = regData.filter(reg => reg.wave === wv.wave);
-          // registrants with wave and hotel
-          const regWaveHotel = regWaveArray.filter(reg => reg.hotel);
-          // registrants with wave and no hotel
-          const regWaveLocal = regWaveArray.filter(reg => !reg.hotel);
-
-          if (hasHotel) {
-            // test registrants with retailer vs allotted rooms
-            if (regRetailerArray.length >= retailerRooms) {
-              info.retailerCapped = true;
-              waveInfo.push(info);
-            // test registrants with wave and hotel vs wave room cap
-            } else if (regWaveHotel.length >= roomCap || regWaveArray.length >= wv.seats) {
-              info.waveCapped = true;
-              waveInfo.push(info);
-            } else {
-              waveInfo.push(info);
-            }
-          } else {
-            // test registrants with retailer vs allotted seats
-            if (regRetailerArray.length >= retailerSeats) {
-              info.retailerCapped = true;
-              waveInfo.push(info);
-            // test registrants with wave and no hotel vs wave seat cap (minus wave room cap)
-            } else if (regWaveLocal.length >= seatCap || regWaveArray.length >= wv.seats) {
-              info.waveCapped = true;
-              waveInfo.push(info);
-            } else {
-              waveInfo.push(info);
-            }
-          }
-        });
-
-        return res.status(200).send(waveInfo);
+      // determine cap for each wave
+      wvData.forEach(wv => {
+        const info = {
+          wave: wv.wave,
+          waveCapped: false
+        };
+        // wave cap data
+        const seatCap = wv.seats;
+        // registrants with wave
+        const regWaveArray = regData.filter(reg => reg.wave === wv.wave);
+      
+        // test registrants with wave and no hotel vs wave seat cap (minus wave room cap)
+        if (regWaveArray.length >= seatCap) {
+          info.waveCapped = true;
+          waveInfo.push(info);
+        } else {
+          waveInfo.push(info);
+        }
       });
+
+      return res.status(200).send(waveInfo);
     });
   });
 });

@@ -7,7 +7,7 @@
       </div>
 
       <div class="formContainer">
-        <div *ngIf="!formLoading && !error && !registered && !retailerFull && !waveFull && !success">
+        <div *ngIf="!formLoading && !error && !expired && !registered && !retailerFull && !waveFull && !success">
           <p>Complete the form below to register for the New Range Rover Evoque Launch Training.</p>
 
           <form #registrationForm="ngForm" novalidate>
@@ -179,13 +179,13 @@
           <button class="lrBtn" (click)="logout()">Logout</button>
         </div>
     
-        <div [@fade]="true" *ngIf="!error && registered">
+        <div [@fade]="true" *ngIf="!error && !expired && registered">
           <p>Our records show that you are already registered for this event. You are registered to attend the event on {{ waveFilter[0] }}, in {{ waveFilter[1] }}. Please contact <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a> with any questions related to your registration.</p>
 
           <button class="lrBtn" (click)="logout()">Logout</button>
         </div>
     
-        <div [@fade]="true" *ngIf="!error && !registered && retailerFull">
+        <div [@fade]="true" *ngIf="!error && !expired && !registered && retailerFull">
           <p>Your retailer’s allocated number of seats for this training have already been filled, so we are unable to process your registration. More seats may become available at a later date; your retailer will be advised if and when this occurs.</p>
   
           <p>If you think this is an error, or if you have questions about this event, please contact us using the <a routerLink="/contact">Contact Form</a>, via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (856) 351-5378.</p>
@@ -193,12 +193,83 @@
           <button class="lrBtn" (click)="logout()">Logout</button>
         </div>
     
-        <div [@fade]="true" *ngIf="!error && !registered && waveFull">
+        <div [@fade]="true" *ngIf="!error && !expired && !registered && waveFull">
           <p>Sorry! Looks like all seats for this event have been filled.</p>
   
           <p>If you think this is an error, or if you have questions about this event, please contact us using the <a routerLink="/contact">Contact Form</a>, via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (856) 351-5378.</p>
 
           <button class="lrBtn" (click)="logout()">Logout</button>
+        </div>
+    
+        <div [@fade]="true" [@fade]="true" *ngIf="!error && expired">
+          <p>Self-registration has been closed for this event.</p>
+
+          <p>Contact us via email at <a href="mailto:info@landroverlaunches.com">info@landroverlaunches.com</a>, or call toll-free at (856) 351-5378 to register for one of these remaining event dates below on a first-come, first-serve basis.</p>
+
+          <div class="row">
+            <div class="col-12 col-md-4 text-left" *ngIf="miamiWaves.length > 0">
+              <h3 class="mb-0">Miami, FL</h3>
+              <p class="mt-0"><strong>Marriott Miami Airport</strong>
+              <br>1201 NW LeJeune Rd Building A
+              <br>Miami, FL 33126</p>
+
+              <p class="my-0" *ngFor="let wave of miamiWaves">{{ wave.wave.split(' - ')[0] }}</p>
+            </div>
+
+            <div class="col-12 col-md-4 text-left" *ngIf="irvingWaves.length > 0">
+              <h3 class="mb-0">Irving, TX</h3>
+              <p class="mt-0"><strong>Doubletree by Hilton DFW North</strong>
+              <br>4441 W John Carpenter Freeway
+              <br>Irving, TX 75063</p>
+
+              <p class="my-0" *ngFor="let wave of irvingWaves">{{ wave.wave.split(' - ')[0] }}</p>
+            </div>
+
+            <div class="col-12 col-md-4 text-left" *ngIf="rosemontWaves.length > 0">
+              <h3 class="mb-0">Rosemont, IL</h3>
+              <p class="mt-0"><strong>Sheraton Suites O’Hare Airport</strong>
+              <br>6501 Mannheim Rd
+              <br>Rosemont, IL 60018</p>
+
+              <p class="my-0" *ngFor="let wave of rosemontWaves">{{ wave.wave.split(' - ')[0] }}</p>
+            </div>
+
+            <div class="col-12 col-md-4 text-left" *ngIf="santaAnaWaves.length > 0">
+              <h3 class="mb-0">Santa Ana, CA</h3>
+              <p class="mt-0"><strong>Doubletree by Hilton Santa Ana – Orange County Airport</strong>
+              <br>201 East MacArthur Blvd
+              <br>Santa Ana, CA 92707</p>
+
+              <p class="my-0" *ngFor="let wave of santaAnaWaves">{{ wave.wave.split(' - ')[0] }}</p>
+            </div>
+
+            <div class="col-12 col-md-4 text-left" *ngIf="oaklandWaves.length > 0">
+              <h3 class="mb-0">Oakland, CA</h3>
+              <p class="mt-0"><strong>Hilton Oakland Airport</strong>
+              <br>1 Hegenberger Rd
+              <br>Oakland, CA 94621</p>
+
+              <p class="my-0" *ngFor="let wave of oaklandWaves">{{ wave.wave.split(' - ')[0] }}</p>
+            </div>
+
+            <div class="col-12 col-md-4 text-left" *ngIf="mahwahWaves.length > 0">
+              <h3 class="mb-0">Mahwah, NJ</h3>
+              <p class="mt-0"><strong>Jaguar Land Rover North American Headquarters</strong>
+              <br>100 Jaguar Land Rover Way
+              <br>Mahwah, NJ 07495</p>
+
+              <p class="my-0" *ngFor="let wave of mahwahWaves">{{ wave.wave.split(' - ')[0] }}</p>
+            </div>
+
+            <div class="col-12 col-md-4 text-left" *ngIf="torontoWaves.length > 0">
+              <h3 class="mb-0">Toronto, ON</h3>
+              <p class="mt-0"><strong>Hilton Garden Inn Toronto Airport</strong>
+              <br>3311 Caroga Dr
+              <br>Mississauga, ON L4V 1A3, Canada</p>
+
+              <p class="my-0" *ngFor="let wave of torontoWaves">{{ wave.wave.split(' - ')[0] }}</p>
+            </div>
+          </div>
         </div>
     
         <div class="errorMsg" [@fade]="true" *ngIf="error">

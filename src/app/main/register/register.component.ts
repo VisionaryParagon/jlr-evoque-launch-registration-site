@@ -38,6 +38,17 @@ export class RegisterComponent implements OnInit {
   error = false;
   err = '';
 
+  // expiration
+  expired = false;
+  expDate = new Date('2019-02-07T00:00:00-05:00');
+  miamiWaves: any[] = [];
+  irvingWaves: any[] = [];
+  rosemontWaves: any[] = [];
+  santaAnaWaves: any[] = [];
+  oaklandWaves: any[] = [];
+  mahwahWaves: any[] = [];
+  torontoWaves: any[] = [];
+
   constructor(
     private router: Router,
     private cookieService: CookieService,
@@ -59,6 +70,9 @@ export class RegisterComponent implements OnInit {
               this.registrant = {...this.regService.getCurrentRegistrant()};
               this.retailer = this.regService.getCurrentRetailer();
 
+              // check exp status
+              this.checkExp();
+
               // check reg status
               this.checkRegStatus(res.registrant);
 
@@ -71,8 +85,29 @@ export class RegisterComponent implements OnInit {
           err => this.logout()
         );
     } else {
+      this.checkExp();
       this.checkRegStatus(this.registrant);
       this.getCaps(this.retailer);
+    }
+  }
+
+  checkExp() {
+    if (new Date() >= this.expDate) {
+      this.expired = true;
+      this.regService.getAllCaps()
+        .subscribe(
+          res => {
+            this.miamiWaves = res.filter(wv => wv.wave.indexOf('Miami, FL') > -1 && !wv.waveCapped);
+            this.irvingWaves = res.filter(wv => wv.wave.indexOf('Irving, TX') > -1 && !wv.waveCapped);
+            this.rosemontWaves = res.filter(wv => wv.wave.indexOf('Rosemont, IL') > -1 && !wv.waveCapped);
+            this.santaAnaWaves = res.filter(wv => wv.wave.indexOf('Santa Ana, CA') > -1 && !wv.waveCapped);
+            this.oaklandWaves = res.filter(wv => wv.wave.indexOf('Oakland, CA') > -1 && !wv.waveCapped);
+            this.mahwahWaves = res.filter(wv => wv.wave.indexOf('Mahwah, NJ') > -1 && !wv.waveCapped);
+            this.torontoWaves = res.filter(wv => wv.wave.indexOf('Toronto, ON') > -1 && !wv.waveCapped);
+            this.checkFormStatus();
+          },
+          err => this.showError()
+        );
     }
   }
 
@@ -158,7 +193,7 @@ export class RegisterComponent implements OnInit {
   }
 
   checkFormStatus() {
-    if (this.registrant.jlr_id && this.options.jobs && this.waves) {
+    if (this.registrant.jlr_id && this.options.jobs && (this.waves || this.expired)) {
       this.formLoading = false;
     } else {
       this.formLoading = true;

@@ -118,8 +118,8 @@ export class RegistrationService {
   }
 
   // get all wave caps
-  getAllCaps(data) {
-    return this.http.post<any>(this.regUrl + '/all-caps', data)
+  getAllCaps() {
+    return this.http.get<any>(this.regUrl + '/all-caps')
       .pipe(
         retry(3),
         catchError(this.handleError)
