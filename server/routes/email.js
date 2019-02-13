@@ -494,7 +494,7 @@ router.post('/confirmation', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.
+      <li style="Margin:0;">If you need to fly to the event, please fly to ORD airport due to the location of the&nbsp;training.
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
           <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
@@ -1675,7 +1675,7 @@ router.post('/updated', function (req, res) {
 
     <ul style="padding: 0; Margin: 0 0 0 25px;">
       <li style="Margin:0;">Please know that you will be responsible for your flight&nbsp;cost.</li>
-      <li style="Margin:0;">If you need to fly to the event, please fly to DFW airport due to the location of the&nbsp;training.
+      <li style="Margin:0;">If you need to fly to the event, please fly to ORD airport due to the location of the&nbsp;training.
         <ul style="padding: 0; Margin: 0 0 0 25px;">
           <li style="Margin:0;">When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave&nbsp;date.</li>
           <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 7:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
