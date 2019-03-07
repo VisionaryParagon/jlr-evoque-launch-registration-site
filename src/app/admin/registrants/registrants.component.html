@@ -17,7 +17,7 @@
             <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
             <span class="d-none d-lg-inline-block">&nbsp;Delete</span>
           </button>
-          <app-registrant-csv [data]="registrants"></app-registrant-csv>
+          <app-registrant-csv [data]="registrants" [sort]="sorter" [direction]="sortOrder"></app-registrant-csv>
         </div>
   
         <div class="filter col-12 col-sm-6 order-sm-first">
@@ -32,7 +32,7 @@
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
       </div>
     
-      <table mat-table [dataSource]="dataSource" matSort matSortActive="modified" matSortDirection="desc">
+      <table mat-table [dataSource]="dataSource" matSort [matSortActive]="sorter" [matSortDirection]="sortOrder" (matSortChange)="sortData($event)">
       
         <!-- First Name Column -->
         <ng-container matColumnDef="first_name">
@@ -134,7 +134,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.selectedRow]="selectedRegistrant === row" (click)="select(row)"></tr>
       </table>
 
-      <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>
+      <mat-paginator [pageIndex]="pageIndex" [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons (page)="scrollTop()"></mat-paginator>
     </div>
   </div>
 </section>

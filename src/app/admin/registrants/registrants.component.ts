@@ -39,8 +39,12 @@ export class RegistrantsComponent implements OnInit {
     'created',
     'modified'
   ];
+  pageIndex = 0;
   selectedRegistrant: Registrant = new Registrant();
   filter = '';
+  filterTimeout: any;
+  sorter = 'modified';
+  sortOrder = 'desc';
   loading = true;
   error = false;
 
@@ -75,6 +79,14 @@ export class RegistrantsComponent implements OnInit {
     this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
   }
 
+  scrollTop() {
+    document.querySelector('.adminTable').scrollTo({
+      left: 0,
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
   getRegistrants() {
     this.regService.getRegistrants()
       .subscribe(
@@ -91,8 +103,25 @@ export class RegistrantsComponent implements OnInit {
       );
   }
 
+  sortData(data) {
+    this.sorter = data.active;
+    this.sortOrder = data.direction;
+  }
+
   search(data) {
-    this.dataSource.filter = data.trim().toLowerCase();
+    this.loading = true;
+
+    if (this.filterTimeout) {
+      clearTimeout(this.filterTimeout);
+    }
+
+    this.filterTimeout = setTimeout(() => {
+      this.dataSource.filter = data.trim().toLowerCase();
+      this.registrants = this.dataSource.filteredData;
+      this.pageIndex = 0;
+      this.scrollTop();
+      this.loading = false;
+    }, 1000);
   }
 
   clearFilter() {

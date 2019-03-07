@@ -30,8 +30,12 @@ export class EmployeesComponent implements OnInit {
     'retailer',
     'region_number'
   ];
+  pageIndex = 0;
   selectedEmployee: Employee = new Employee();
   filter = '';
+  filterTimeout: any;
+  sorter = 'last_name';
+  sortOrder = 'asc';
   loading = true;
   error = false;
 
@@ -66,6 +70,14 @@ export class EmployeesComponent implements OnInit {
     this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
   }
 
+  scrollTop() {
+    document.querySelector('.adminTable').scrollTo({
+      left: 0,
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
   getEmployees() {
     this.employeeService.getEmployees()
       .subscribe(
@@ -82,8 +94,25 @@ export class EmployeesComponent implements OnInit {
       );
   }
 
+  sortData(data) {
+    this.sorter = data.active;
+    this.sortOrder = data.direction;
+  }
+
   search(data) {
-    this.dataSource.filter = data.trim().toLowerCase();
+    this.loading = true;
+
+    if (this.filterTimeout) {
+      clearTimeout(this.filterTimeout);
+    }
+
+    this.filterTimeout = setTimeout(() => {
+      this.dataSource.filter = data.trim().toLowerCase();
+      this.employees = this.dataSource.filteredData;
+      this.pageIndex = 0;
+      this.scrollTop();
+      this.loading = false;
+    }, 1000);
   }
 
   clearFilter() {

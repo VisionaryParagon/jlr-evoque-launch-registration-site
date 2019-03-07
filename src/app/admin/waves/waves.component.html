@@ -17,7 +17,7 @@
               <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
               <span class="d-none d-lg-inline-block">&nbsp;Delete</span>
             </button>
-            <app-wave-csv [data]="waves"></app-wave-csv>
+            <app-wave-csv [data]="waves" [sort]="sorter" [direction]="sortOrder"></app-wave-csv>
           </div>
   
           <div class="filter col-12 col-sm-6 order-sm-first">
@@ -32,7 +32,7 @@
           <mat-progress-bar mode="indeterminate"></mat-progress-bar>
         </div>
     
-        <table mat-table [dataSource]="dataSource" matSort>
+        <table mat-table [dataSource]="dataSource" matSort [matSortActive]="sorter" [matSortDirection]="sortOrder" (matSortChange)="sortData($event)">
         
           <!-- Wave Column -->
           <ng-container matColumnDef="wave">
@@ -68,7 +68,7 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.selectedRow]="selectedWave === row" (click)="select(row)"></tr>
         </table>
 
-        <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>
+        <mat-paginator [pageIndex]="pageIndex" [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons (page)="scrollTop()"></mat-paginator>
       </div>
     </div>
   </section>

@@ -30,8 +30,12 @@ export class WavesComponent implements OnInit {
     'rooms',
     'rooms_remaining'
   ];
+  pageIndex = 0;
   selectedWave: Wave = new Wave();
   filter = '';
+  filterTimeout: any;
+  sorter = '';
+  sortOrder = '';
   loading = true;
   error = false;
 
@@ -67,6 +71,14 @@ export class WavesComponent implements OnInit {
     this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
   }
 
+  scrollTop() {
+    document.querySelector('.adminTable').scrollTo({
+      left: 0,
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
   getWaves() {
     this.waveService.getWaves()
       .subscribe(
@@ -98,8 +110,25 @@ export class WavesComponent implements OnInit {
       );
   }
 
+  sortData(data) {
+    this.sorter = data.active;
+    this.sortOrder = data.direction;
+  }
+
   search(data) {
-    this.dataSource.filter = data.trim().toLowerCase();
+    this.loading = true;
+
+    if (this.filterTimeout) {
+      clearTimeout(this.filterTimeout);
+    }
+
+    this.filterTimeout = setTimeout(() => {
+      this.dataSource.filter = data.trim().toLowerCase();
+      this.waves = this.dataSource.filteredData;
+      this.pageIndex = 0;
+      this.scrollTop();
+      this.loading = false;
+    }, 1000);
   }
 
   clearFilter() {

@@ -9,8 +9,9 @@ import { Employee } from '../../../services/classes';
 })
 export class EmployeeCsvComponent {
   @Input() data: Employee[];
+  @Input() sort: string;
+  @Input() direction: string;
   headers: string[] = [];
-  fileName = 'employee-data-' + Date.now() + '.csv';
   loading = false;
 
   constructor(
@@ -62,9 +63,19 @@ export class EmployeeCsvComponent {
     }
 
     this.data.sort((a, b) => {
-      const x = a['last_name'];
-      const y = b['last_name'];
-      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+      if (this.sort.length) {
+        const x = a[this.sort];
+        const y = b[this.sort];
+        if (this.direction === 'desc') {
+          return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+        } else if (this.direction === 'asc') {
+          return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        } else {
+          return 0;
+        }
+      } else {
+        return 0;
+      }
     }).forEach(d => {
       keys.forEach(k => {
         if (d.hasOwnProperty(k) && d[k] != null) {
@@ -90,7 +101,7 @@ export class EmployeeCsvComponent {
     this.renderer.setElementStyle(anchor, 'visibility', 'hidden');
     this.renderer.setElementAttribute(anchor, 'href', csvUrl);
     this.renderer.setElementAttribute(anchor, 'target', '_blank');
-    this.renderer.setElementAttribute(anchor, 'download', this.fileName);
+    this.renderer.setElementAttribute(anchor, 'download', 'employee-data-' + Date.now() + '.csv');
     this.renderer.invokeElementMethod(anchor, 'click');
     this.renderer.invokeElementMethod(anchor, 'remove');
     this.loading = false;

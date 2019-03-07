@@ -35,8 +35,12 @@ export class RetailersComponent implements OnInit {
     'market',
     'waves'
   ];
+  pageIndex = 0;
   selectedRetailer: Retailer = new Retailer();
   filter = '';
+  filterTimeout: any;
+  sorter = 'waves';
+  sortOrder = 'asc';
   loading = true;
   error = false;
 
@@ -70,6 +74,14 @@ export class RetailersComponent implements OnInit {
     }
 
     this.tableContainer.nativeElement.style.height = window.innerHeight - this.tableFunctions.nativeElement.offsetHeight - offset + 'px';
+  }
+
+  scrollTop() {
+    document.querySelector('.adminTable').scrollTo({
+      left: 0,
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   getRetailers() {
@@ -106,8 +118,25 @@ export class RetailersComponent implements OnInit {
       );
   }
 
+  sortData(data) {
+    this.sorter = data.active;
+    this.sortOrder = data.direction;
+  }
+
   search(data) {
-    this.dataSource.filter = data.trim().toLowerCase();
+    this.loading = true;
+
+    if (this.filterTimeout) {
+      clearTimeout(this.filterTimeout);
+    }
+
+    this.filterTimeout = setTimeout(() => {
+      this.dataSource.filter = data.trim().toLowerCase();
+      this.retailers = this.dataSource.filteredData;
+      this.pageIndex = 0;
+      this.scrollTop();
+      this.loading = false;
+    }, 1000);
   }
 
   clearFilter() {
