@@ -904,17 +904,22 @@ router.post('/confirmation', function (req, res) {
 
     You have successfully registered for the training which will take place on ${waveDate}, in Mahwah, New Jersey!
 
-    Training Venue:
-    Jaguar Land Rover North American Headquarters
-    100 Jaguar Land Rover Way
+    Training Venue Information:
+
+    Lodging & Registration:
+
+    Sheraton Mahwah
+    Route 17 North, 1 International Blvd
     Mahwah, NJ 07495
+
+    The training itself will be held at our Jaguar Land Rover North American Headquarters, just next to the Sheraton. However, all participants will park and start the day at the Sheraton.
 
     TRAVEL & GROUND TRANSPORTATION
 
     •	If you fly to the event, we recommend flying to EWR airport due to its proximity to the training location. You will be responsible for your flight cost and for procuring ground transportation from your arrival airport to the Sheraton Mahwah Hotel.
         o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
         o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 8:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
-    •	If you plan to drive to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training activities.
+    •	If you plan to drive to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training activities, and back to Sheraton at the end of the day to retrieve your vehicle. We recommend storing your luggage either in your vehicle or at the bell desk for the day (do not bring it onto the bus with you).
     
     HOTEL AND LODGING
     
@@ -927,9 +932,13 @@ router.post('/confirmation', function (req, res) {
     
     You do not need to call the hotel to book your room. The Land Rover events team will book your hotel room on your behalf at the Sheraton Mahwah for the night of ${hotelDate}. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.
 
-    Shuttle transportation will be provided to you between the hotel and the event site on the day of your training wave. Shuttle transportation will depart the Sheraton Mahwah for JLR North American Headquarters promptly at 7:40 a.m. on the morning of your training. Please check out of your hotel room prior to boarding the shuttle and bring your luggage with you.
-    
-    You will have the option of riding the event shuttle to Newark Liberty International Airport (EWR) immediately following your training wave.
+    Shuttle transportation will be provided to you between the hotel and the event site on the day of your training wave.
+
+    Event registration will be held in the Sheraton lobby at 7:15 a.m., with your shuttle to Headquarters departing at approximately 7:30 a.m. Please ensure you are in the lobby by this time to catch your shuttle. (Please check out of your hotel room prior to boarding the shuttle.)
+
+    When you arrive at Headquarters, breakfast will be available.
+
+    NOTE: At the conclusion of your training, in the evening, you will have the option of riding the event shuttle either back to the Sheraton to retrieve your vehicle or to Newark Liberty International Airport (EWR).
     
     PLEASE NOTE THE FOLLOWING
     
@@ -943,10 +952,15 @@ router.post('/confirmation', function (req, res) {
 
     You have successfully registered for the training which will take place on <strong>${waveDate}</strong>, in Mahwah, New&nbsp;Jersey!<br><br>
 
-    <strong>Training Venue:</strong><br>
-    <strong>Jaguar Land Rover North American Headquarters</strong><br>
-    100 Jaguar Land Rover Way<br>
+    <strong>Training Venue Information:</strong><br><br>
+
+    <strong>Lodging &amp; Registration:</strong><br><br>
+
+    <strong>Sheraton Mahwah</strong><br>
+    Route 17 North, 1 International Blvd<br>
     Mahwah, NJ 07495<br><br>
+
+    The training itself will be held at our Jaguar Land Rover North American Headquarters, just next to the Sheraton. However, <strong>all participants will park and start the day at the&nbsp;Sheraton.</strong><br><br>
 
     <strong>TRAVEL &amp; GROUND TRANSPORTATION</strong><br><br>
 
@@ -957,7 +971,7 @@ router.post('/confirmation', function (req, res) {
           <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 8:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
         </ul>
       </li>
-      <li style="Margin:0;">If you plan to <em>drive</em> to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training&nbsp;activities.</li>
+      <li style="Margin:0;">If you plan to <em>drive</em> to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training activities, and back to Sheraton at the end of the day to retrieve your vehicle. We recommend storing your luggage either in your vehicle or at the bell desk for the day (do not bring it onto the bus with&nbsp;you).</li>
     </ul><br>
 
     <strong>If you are <em>driving</em> to the event:</strong><br><br>
@@ -977,9 +991,13 @@ router.post('/confirmation', function (req, res) {
     
     You do not need to call the hotel to book your room. The Land Rover events team will book your hotel room on your behalf at the <strong>Sheraton Mahwah</strong> for the night of <strong>${hotelDate}</strong>. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.<br><br>
 
-    Shuttle transportation will be provided to you <em>between the hotel and the event site</em> on the day of your training wave. Shuttle transportation will depart the Sheraton Mahwah for JLR North American Headquarters promptly at 7:40 a.m. on the morning of your training. Please check out of your hotel room prior to boarding the shuttle and bring your luggage with&nbsp;you.<br><br>
+    Shuttle transportation will be provided to you <em>between the hotel and the event site</em> on the day of your training&nbsp;wave.<br><br>
 
-    You will have the option of riding the event shuttle to Newark Liberty International Airport (EWR) immediately following your training&nbsp;wave.<br><br>
+    Event registration will be held in the Sheraton lobby at 7:15 a.m., with your shuttle to Headquarters departing at approximately 7:30 a.m. Please ensure you are in the lobby by this time to catch your shuttle. (Please check out of your hotel room prior to boarding the&nbsp;shuttle.)<br><br>
+
+    When you arrive at Headquarters, breakfast will be&nbsp;available.<br><br>
+
+    NOTE: At the conclusion of your training, in the evening, you will have the option of riding the event shuttle either back to the Sheraton to retrieve your vehicle or to Newark Liberty International Airport&nbsp;(EWR).<br><br>
     
     <strong>PLEASE NOTE THE FOLLOWING</strong><br><br>
     
@@ -995,16 +1013,23 @@ router.post('/confirmation', function (req, res) {
 
     You have successfully registered for the training which will take place on ${waveDate}, in Mahwah, New Jersey! 
 
-    Training Venue:
-    Jaguar Land Rover North American Headquarters
-    100 Jaguar Land Rover Way
+    Training Venue Information:
+
+    Registration & Shuttle Pick-Up:
+
+    Sheraton Mahwah
+    Route 17 North, 1 International Blvd
     Mahwah, NJ 07495
+
+    The training itself will be held at our Jaguar Land Rover North American Headquarters, just next to the Sheraton. However, all participants will park and start the day at the Sheraton.
 
     TRAVELING TO THE EVENT
 
     Due to your retailer’s proximity to the training location, a hotel room has not been procured for you. Should you desire to book a hotel room in the area, you may do so at your own expense (the Sheraton Mahwah is the closest hotel and may be reached at (201) 529-1660.
 
-    Breakfast & registration open at 7:30 a.m. at the training location on your wave date. The opening session will begin promptly at 8:30 a.m., so please arrive no later than 8:00 a.m. in order to ensure time to sign in.
+    Please plan to arrive at the Sheraton at approximately 7:30 a.m. Please park your vehicle in the front lots when you arrive. Event registration will be held in the Sheraton lobby, after which you will board a bus for the very short (less than 5-minute) shuttle ride over to Headquarters. (The shuttle will also take you back to Sheraton at the end of the day.) 
+
+    When you arrive at Headquarters, breakfast will be available.
 
     PLEASE NOTE THE FOLLOWING
 
@@ -1018,16 +1043,23 @@ router.post('/confirmation', function (req, res) {
 
     You have successfully registered for the training which will take place on <strong>${waveDate}</strong>, in Mahwah, New&nbsp;Jersey!<br><br>
 
-    <strong>Training Venue:</strong><br>
-    <strong>Jaguar Land Rover North American Headquarters</strong><br>
-    100 Jaguar Land Rover Way<br>
+    <strong>Training Venue Information:</strong><br><br>
+
+    <strong>Registration &amp; Shuttle Pick-Up:</strong><br><br>
+
+    <strong>Sheraton Mahwah</strong><br>
+    Route 17 North, 1 International Blvd<br>
     Mahwah, NJ 07495<br><br>
+
+    The training itself will be held at our Jaguar Land Rover North American Headquarters, just next to the Sheraton. However, <strong>all participants will park and start the day at the&nbsp;Sheraton.</strong><br><br>
 
     <strong>TRAVELING TO THE EVENT</strong><br><br>
 
     Due to your retailer’s proximity to the training location, a hotel room has <strong>not</strong> been procured for you. Should you desire to book a hotel room in the area, you may do so at your own expense (the Sheraton Mahwah is the closest hotel and may be reached at <a href="tel:(201)529-1660" style="color:#0c121c;">(201)&nbsp;529&#8209;1660</a>.<br><br>
     
-    Breakfast &amp; registration open at 7:30 a.m. at the training location on your wave date. The opening session will begin promptly at 8:30 a.m., so please arrive no later than 8:00 a.m. in order to ensure time to sign&nbsp;in.<br><br>
+    Please plan to arrive at the Sheraton at approximately 7:30 a.m. Please park your vehicle in the front lots when you arrive. Event registration will be held in the Sheraton lobby, after which you will board a bus for the very short (less than 5-minute) shuttle ride over to Headquarters. (The shuttle will also take you back to Sheraton at the end of the&nbsp;day.)<br><br>
+
+    When you arrive at Headquarters, breakfast will be&nbsp;available.<br><br>
     
     <strong>PLEASE NOTE THE FOLLOWING</strong><br><br>
     
@@ -2085,17 +2117,22 @@ router.post('/updated', function (req, res) {
 
     You have successfully registered for the training which will take place on ${waveDate}, in Mahwah, New Jersey!
 
-    Training Venue:
-    Jaguar Land Rover North American Headquarters
-    100 Jaguar Land Rover Way
+    Training Venue Information:
+
+    Lodging & Registration:
+
+    Sheraton Mahwah
+    Route 17 North, 1 International Blvd
     Mahwah, NJ 07495
+
+    The training itself will be held at our Jaguar Land Rover North American Headquarters, just next to the Sheraton. However, all participants will park and start the day at the Sheraton.
 
     TRAVEL & GROUND TRANSPORTATION
 
     •	If you fly to the event, we recommend flying to EWR airport due to its proximity to the training location. You will be responsible for your flight cost and for procuring ground transportation from your arrival airport to the Sheraton Mahwah Hotel.
         o	When scheduling your flight to the event, you may fly in anytime the day/night prior to your wave date.
         o	When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 8:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and boarding.
-    •	If you plan to drive to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training activities.
+    •	If you plan to drive to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training activities, and back to Sheraton at the end of the day to retrieve your vehicle. We recommend storing your luggage either in your vehicle or at the bell desk for the day (do not bring it onto the bus with you).
     
     HOTEL AND LODGING
     
@@ -2108,9 +2145,13 @@ router.post('/updated', function (req, res) {
     
     You do not need to call the hotel to book your room. The Land Rover events team will book your hotel room on your behalf at the Sheraton Mahwah for the night of ${hotelDate}. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.
 
-    Shuttle transportation will be provided to you between the hotel and the event site on the day of your training wave. Shuttle transportation will depart the Sheraton Mahwah for JLR North American Headquarters promptly at 7:40 a.m. on the morning of your training. Please check out of your hotel room prior to boarding the shuttle and bring your luggage with you.
-    
-    You will have the option of riding the event shuttle to Newark Liberty International Airport (EWR) immediately following your training wave.
+    Shuttle transportation will be provided to you between the hotel and the event site on the day of your training wave.
+
+    Event registration will be held in the Sheraton lobby at 7:15 a.m., with your shuttle to Headquarters departing at approximately 7:30 a.m. Please ensure you are in the lobby by this time to catch your shuttle. (Please check out of your hotel room prior to boarding the shuttle.)
+
+    When you arrive at Headquarters, breakfast will be available.
+
+    NOTE: At the conclusion of your training, in the evening, you will have the option of riding the event shuttle either back to the Sheraton to retrieve your vehicle or to Newark Liberty International Airport (EWR).
     
     PLEASE NOTE THE FOLLOWING
     
@@ -2124,10 +2165,15 @@ router.post('/updated', function (req, res) {
 
     You have successfully registered for the training which will take place on <strong>${waveDate}</strong>, in Mahwah, New&nbsp;Jersey!<br><br>
 
-    <strong>Training Venue:</strong><br>
-    <strong>Jaguar Land Rover North American Headquarters</strong><br>
-    100 Jaguar Land Rover Way<br>
+    <strong>Training Venue Information:</strong><br><br>
+
+    <strong>Lodging &amp; Registration:</strong><br><br>
+
+    <strong>Sheraton Mahwah</strong><br>
+    Route 17 North, 1 International Blvd<br>
     Mahwah, NJ 07495<br><br>
+
+    The training itself will be held at our Jaguar Land Rover North American Headquarters, just next to the Sheraton. However, <strong>all participants will park and start the day at the&nbsp;Sheraton.</strong><br><br>
 
     <strong>TRAVEL &amp; GROUND TRANSPORTATION</strong><br><br>
 
@@ -2138,7 +2184,7 @@ router.post('/updated', function (req, res) {
           <li style="Margin:0;">When scheduling your return flight, please note that you must attend the entire event in order to earn credit. Anyone who departs the event early will not get credit. The event concludes at 5:00 p.m. Based on the event location, we recommend scheduling a departure flight no earlier than 8:30 p.m. to allow ample time for travel to the airport, check-in, bag check, security, and&nbsp;boarding.</li>
         </ul>
       </li>
-      <li style="Margin:0;">If you plan to <em>drive</em> to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training&nbsp;activities.</li>
+      <li style="Margin:0;">If you plan to <em>drive</em> to the event, you will be able to park at the Sheraton Mahwah (complimentary) and be shuttled to JLR North America for the training activities, and back to Sheraton at the end of the day to retrieve your vehicle. We recommend storing your luggage either in your vehicle or at the bell desk for the day (do not bring it onto the bus with&nbsp;you).</li>
     </ul><br>
 
     <strong>If you are <em>driving</em> to the event:</strong><br><br>
@@ -2158,9 +2204,13 @@ router.post('/updated', function (req, res) {
     
     You do not need to call the hotel to book your room. The Land Rover events team will book your hotel room on your behalf at the <strong>Sheraton Mahwah</strong> for the night of <strong>${hotelDate}</strong>. The room will be paid for by JLR, but you will need to provide a credit card for incidentals upon check-in.<br><br>
 
-    Shuttle transportation will be provided to you <em>between the hotel and the event site</em> on the day of your training wave. Shuttle transportation will depart the Sheraton Mahwah for JLR North American Headquarters promptly at 7:40 a.m. on the morning of your training. Please check out of your hotel room prior to boarding the shuttle and bring your luggage with&nbsp;you.<br><br>
+    Shuttle transportation will be provided to you <em>between the hotel and the event site</em> on the day of your training&nbsp;wave.<br><br>
 
-    You will have the option of riding the event shuttle to Newark Liberty International Airport (EWR) immediately following your training&nbsp;wave.<br><br>
+    Event registration will be held in the Sheraton lobby at 7:15 a.m., with your shuttle to Headquarters departing at approximately 7:30 a.m. Please ensure you are in the lobby by this time to catch your shuttle. (Please check out of your hotel room prior to boarding the&nbsp;shuttle.)<br><br>
+
+    When you arrive at Headquarters, breakfast will be&nbsp;available.<br><br>
+
+    NOTE: At the conclusion of your training, in the evening, you will have the option of riding the event shuttle either back to the Sheraton to retrieve your vehicle or to Newark Liberty International Airport&nbsp;(EWR).<br><br>
     
     <strong>PLEASE NOTE THE FOLLOWING</strong><br><br>
     
@@ -2176,16 +2226,23 @@ router.post('/updated', function (req, res) {
 
     You have successfully registered for the training which will take place on ${waveDate}, in Mahwah, New Jersey! 
 
-    Training Venue:
-    Jaguar Land Rover North American Headquarters
-    100 Jaguar Land Rover Way
+    Training Venue Information:
+
+    Registration & Shuttle Pick-Up:
+
+    Sheraton Mahwah
+    Route 17 North, 1 International Blvd
     Mahwah, NJ 07495
+
+    The training itself will be held at our Jaguar Land Rover North American Headquarters, just next to the Sheraton. However, all participants will park and start the day at the Sheraton.
 
     TRAVELING TO THE EVENT
 
     Due to your retailer’s proximity to the training location, a hotel room has not been procured for you. Should you desire to book a hotel room in the area, you may do so at your own expense (the Sheraton Mahwah is the closest hotel and may be reached at (201) 529-1660.
 
-    Breakfast & registration open at 7:30 a.m. at the training location on your wave date. The opening session will begin promptly at 8:30 a.m., so please arrive no later than 8:00 a.m. in order to ensure time to sign in.
+    Please plan to arrive at the Sheraton at approximately 7:30 a.m. Please park your vehicle in the front lots when you arrive. Event registration will be held in the Sheraton lobby, after which you will board a bus for the very short (less than 5-minute) shuttle ride over to Headquarters. (The shuttle will also take you back to Sheraton at the end of the day.) 
+
+    When you arrive at Headquarters, breakfast will be available.
 
     PLEASE NOTE THE FOLLOWING
 
@@ -2199,16 +2256,23 @@ router.post('/updated', function (req, res) {
 
     You have successfully registered for the training which will take place on <strong>${waveDate}</strong>, in Mahwah, New&nbsp;Jersey!<br><br>
 
-    <strong>Training Venue:</strong><br>
-    <strong>Jaguar Land Rover North American Headquarters</strong><br>
-    100 Jaguar Land Rover Way<br>
+    <strong>Training Venue Information:</strong><br><br>
+
+    <strong>Registration &amp; Shuttle Pick-Up:</strong><br><br>
+
+    <strong>Sheraton Mahwah</strong><br>
+    Route 17 North, 1 International Blvd<br>
     Mahwah, NJ 07495<br><br>
+
+    The training itself will be held at our Jaguar Land Rover North American Headquarters, just next to the Sheraton. However, <strong>all participants will park and start the day at the&nbsp;Sheraton.</strong><br><br>
 
     <strong>TRAVELING TO THE EVENT</strong><br><br>
 
     Due to your retailer’s proximity to the training location, a hotel room has <strong>not</strong> been procured for you. Should you desire to book a hotel room in the area, you may do so at your own expense (the Sheraton Mahwah is the closest hotel and may be reached at <a href="tel:(201)529-1660" style="color:#0c121c;">(201)&nbsp;529&#8209;1660</a>.<br><br>
     
-    Breakfast &amp; registration open at 7:30 a.m. at the training location on your wave date. The opening session will begin promptly at 8:30 a.m., so please arrive no later than 8:00 a.m. in order to ensure time to sign&nbsp;in.<br><br>
+    Please plan to arrive at the Sheraton at approximately 7:30 a.m. Please park your vehicle in the front lots when you arrive. Event registration will be held in the Sheraton lobby, after which you will board a bus for the very short (less than 5-minute) shuttle ride over to Headquarters. (The shuttle will also take you back to Sheraton at the end of the&nbsp;day.)<br><br>
+
+    When you arrive at Headquarters, breakfast will be&nbsp;available.<br><br>
     
     <strong>PLEASE NOTE THE FOLLOWING</strong><br><br>
     
